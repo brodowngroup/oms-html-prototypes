@@ -21,9 +21,11 @@ fast and robust mobile web applications.
 * Stripped out parts not applicable for OMS
 * Moved helper.js to vendor/mbp.helper.js
 
-11.21.2012
+11.12.2012
 
 * Started Git Repository
+* Setup directory organization
+* Created Dummy Header
 * Uploaded Initial Files
 
 ## Documentation
