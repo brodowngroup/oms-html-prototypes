@@ -28,6 +28,12 @@ fast and robust mobile web applications.
 * Created Dummy Header
 * Uploaded Initial Files
 
+11.13.2012
+
+* Added Search Box
+* First time using Zepto
+** If zepto goes live, grab custom js before prod
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).
