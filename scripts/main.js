@@ -3,8 +3,8 @@ var toggleSearch = function() {
       height = -($form.height());
         
   $form.hasClass('active') ? 
-    $form.animate({'top': height}).removeClass('active') :
-    $form.animate({'top': 0}).addClass('active');
+    $form.animate({'top': height}, 100).removeClass('active') :
+    $form.animate({'top': 0}, 100).addClass('active');
 
 }
 
