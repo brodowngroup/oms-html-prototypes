@@ -34,6 +34,15 @@ fast and robust mobile web applications.
 * First time using Zepto
 ** If zepto goes live, grab custom js before prod
 
+11.15.2012
+
+* First Sidetap implementation
+
+11.17.2012
+
+* Added temp touch icons
+
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).
