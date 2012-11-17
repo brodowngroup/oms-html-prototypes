@@ -18,9 +18,17 @@ a:active{position:relative;top:1px;}
 img{vertical-align:middle;max-width:100%;}
 fieldset{border:0;margin:0;padding:0;}
 textarea{resize:vertical;}
+
+/* BUTTONS
+----------*/
+button {
+  margin: 1em;
+  border-radius: 5px;
+  box-shadow:  2px 2px 3px 1px rgba(0, 0, 0, 0.15);
+}
    
 /*------------- 
-  My Classes
+  OMS Classes
 -------------*/
 .icon {
   background: #eee;
@@ -28,6 +36,18 @@ textarea{resize:vertical;}
 }
 .control_left{float: left}
 .control_right{float: right}
+
+.img-inset-left {
+  float:left;
+  margin: 0 2% 2% 0;
+  max-width: 50%;
+}
+
+.img-inset-right {
+  float:right;
+  margin: 0 0 2% 2%;
+  max-width: 50%;
+}
 
 /* CSS3 EFFECTS
 ---------------*/
@@ -77,7 +97,11 @@ form.header_search input[type="text"] {
   padding: 5px 1%; 
 }
 
-
+/* Turn off Reg User Navs for Regular Users
+-------------------------------------------*/
+.stp-nav.unreg nav.user{
+  display:none;
+}
 
 
 
