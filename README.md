@@ -41,6 +41,8 @@ fast and robust mobile web applications.
 11.17.2012
 
 * Added temp touch icons
+* Added some content pages
+* Setup page transitions for prototypes
 
 
 ## Documentation
