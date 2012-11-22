@@ -44,6 +44,12 @@ fast and robust mobile web applications.
 * Added some content pages
 * Setup page transitions for prototypes
 
+11.22.2012
+
+* Split pages into individual HTML files (ajax transitions not cross-device functional)
+* Adjusted CSS to let settings flout menu be taller than content
+* Improved searchbar animation to move page content with toggle
+* Moved to jQuery over CSS for greater device support
 
 ## Documentation
 
