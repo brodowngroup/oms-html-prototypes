@@ -44,12 +44,12 @@
       nav tags :
       user - show this for registered users
     -------------------------------------->
-    <div class="stp-nav">
+    <div class="stp-nav unreg">
       <div>
         <nav>
           <h3>HTML Prototype Links</h3>
-          <a href="index.html" class="active current">Homepage - Registered</a>
-          <a href="unreg.html" class="active">Homepage - Unregistered</a>
+          <a href="index.html" class="active">Homepage - Registered</a>
+          <a href="unreg.html" class="active current">Homepage - Unregistered</a>
           <a href="#" class="later" >Search Results</a>
           <a href="#" class="later">Details</a>
         </nav>
@@ -78,12 +78,12 @@
     <!-- BEGIN SIDETAP CONTAINER FOR ALL PAGES -->
     <div class="stp-content" id="content">
       
-      <!-- FOLLOWING EMPTY ELEMENTS ARE REQUIRED BY SIDETAP --> 
+      <!-- FOLLOWING EMPTY ELEMENT IS REQUIRED BY SIDETAP --> 
       <header class="stp-fake-header">&nbsp;</header>
       <div class="stp-overlay nav-toggle">&nbsp;</div>
-
-      <!-- BEGIN REGISTERED HOMEPAGE CONTENT -->
-      <div class="stp-content-panel" id="home_reg">
+      
+      <!-- BEGIN UNREGISTERED HOMEPAGE CONTENT -->
+      <div class="stp-content-panel" id="home_unreg">
         <header class="clearfix">
           <a class="control_left icon corner shadow" href="#">
             <img src="images/icon-settings.png">
@@ -102,14 +102,22 @@
         <div class="stp-content-frame">
           <div class="stp-content-body">
             <div class="container">
-              <h2>REGISTERED User Homepage Content goes here.</h2>
+              <h2>UNREGISTERED homepage content goes here</h2>
+              
+              <button>Register Now</button>
+              
+              <button>Login</button>
+              
+              <div class="carousel">
+                CAROUSEL HERE
+              </div>
             </div>
           </div>
         </div>
-
-      </div>
-      <!-- END REGISTERED HOMEPAGE CONTENT -->
       
+      </div>
+      <!-- END UNREGISTERED HOMEPAGE CONTENT -->
+
     </div>
     <!-- END STP-CONTENT -->
   </div>

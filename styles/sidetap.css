@@ -16,7 +16,7 @@ body {
 .sidetap {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .stp-nav {
   background: tan;
@@ -71,11 +71,11 @@ body {
   position: relative;
 }
 .stp-overlay {
-  background: blue;
+  background: #000;
   display: none;
   height: 100%;
   left: 0;
-  opacity: .0;
+  opacity: .25;
   position: absolute;
   top: 0;
   width: 100%;
@@ -87,7 +87,7 @@ body {
   margin-bottom: 0;
 }
 .sidetap.nav-showing .stp-content {
-  overflow: hidden;
+  /*overflow: hidden;*/
   position: absolute;
   top: 0;
   left: 0;
@@ -117,7 +117,7 @@ body {
   z-index: 0;
 }
 .ios .sidetap {
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 .ios .stp-content-panel,
 .ios .stp-nav-panel {
@@ -144,16 +144,12 @@ body {
   top: 0;
   height: 100%;
   -webkit-box-sizing: border-box;
-  overflow: auto;
+  /*overflow: auto;*/
   -webkit-overflow-scrolling: touch;
   width: 100%;
 }
-.stp-content-body .container {
-  /*THIS WILL HAVE TO BE ADDED TO RESPONSIVE CSS*/
-  padding:27% 2% 0;
-}
 .ios .nav-showing .stp-content .stp-content-body {
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 /*
   Show Navigation Animation

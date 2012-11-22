@@ -96,6 +96,13 @@ form.header_search input[type="text"] {
   width: 98%;
   padding: 5px 1%; 
 }
+div.stp-content-frame {
+  position:relative;
+  top: -48px;
+}
+.container {
+  padding:0 2%;
+}
 
 /* Turn off Reg User Navs for Regular Users
 -------------------------------------------*/
