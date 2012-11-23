@@ -5,7 +5,7 @@ var toggleSearch = function() {
           height = -($form.innerHeight()),
 
           showSearch = function() {
-            $form.animate({'top': 0}, 100).addClass('active');
+            $form.animate({'top': 0}, 100).addClass('active').find('input[type=text]').focus();
             $content.animate({'top': 0}, 100);
           },
           

@@ -48,6 +48,12 @@ button {
   margin: 0 0 2% 2%;
   max-width: 50%;
 }
+.full_button {
+  margin: 0 auto;
+  width: 100%;
+  padding:5%;
+  margin: 2% 0;
+}
 
 /* CSS3 EFFECTS
 ---------------*/
@@ -110,10 +116,33 @@ div.stp-content-frame {
   display:none;
 }
 
-
-
-
-
+/*-----------------
+  SEARCH RESULTS
+-----------------*/
+div.sort_area {
+  padding:0.25%;
+  font-size:0.7em;
+}
+div.sort_area button {
+  max-width:20%;
+}
+nav.results {
+  border-top: 1px solid #000;
+}
+nav.results a {
+  padding: 0.5% 0.25%;
+  display:block;
+  border-bottom: 1px solid #000;
+  background:#999;
+  text-decoration:none;
+  color:#000;
+}
+nav.results h2{
+  font-size:0.8em;
+}
+nav.results h3{
+  font-size:0.6em;
+}
 
 
 

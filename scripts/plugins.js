@@ -21,7 +21,9 @@
     }
 }());
 
-// Place any elper plugins in here.
+// Place any helper plugins in here.
+
+// Fix for ios6 devices
 $(document).ready(function() {
       var my_sidetap = function() {
         var ios5;
