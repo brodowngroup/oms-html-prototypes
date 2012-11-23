@@ -51,6 +51,13 @@ fast and robust mobile web applications.
 * Improved searchbar animation to move page content with toggle
 * Moved to jQuery over CSS for greater device support
 
+11.23.2012
+
+* Added Detail page template
+* makes search action go to search_results.html
+* Creates subheader styles
+* Added icons to detail pages 
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).
