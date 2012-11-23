@@ -54,6 +54,10 @@ button {
   padding:5%;
   margin: 2% 0;
 }
+div.subheader {
+  padding:0.25%;
+  font-size:0.7em;
+}
 
 /* CSS3 EFFECTS
 ---------------*/
@@ -119,11 +123,11 @@ div.stp-content-frame {
 /*-----------------
   SEARCH RESULTS
 -----------------*/
-div.sort_area {
-  padding:0.25%;
-  font-size:0.7em;
+#search_results .container {
+  padding:0;
 }
-div.sort_area button {
+
+div.subheader.sort button {
   max-width:20%;
 }
 nav.results {
@@ -144,9 +148,39 @@ nav.results h3{
   font-size:0.6em;
 }
 
-
-
-
+/*----------------
+  DETAIL PAGE
+----------------*/
+div.subheader.detail {
+  border-bottom: 1px solid #000;
+  padding:2% 0;
+  background: #fcfff4;
+  background: -moz-linear-gradient(top,  #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead));
+  background: -webkit-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+  background: -o-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+  background: -ms-linear-gradient(top,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+  background: linear-gradient(to bottom,  #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);
+  
+}
+div.subheader.detail img {
+  max-width: 8%;
+}
+div.subheader.detail a {
+  padding: 0 2%;
+}
+.detail_info h1 {
+  font-size: 0.8em;
+}
+.detail_info h2 {
+  font-size: 0.7em;
+}
+.detail_info h3 {
+  font-size: 0.6em;
+}
+.detail_info h4 {
+  font-size: 0.6em;
+}
 
 
 /* ==========================================================================

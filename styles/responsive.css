@@ -4,8 +4,19 @@
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 800px) {
-    /* Style adjustments for viewports that meet the condition */
+@media only screen and (min-width: 400px) {
+  .detail_info h1 {
+    font-size: 1.2em;
+  }
+  .detail_info h2 {
+    font-size: 1.1em;
+  }
+  .detail_info h3 {
+    font-size: 1.0em;
+  }
+  .detail_info h4 {
+    font-size: 1.0em;
+  }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
