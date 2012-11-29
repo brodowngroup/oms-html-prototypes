@@ -120,6 +120,27 @@ div.stp-content-frame {
   display:none;
 }
 
+/*-------------------
+  UNREG HOMEPAGE
+-------------------*/
+#slider ul {
+  list-style-type: none;
+  margin: 0;
+  padding:0;
+}
+
+#slider li {
+  margin: 0;
+  padding:0;
+  height: 150px;
+}
+
+.green{background:green;}
+.blue{background:blue;}
+.red{background:red;}
+.orange{background:orange;}
+.purple{background:purple;}
+
 /*-----------------
   SEARCH RESULTS
 -----------------*/
@@ -134,7 +155,7 @@ nav.results {
   border-top: 1px solid #000;
 }
 nav.results a {
-  padding: 0.5% 0.25%;
+  padding: 0.5% 1%;
   display:block;
   border-bottom: 1px solid #000;
   background:#999;

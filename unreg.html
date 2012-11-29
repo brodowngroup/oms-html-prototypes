@@ -107,9 +107,16 @@
               
               <button>Login</button>
               
-              <div class="carousel">
-                CAROUSEL HERE
+              <div id="slider">
+                <ul>
+                  <li class="green" style="display:block">Slide 1</li>
+                  <li class="blue" style="display:none">Slide 2</li>
+                  <li class="red" style="display:none">Slide 3</li>
+                  <li class="orange" style="display:none">Slide 4</li>
+                  <li class="purple" style="display:none">Slide 5</li>
+                </ul>
               </div>
+              
             </div>
           </div>
         </div>
@@ -127,6 +134,14 @@
   <script src="scripts/vendor/mbp.helper.js"></script>
   <script src="scripts/vendor/sidetap.min.js"></script>
   <script src="scripts/main.js"></script>
+  
+  <script src="scripts/vendor/swipe.min.js"></script>
+  <script>
+    if ( Modernizr.csstransforms ) {
+      window.mySwipe = new Swipe(document.getElementById('slider'));
+    } 
+  </script>
+  
   <!-- Google Analytics? -->
 </body>
 </html>
