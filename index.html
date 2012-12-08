@@ -44,41 +44,31 @@
       user - show this for registered users
     -------------------------------------->
     <div class="stp-nav">
-      <div>
-        <nav>
-          <h3>HTML Prototype Links</h3>
-          <a href="index.html" class="current">Homepage - Registered</a>
-          <a href="unreg.html">Homepage - Unregistered</a>
-          <a href="search_results.html">Search Results</a>
-          <a href="detail.html">Details</a>
-        </nav>
-        <nav class="user">
-          <h3>My Favorites</h3>
-          <a href="#" class="later">Locations</a>
-          <a href="#" class="later">Bands</a>
-          <a href="#" class="later">Venues</a>
-          <a href="#" class="later">Events</a>
-        </nav>
-        <nav class="user">
-          <h3>My Settings</h3>
-          <a href="#" class="later">My Info</a>
-        </nav>
-        <nav>
-          <h3>Links</h3>
-          <a href="about.html" >About Us</a>
-          <a href="terms.html" >Terms &amp; Conditions</a>
-          <a href="privacy.html" >Privacy Policies</a>
-        </nav>
-        <button>Logout</button>
-      </div>
+      <nav>
+        <h3>HTML Prototype Links</h3>
+        <a href="index.html" class="current">Homepage - Registered</a>
+        <a href="unreg.html">Homepage - Unregistered</a>
+        <a href="search_results.html">Search Results</a>
+        <a href="detail.html">Details</a>
+      </nav>
+      <nav class="user">
+        <h3>My Account</h3>
+        <a href="settings.html">My Settings</a>
+        <a href="favorites.html">My Favorites</a>
+      </nav>
+      <nav>
+        <h3>Links</h3>
+        <a href="about.html" >About Us</a>
+        <a href="terms.html" >Terms &amp; Conditions</a>
+        <a href="privacy.html" >Privacy Policies</a>
+      </nav>
+      <button>Logout</button>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
     <!-- BEGIN SIDETAP CONTAINER FOR ALL PAGES -->
     <div class="stp-content" id="content">
       
-      <!-- FOLLOWING EMPTY ELEMENTS ARE REQUIRED BY SIDETAP --> 
-      <header class="stp-fake-header">&nbsp;</header>
       <div class="stp-overlay nav-toggle">&nbsp;</div>
 
       <!-- BEGIN REGISTERED HOMEPAGE CONTENT -->
@@ -90,7 +80,7 @@
           <a href="#">
             <img class="logo" src="images/logo.png">
           </a>
-          <a class="control_right icon corner shadow" href="#">
+          <a class="toggleSearch control_right icon corner shadow" href="#">
             <img src="images/icon-search.png">
           </a>
         </header>
@@ -98,11 +88,9 @@
           <input class="shadow-inset corner" type="text">
         </form>
         
-        <div class="stp-content-frame">
+        <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
-            <div class="container">
-              <h2>REGISTERED User Homepage Content goes here.</h2>
-            </div>
+            <h2>REGISTERED User Homepage Content goes here.</h2>
           </div>
         </div>
 
