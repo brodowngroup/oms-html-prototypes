@@ -58,6 +58,12 @@ fast and robust mobile web applications.
 * Creates subheader styles
 * Added icons to detail pages 
 
+12.6.2012
+
+* Added jPanelTest.html test
+** Set up to test jPanel implementation
+** uses js and css in jPanelTest directories
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).
