@@ -1,8 +1,11 @@
+// ---------------------
+// This file is for non-specific vendors that
+// bring some browsers / devices up to date
+// ---------------------
 
 // ---------------------
 // Fix for ios6 devices
 // ----------------------
-
 $(document).ready(function() {
   var my_sidetap = function() {
     var ios5;
@@ -17,3 +20,29 @@ $(document).ready(function() {
   }();
   $('header a.control_left').on('click',my_sidetap.toggle_nav)
 });
+
+// ---------------------------------------------------------
+// Avoid `console` errors in browsers that lack a console.
+// ---------------------------------------------------------
+
+(function() {
+    var method;
+    var noop = function noop() {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
