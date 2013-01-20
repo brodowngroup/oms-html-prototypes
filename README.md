@@ -64,6 +64,10 @@ fast and robust mobile web applications.
 ** Set up to test jPanel implementation
 ** uses js and css in jPanelTest directories
 
+1.20.2013
+
+* Removed jPanelTest.html test
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).
@@ -73,4 +77,6 @@ All Docs located in [doc directory](doc)
 oms-html-prototypes
 ===================
 
-initial oms UI prototypes pre-design
+Initial oms UI prototypes pre-design
+
+
