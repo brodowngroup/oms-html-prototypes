@@ -9,7 +9,7 @@ button,
 input,
 select,
 textarea{color:#222;}
-body{font-size:1em;line-height:1.4;}
+body{font-size:1em;line-height:1.4;width:320px}
 a{color:#00e;}
 a:visited{color:#551a8b;}
 a:hover{color:#06e;}
@@ -38,7 +38,7 @@ div.subheader{padding:0.25%;font-size:0.7em;}
 /*-------------------
 ALL SITE LAYOUT
 -------------------*/
-header{padding:2.77%;background:#f7f7f7;background:linear-gradient(to bottom,#f7f7f7 0%,#cecece 99%);text-align:center;z-index:10;position:relative;}
+header{padding:2.77%;background:url(../images/bg_header.png) repeat-x;text-align:center;z-index:10;position:relative;}
 header .logo{max-width:25%;}
 header a{max-width:10%;}
 form.header_search{height:48px;position:relative;top:-48px;padding:8px 2%;background:#ddd;background:linear-gradient(to bottom,#ddd 0%,#aaa 99%);text-align:center;z-index:1;box-sizing:border-box;}
