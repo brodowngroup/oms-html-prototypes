@@ -21,20 +21,26 @@ textarea{resize:vertical;}
 
 /* OMS Classes
 -------------*/
-.icon{background:#eee;border:1px solid #333;}
 .control_left{float:left}
 .control_right{float:right}
 .img-inset-left{float:left;margin:0 2% 2% 0;max-width:50%;}
 .img-inset-right{float:right;margin:0 0 2% 2%;max-width:50%;}
 .full_button{margin:0 auto;width:100%;padding:5%;margin:2% 0;}
-div.subheader{padding:0.25%;font-size:0.7em;}
-.ptsans {font-family: 'PT Sans', sans-serif;}
+.clear{clear:both;display:block;height:1px;margin:-1px 0 0 0}
 
 /* TEXT
 -------*/
-h1{font-size:1em;margin:0}
-h2,h3,h4,h5,h6{margin:0 0 0.5em}
+h1,h2,h3,h4,h5,h6{margin:0 0 0.5em;}
+h1{font-size:1em} /* 16px */
+h2{font-size:0.875em;} /* 14px/16px */
+h3{font-size: 0.8125em;} /* 13px/16px */
+h4{font-size: 0.75em;} /* 12px/16px */
+h5{font-size: 0.6875em;} /* 11px/16px */
+h6{font-size: 0.625em;} /* 10px/16px */
+
 p{margin:0 0 0.5em;}
+
+.ptsans {font-family: 'PT Sans', sans-serif;}
 
 /* CSS3 EFFECTS
 ---------------*/
@@ -42,39 +48,58 @@ p{margin:0 0 0.5em;}
 .shadow{box-shadow:2px 2px 3px 1px rgba(0,0,0,0.15);}
 .shadow-inset{box-shadow:inset 0 1px 4px rgba(0,0,0,.2);}
 
-/*-------------------
-ALL SITE LAYOUT
+/* ALL SITE LAYOUT
 -------------------*/
 .stp-content-panel > header{padding:2.5%;background:url(../images/bg_header.png) repeat-x;text-align:center;z-index:10;position:relative;border-radius:3px 3px 0px 0px;}
-.stp-content-panel > header .logo{max-width:25%;}
-.stp-content-panel > header a{max-width:10%;}
 form.header_search{height:48px;position:relative;top:-48px;padding:8px 2%;background:#000;background:linear-gradient(to bottom,#ddd 0%,#aaa 99%);text-align:center;z-index:1;box-sizing:border-box;}
 form.header_search input[type="text"]{display:block;width:96%;padding:5px 1%;}
 div.page_frame{position:relative;top:-48px;}
 .stp-content-frame{background:#d9e0e7;}
-.stp-content-body,
-.container{padding:2.5%;}
 
+/* SUBNAV BUTTONS
+------------------*/
+.subheader{
+  margin:0 0 2.5%;
+  padding:0;
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(240,243,246,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(240,243,246,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(240,243,246,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(240,243,246,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(240,243,246,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,243,246,1) 100%);  
+}
+
+.subheader.two_items a{width:45%;}
+.subheader.three_items a{width:28%;}
+
+.subheader a {
+  display:block;
+  padding:2.5%;
+  text-align:center;
+  float:left;
+  text-decoration:none;
+  color:#7e858a;
+  background: -moz-linear-gradient(left, rgba(227,232,237,1) 0%, rgba(255,255,255,0.9) 10%, rgba(255,255,255,0) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(227,232,237,1)), color-stop(10%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(left, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
+  background: -o-linear-gradient(left, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
+  background: -ms-linear-gradient(left, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
+}
+
+.subheader a.active {
+  color:#3f4b54;
+  font-weight:bold;
+}
 /* MENU CUSTOMIZED STYLES
 -------------------------*/
+
 /* Turn off Reg User Navs for Regular Users*/
 .stp-nav.unreg nav.user{display:none;}
 
-.stp-nav {
-  background: #000 url(../images/bg_nav.jpg);
-  color: #fff;
-  text-shadow: 0 -1px 1px #000000;
-}
-
-.stp-nav a {
-  color: #7e858a;
-  text-decoration: none;
-  display: block;
-  padding: 2.5%;
-  border-top:1px solid #2a2b2d;
-  border-bottom: 1px solid #000;
-  font-size:0.875em; /* 14px/16px */
-}
+.stp-nav{background:#000 url(../images/bg_nav.jpg);color:#fff;text-shadow:0 -1px 1px #000000;}
+.stp-nav a{color:#7e858a;text-decoration:none;display:block;padding:2.5%;border-top:1px solid #2a2b2d;border-bottom:1px solid #000;font-size:0.875em;/* 14px/16px */}
 .stp-nav a.current {color: #fff;}
 
 .stp-nav nav h3 {
@@ -95,30 +120,43 @@ div.page_frame{position:relative;top:-48px;}
 }
 .stp-overlay{background:#000;}
 
-/* SUBNAV BUTTONS
-------------------*/
-div.subheader.sort button{max-width:20%;}
-
 /* TEXT SECTIONS
 ----------------*/
-.stp-content-body > section{margin: 0 0 0.5em;background:#fff;border-radius:3px;box-shadow:2px 2px 3px 1px rgba(0,0,0,0.15);}
-.stp-content-body > section header{padding:2.5%;background:#f6f8f9;border-radius:3px 3px 0px 0px;border-bottom:1px solid #eef0f1;text-align:left;}
+.stp-content-body > section{margin: 0 2.5% 2.5%;background:#fff;border-radius:3px;box-shadow:2px 2px 3px 1px rgba(0,0,0,0.15);}
+.stp-content-body > section header{padding:2.5%;background:#f6f8f9;color:#3f4b54;border-radius:3px 3px 0px 0px;border-bottom:1px solid #eef0f1;text-align:left;}
+
+/*----------------------------
+Retain text mod header style
+regardless of first or second
+level SEO priority
+-----------------------------*/
+.stp-content-body > section header h1,
+.stp-content-body > section header h2{margin:0;font-size:0.875em;}
+
 .stp-content-body .header_icon{float:left;margin:0 1.25% 0 0;}
-.stp-content-body article{padding:2.5%;}
 
-/*-----------------
-SEARCH RESULTS
+.stp-content-body > section > article{padding:2.5%;font-size: 0.8125em;}
+.stp-content-body > section > ul {
+  list-style-type:none;
+  padding: 0 0 2.5%;
+  margin:0;
+}
+.stp-content-body > section > ul > li {
+  padding: 2.5%;
+  border-bottom:1px solid #f6f7f8;
+  font-size:0.8125em; /* 13px/16px */
+}
+.stp-content-body > section > ul > li:last-child {
+  border-bottom:none;
+}
+
+/* SEARCH RESULTS
 -----------------*/
-#search_results .stp-content-body{}
   
-/*----------------
-DETAIL PAGE
+/* DETAIL PAGE
 ----------------*/
-#detail .stp-content-body{}
 
-
-/*-------------------
-UNREG HOMEPAGE
+/* UNREG HOMEPAGE
 -------------------*/
 #slider ul{list-style-type:none;margin:0;padding:0;}
 #slider li{margin:0;padding:0;height:150px;}
