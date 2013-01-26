@@ -68,6 +68,10 @@ fast and robust mobile web applications.
 
 * Removed jPanelTest.html test
 
+1.26.2013
+
+* Implementing new OMS Styles
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).

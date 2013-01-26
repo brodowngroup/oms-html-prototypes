@@ -22,10 +22,16 @@
     <meta name="msapplication-TileImage" content="images/touch/apple-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#222222">
 
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+
     <link rel="stylesheet" href="styles/normalize.css">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="styles/vendor/boilerplateHelpers.css">
+    <link rel="stylesheet" href="styles/vendor/sidetap.css">
+
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/sidetap.css">
 
     <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -54,14 +60,14 @@
         <h3>My Account</h3>
         <a href="settings.html">My Settings</a>
         <a href="favorites.html">My Favorites</a>
+        <a href="#">Log Out</a>
       </nav>
       <nav>
         <h3>Links</h3>
-        <a href="about.html" >About Us</a>
-        <a href="terms.html" >Terms &amp; Conditions</a>
-        <a href="privacy.html" >Privacy Policies</a>
+        <a href="about.html">About Us</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policies</a>
       </nav>
-      <button>Logout</button>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
@@ -85,12 +91,26 @@
         </header>
         
         <form class="header_search" action="search_results.html">
-          <input class="shadow-inset corner" type="text">
+          <input class="shadow-inset" value="search" type="text">
         </form>
         
         <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
-            <h2>REGISTERED User Homepage Content goes here.</h2>
+            
+            <section>
+              <header>
+                <img class="header_icon" src="images/tmp_icon.png">
+                <h1>You are registered into On My Stage</h1>
+              </header>
+              <article>
+                <p>Suspendisse bibendum faucibus malesuada. In posuere fringilla diam, a imperdiet metus fringilla ac. Proin at consectetur nisi. Aenean a neque vitae risus cursus placerat placerat eu eros. Pellentesque tincidunt, est vitae tempus blandit, justo purus vestibulum quam, a elementum metus magna nec velit.</p>
+              
+                <p>Aliquam erat volutpat. Nunc ac dolor ut metus rutrum dignissim quis nec enim. Donec magna libero, adipiscing in ultricies in, lacinia sit amet leo. Donec porttitor gravida purus ut lacinia. Quisque sodales eros iaculis odio porta et lobortis erat eleifend.</p>
+
+                <p>sed faucibus neque urna a ligula. Nulla euismod erat nec lacus adipiscing a condimentum turpis sagittis.</p>
+              </article>
+            </section>
+          
           </div>
         </div>
 

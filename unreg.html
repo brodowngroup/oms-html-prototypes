@@ -23,9 +23,13 @@
     <meta name="msapplication-TileColor" content="#222222">
 
     <link rel="stylesheet" href="styles/normalize.css">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="styles/vendor/boilerplateHelpers.css">
+    <link rel="stylesheet" href="styles/vendor/sidetap.css">
+
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/sidetap.css">
 
     <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -55,6 +59,7 @@
         <h3>My Account</h3>
         <a href="settings.html">My Settings</a>
         <a href="favorites.html">My Favorites</a>
+        <a href="#">Log Out</a>
       </nav>
       <nav>
         <h3>Links</h3>
@@ -62,7 +67,6 @@
         <a href="terms.html" >Terms &amp; Conditions</a>
         <a href="privacy.html" >Privacy Policies</a>
       </nav>
-      <button>Logout</button>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
@@ -90,36 +94,52 @@
         
         <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
-
-            <h2>UNREGISTERED homepage content goes here</h2>
+            
+            <section>
+              <header>
+                <h1>UNREGISTERED</h1>
+              </header>
+            
+              <article>
+                <p>
+                  homepage content goes here
+                </p>
+              </article>
+            </section>
             
             <button>Register Now</button>
             
             <button>Login</button>
             
-            <div id="gallery">
-              <div id="slider">
-                <ul>
-                  <li class="green" style="display:block">Slide 1</li>
-                  <li class="blue" style="display:none">Slide 2</li>
-                  <li class="red" style="display:none">Slide 3</li>
-                  <li class="orange" style="display:none">Slide 4</li>
-                  <li class="purple" style="display:none">Slide 5</li>
-                </ul>
-              </div>
+            <section>
+              <article>
 
-              <nav>
-                <a href='#' id='prev' onclick='slider.prev();return false;'><em>prev</em></a>
-                <span id='position'>
-                  <em class='on'>&bull;</em>
-                  <em>&bull;</em>
-                  <em>&bull;</em>
-                  <em>&bull;</em>
-                  <em>&bull;</em>
-                </span>
-                <a href='#' id='next' onclick='slider.next();return false;'><em>next</em></a>
-              </nav>
-            </div>
+                <div id="gallery">
+                  <div id="slider">
+                    <ul>
+                      <li class="green" style="display:block">Slide 1</li>
+                      <li class="blue" style="display:none">Slide 2</li>
+                      <li class="red" style="display:none">Slide 3</li>
+                      <li class="orange" style="display:none">Slide 4</li>
+                      <li class="purple" style="display:none">Slide 5</li>
+                    </ul>
+                  </div>
+
+                  <nav>
+                    <a href='#' id='prev' onclick='slider.prev();return false;'><em>prev</em></a>
+                    <span id='position'>
+                      <em class='on'>&bull;</em>
+                      <em>&bull;</em>
+                      <em>&bull;</em>
+                      <em>&bull;</em>
+                      <em>&bull;</em>
+                    </span>
+                    <a href='#' id='next' onclick='slider.next();return false;'><em>next</em></a>
+                  </nav>
+                </div>
+
+              </article>
+            </section>
             
           </div>
         </div>

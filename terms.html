@@ -23,9 +23,13 @@
     <meta name="msapplication-TileColor" content="#222222">
 
     <link rel="stylesheet" href="styles/normalize.css">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="styles/vendor/boilerplateHelpers.css">
+    <link rel="stylesheet" href="styles/vendor/sidetap.css">
+
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/sidetap.css">
 
     <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -55,6 +59,7 @@
         <h3>My Account</h3>
         <a href="settings.html">My Settings</a>
         <a href="favorites.html">My Favorites</a>
+        <a href="#">Log Out</a>
       </nav>
       <nav>
         <h3>Links</h3>
@@ -62,7 +67,6 @@
         <a href="terms.html" class="current">Terms &amp; Conditions</a>
         <a href="privacy.html" >Privacy Policies</a>
       </nav>
-      <button>Logout</button>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
@@ -85,26 +89,33 @@
             <img src="images/icon-search.png">
           </a>
         </header>
+        
         <form class="header_search" action="search_results.html">
           <input class="shadow-inset corner" type="text">
         </form>
 
         <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
-            <h2>Obey our terms</h2>
             
-            <img class="img-inset-right" src="images/badass_kid.jpeg">
+            <section>
+              <header>
+                <h1>Obey our terms</h1>
+              </header>
+              <article>
+                <img class="img-inset-right" src="images/badass_kid.jpeg">
 
-            <h4>Behave, fool!</h4>
+                <h4>Behave, fool!</h4>
                           
-            <p> Nunc adipiscing, quam nec congue tincidunt, ante sapien dapibus sem, ut viverra augue felis sed lorem. Pellentesque eu ligula sit amet sapien tincidunt elementum et non lectus.</p> 
+                <p> Nunc adipiscing, quam nec congue tincidunt, ante sapien dapibus sem, ut viverra augue felis sed lorem. Pellentesque eu ligula sit amet sapien tincidunt elementum et non lectus.</p> 
             
-            <p>gravida quam posuere. Fusce at metus lacus. Phasellus erat lectus, lobortis a varius consequat, lacinia in elit. In quis ornare erat. Nullam id blandit libero. Donec tellus libero, tincidunt eu lacinia sed, adipiscing at est. Nulla lacus turpis, rhoncus feugiat blandit eget, pretium ut eros. Quisque ac massa sem. Pellentesque id vestibulum dui.</p>
+                <p>gravida quam posuere. Fusce at metus lacus. Phasellus erat lectus, lobortis a varius consequat, lacinia in elit. In quis ornare erat. Nullam id blandit libero. Donec tellus libero, tincidunt eu lacinia sed, adipiscing at est. Nulla lacus turpis, rhoncus feugiat blandit eget, pretium ut eros. Quisque ac massa sem. Pellentesque id vestibulum dui.</p>
             
-            <p>Fusce consectetur, neque sit amet mattis feugiat, arcu arcu euismod mi, eget fermentum tortor lacus eget sem. Vestibulum tristique, nibh id hendrerit auctor, velit sem porttitor turpis, vitae dignissim dolor metus placerat justo. Nam faucibus, turpis at luctus condimentum, nisl arcu semper tellus, ut mollis sapien quam sit amet dolor. Sed ut metus nec sem tristique malesuada.</p>
+                <p>Fusce consectetur, neque sit amet mattis feugiat, arcu arcu euismod mi, eget fermentum tortor lacus eget sem. Vestibulum tristique, nibh id hendrerit auctor, velit sem porttitor turpis, vitae dignissim dolor metus placerat justo. Nam faucibus, turpis at luctus condimentum, nisl arcu semper tellus, ut mollis sapien quam sit amet dolor. Sed ut metus nec sem tristique malesuada.</p>
             
-            <p>Aenean aliquam, dui tempus laoreet lacinia, risus arcu sodales leo, eu lobortis nibh est sed turpis. Donec tristique tincidunt pretium. Duis est ante, posuere quis suscipit eu, commodo et arcu. Nulla tristique, mauris ut gravida fermentum, lacus ante commodo metus, at ultricies mauris est et arcu. Vivamus rutrum lectus ut turpis dapibus facilisis.</p>
-
+                <p>Aenean aliquam, dui tempus laoreet lacinia, risus arcu sodales leo, eu lobortis nibh est sed turpis. Donec tristique tincidunt pretium. Duis est ante, posuere quis suscipit eu, commodo et arcu. Nulla tristique, mauris ut gravida fermentum, lacus ante commodo metus, at ultricies mauris est et arcu. Vivamus rutrum lectus ut turpis dapibus facilisis.</p>
+              </article>
+            </section>
+              
           </div>
         </div>
       

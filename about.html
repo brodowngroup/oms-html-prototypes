@@ -23,9 +23,13 @@
     <meta name="msapplication-TileColor" content="#222222">
 
     <link rel="stylesheet" href="styles/normalize.css">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="styles/vendor/boilerplateHelpers.css">
+    <link rel="stylesheet" href="styles/vendor/sidetap.css">
+
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/sidetap.css">
 
     <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -55,6 +59,7 @@
         <h3>My Account</h3>
         <a href="settings.html">My Settings</a>
         <a href="favorites.html">My Favorites</a>
+        <a href="#">Log Out</a>
       </nav>
       <nav>
         <h3>Links</h3>
@@ -62,7 +67,6 @@
         <a href="terms.html" >Terms &amp; Conditions</a>
         <a href="privacy.html" >Privacy Policies</a>
       </nav>
-      <button>Logout</button>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
@@ -90,15 +94,22 @@
         
         <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
-            <h2>About Us</h2>
-            
-            <img class="img-inset-left" src="images/badass.jpeg">
 
-            <h4>We're Pretty badass</h4>
+            <section>
+              <header>
+                <h1>About Us</h1>
+              </header>
+              <article>
+                <img class="img-inset-left" src="images/badass.jpeg">
+
+                <h4>We're Pretty badass</h4>
                           
-            <p>Nam nec convallis velit. Cras a odio eu nulla cursus ultricies. Pellentesque sollicitudin ultrices tellus, ac pulvinar felis scelerisque a. Nam imperdiet mi quis erat feugiat quis</p> 
+                <p>Nam nec convallis velit. Cras a odio eu nulla cursus ultricies. Pellentesque sollicitudin ultrices tellus, ac pulvinar felis scelerisque a. Nam imperdiet mi quis erat feugiat quis</p> 
             
-            <p>gravida quam posuere. Fusce at metus lacus. Phasellus erat lectus, lobortis a varius consequat, lacinia in elit. In quis ornare erat. Nullam id blandit libero. Donec tellus libero, tincidunt eu lacinia sed, adipiscing at est. Nulla lacus turpis, rhoncus feugiat blandit eget, pretium ut eros. Quisque ac massa sem. Pellentesque id vestibulum dui.</p>
+                <p>gravida quam posuere. Fusce at metus lacus. Phasellus erat lectus, lobortis a varius consequat, lacinia in elit. In quis ornare erat. Nullam id blandit libero. Donec tellus libero, tincidunt eu lacinia sed, adipiscing at est. Nulla lacus turpis, rhoncus feugiat blandit eget, pretium ut eros. Quisque ac massa sem. Pellentesque id vestibulum dui.</p>
+
+              </article>
+            </section>
 
           </div>
         </div>

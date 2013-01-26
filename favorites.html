@@ -23,9 +23,13 @@
     <meta name="msapplication-TileColor" content="#222222">
 
     <link rel="stylesheet" href="styles/normalize.css">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="styles/vendor/boilerplateHelpers.css">
+    <link rel="stylesheet" href="styles/vendor/sidetap.css">
+
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/sidetap.css">
 
     <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -55,6 +59,7 @@
         <h3>My Account</h3>
         <a href="settings.html">My Settings</a>
         <a href="favorites.html" class="current">My Favorites</a>
+        <a href="#">Log Out</a>
       </nav>
       <nav>
         <h3>Links</h3>
@@ -62,7 +67,6 @@
         <a href="terms.html" >Terms &amp; Conditions</a>
         <a href="privacy.html" >Privacy Policies</a>
       </nav>
-      <button>Logout</button>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
@@ -90,42 +94,64 @@
         
         <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
-            <h1>Bands</h1>
-            <nav class="results">
-              <a href="detail.html">
-                <h2>Five Dollar You Holla</h2>
-              </a>
-              <a href="detail.html">
-                <h2>Tween Time</h2>
-              </a>
-              <a href="detail.html">
-                <h2>Tammi Tonyone</h2>
-              </a>
-            </nav>
-            <h1>Venues</h1>
-            <nav class="results">
-              <a href="detail.html">
-                <h2>Bilkos | Chicago, IL | 0.5m E</h2>
-              </a>
-              <a href="detail.html">
-                <h2>Uncle Dangerous | Chicago, IL | 0.5m N</h2>
-              </a>
-            </nav>
-            <h1>Events</h1>
-            <nav class="results">
-              <a href="detail.html">
-                <h2>Long Event Name For Some Crappy... I mean AWESOME Festival | Lincoln Square | Chicago, IL</h2>
-                <h3>Dec 3, 2012 | 8pm | 0.2m S</h3>
-              </a>
-              <a href="detail.html">
-                <h2>Dangerous Clowns in Dangerous Places, the Musical | Harvey's Closet | Chicago, IL</h2>
-                <h3>Dec 3, 2012 | 8pm | 0.3m E</h3>
-              </a>
-              <a href="detail.html">
-                <h2>Dog / Cat thing presents : mushrooms | Bilkos | Chicago, IL</h2>
-                <h3>Dec 3, 2012 | 8pm | 0.5m E</h3>
-              </a>
-            </nav>
+            
+            <section>
+              <header>
+                <h1>Bands</h1>
+              </header>
+              <article>
+                <nav class="results">
+                  <a href="detail.html">
+                    <h2>Five Dollar You Holla</h2>
+                  </a>
+                  <a href="detail.html">
+                    <h2>Tween Time</h2>
+                  </a>
+                  <a href="detail.html">
+                    <h2>Tammi Tonyone</h2>
+                  </a>
+                </nav>
+              </article>
+            </section>
+            
+            <section>
+              <header>
+                <h1>Venues</h1>
+              </header>
+              <article>
+                <nav class="results">
+                  <a href="detail.html">
+                    <h2>Bilkos | Chicago, IL | 0.5m E</h2>
+                  </a>
+                  <a href="detail.html">
+                    <h2>Uncle Dangerous | Chicago, IL | 0.5m N</h2>
+                  </a>
+                </nav>
+              </article>
+            </section>
+            
+            <section>
+              <header>            
+                <h1>Events</h1>
+              </header>
+              <article>
+                <nav class="results">
+                  <a href="detail.html">
+                    <h2>Long Event Name For Some Crappy... I mean AWESOME Festival | Lincoln Square | Chicago, IL</h2>
+                    <h3>Dec 3, 2012 | 8pm | 0.2m S</h3>
+                  </a>
+                  <a href="detail.html">
+                    <h2>Dangerous Clowns in Dangerous Places, the Musical | Harvey's Closet | Chicago, IL</h2>
+                    <h3>Dec 3, 2012 | 8pm | 0.3m E</h3>
+                  </a>
+                  <a href="detail.html">
+                    <h2>Dog / Cat thing presents : mushrooms | Bilkos | Chicago, IL</h2>
+                    <h3>Dec 3, 2012 | 8pm | 0.5m E</h3>
+                  </a>
+                </nav>
+              </article>
+            </section>
+            
           </div>
         </div>
 
