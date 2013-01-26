@@ -9,8 +9,7 @@ button,
 input,
 select,
 textarea{color:#222;}
-html{}
-body{font-size:1em;line-height:1.4;background:#525252;width:320px;color:#7e858a;font-family: 'PT Sans', sans-serif;}
+body{font-size:1em;line-height:1.4;background:#d9e0e7;width:320px;color:#7e858a;font-family: 'PT Sans', sans-serif;}
 a{color:#00e;}
 a:visited{color:#551a8b;}
 a:hover{color:#06e;}
@@ -27,6 +26,8 @@ textarea{resize:vertical;}
 .img-inset-right{float:right;margin:0 0 2% 2%;max-width:50%;}
 .full_button{margin:0 auto;width:100%;padding:5%;margin:2% 0;}
 .clear{clear:both;display:block;height:1px;margin:-1px 0 0 0}
+.date{padding:0 0 0 20px;background:url(../images/icon-cal.png) no-repeat;}
+.loc{padding:0 0 0 20px;background:url(../images/icon-loc.png) 2px 0 no-repeat;}
 
 /* TEXT
 -------*/
@@ -55,6 +56,8 @@ form.header_search{height:48px;position:relative;top:-48px;padding:8px 2%;backgr
 form.header_search input[type="text"]{display:block;width:96%;padding:5px 1%;}
 div.page_frame{position:relative;top:-48px;}
 .stp-content-frame{background:#d9e0e7;}
+.stp-content-body > h1,
+.stp-content-body > h2 {margin:0 2.5% 0.5em;color:#222}
 
 /* SUBNAV BUTTONS
 ------------------*/
@@ -122,8 +125,27 @@ div.page_frame{position:relative;top:-48px;}
 
 /* TEXT SECTIONS
 ----------------*/
-.stp-content-body > section{margin: 0 2.5% 2.5%;background:#fff;border-radius:3px;box-shadow:2px 2px 3px 1px rgba(0,0,0,0.15);}
-.stp-content-body > section header{padding:2.5%;background:#f6f8f9;color:#3f4b54;border-radius:3px 3px 0px 0px;border-bottom:1px solid #eef0f1;text-align:left;}
+.stp-content-body > section {
+  margin: 0 2.5% 2.5%;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.15);
+}
+
+.stp-content-body > section header {
+  padding: 2.5%;
+  background: #f6f8f9;
+  color: #3f4b54;
+  border-radius: 3px 3px 0px 0px;
+  border-bottom: 1px solid #eef0f1;
+  text-align: left;
+  overflow:hidden;
+}
+
+.stp-content-body > section header a {
+  color: #3f4b54;
+  text-decoration:none;
+}
 
 /*----------------------------
 Retain text mod header style
@@ -131,14 +153,14 @@ regardless of first or second
 level SEO priority
 -----------------------------*/
 .stp-content-body > section header h1,
-.stp-content-body > section header h2{margin:0;font-size:0.875em;}
+.stp-content-body > section header h2{margin:0;font-size:0.875em;padding:1.25% 0 0;}
 
 .stp-content-body .header_icon{float:left;margin:0 1.25% 0 0;}
 
 .stp-content-body > section > article{padding:2.5%;font-size: 0.8125em;}
 .stp-content-body > section > ul {
   list-style-type:none;
-  padding: 0 0 2.5%;
+  padding: 0 0 1.25%;
   margin:0;
 }
 .stp-content-body > section > ul > li {
@@ -148,6 +170,16 @@ level SEO priority
 }
 .stp-content-body > section > ul > li:last-child {
   border-bottom:none;
+}
+
+.stp-content-body > section > .map_area img {
+  position:relative;
+  z-index: 10;
+}
+
+.stp-content-body > section > .map_area img.map {
+  margin: -11px 0;
+  z-index: 1;
 }
 
 /* SEARCH RESULTS
