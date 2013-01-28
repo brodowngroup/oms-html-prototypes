@@ -1,5 +1,5 @@
 $(function() {  	
-	$.getJSON('http://api.onmystage.net/api/search?term=black', function(data) {
+	$.post('http://api.onmystage.net/api/search?term=black', function(data) {
     var items = [];
 
     $.each(data, function(key, val) {
@@ -10,5 +10,5 @@ $(function() {
       'class': 'my-new-list',
       html: items.join('')
     }).appendTo('search_results .stp-content-body');
-  });
+  }, "json");
 });
