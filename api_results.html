@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="styles/vendor/boilerplateHelpers.css">
+    <link rel="stylesheet" href="styles/vendor/sidetap.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+    <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+  <div class="sidetap">
+    
+    <!-- BEGIN SETTINGS NAVIGATION-->
+    <!------------------------------------
+      NAV CLASS GUIDE :
+      a tags : 
+      current - currently selected page
+      later - link will work later
+      
+      nav tags :
+      user - show this for registered users
+    -------------------------------------->
+    <div class="stp-nav">
+      <nav>
+        <h3>HTML Prototype Links</h3>
+        <a href="index.html">Homepage - Registered</a>
+        <a href="unreg.html">Homepage - Unregistered</a>
+        <a href="search_results.html" class="current">Search Results</a>
+        <a href="detail.html">Details</a>
+      </nav>
+      <nav class="user">
+        <h3>My Account</h3>
+        <a href="settings.html">My Settings</a>
+        <a href="favorites.html">My Favorites</a>
+        <a href="#">Log Out</a>
+      </nav>
+      <nav>
+        <h3>Links</h3>
+        <a href="about.html" >About Us</a>
+        <a href="terms.html" >Terms &amp; Conditions</a>
+        <a href="privacy.html" >Privacy Policies</a>
+      </nav>
+    </div>
+    <!-- END SETTINGS NAVIGATION-->
+
+    <!-- BEGIN SIDETAP CONTAINER FOR ALL PAGES -->
+    <div class="stp-content" id="content">
+      
+      <div class="stp-overlay nav-toggle">&nbsp;</div>
+
+      <!-- BEGIN SEARCH RESULTS CONTENT -->
+      <div class="stp-content-panel" id="search_results">
+        <header class="clearfix">
+          <a class="control_left" href="#">
+            <img src="images/icon-settings.png">
+          </a>
+          <a href="#">
+            <img class="logo" src="images/logo.png">
+          </a>
+          <a class="toggleSearch control_right" href="#">
+            <img src="images/icon-search.png">
+          </a>
+        </header>
+        <form class="header_search" action="search_results.html">
+          <input class="shadow-inset corner" type="text">
+        </form>
+        
+        <div class="stp-content-frame page_frame">
+          <div class="stp-content-body">
+                        
+            <div class="subheader three_items shadow">
+              <a href="#" class="active">Distance</a>
+              <a href="#">Venue</a>
+              <a href="#">Location</a>              
+              <br class="clear">              
+            </div>
+            
+            <h1>Search Results</h1>
+            
+            <section>
+              <header>
+                <img src="images/icon-star.png" class="control_right">
+                <a href="detail.html">
+                  <img class="header_icon" src="images/tmp_icon.png">
+                  <h2>Long Event Name For Some Crappy... I mean AWESOME Festival</h2>
+                </a>
+              </header>
+              <ul>
+                <li>
+                  <span class="date">Dec 3, 2012 | 8pm</span>
+                </li>
+                <li>
+                  <span class="loc">Lincoln Square | Chicago, IL | 0.2m S</span>
+                </li>
+              </ul>
+            </section>
+              
+            <button class="full_button">More Results...</button>
+            
+          </div>
+        </div>
+
+      </div>
+      <!-- END SEARCH RESULTS CONTENT -->
+      
+    </div>
+    <!-- END STP-CONTENT -->
+  </div>
+  <!-- END SIDETAP -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+  <script src="scripts/vendor/mbp.helper.js"></script>
+  <script src="scripts/vendor/sidetap.min.js"></script>
+  <script src="scripts/search_query.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- Google Analytics? -->
+</body>
+</html>

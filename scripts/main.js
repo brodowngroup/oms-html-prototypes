@@ -1,6 +1,6 @@
-// ------------------------
-// HEADER SEARCH TOGGLE
-// ------------------------
+// --------------------------------
+// HEADER SEARCH TOGGLE VISIBILITY
+// -------------------------------
 var toggleSearch = function() {
   var $form = $('form.header_search'),
       $content = $('div.stp-content-frame');
@@ -21,6 +21,17 @@ var toggleSearch = function() {
 };
 
 $('header a.toggleSearch').click(toggleSearch);
+
+// ---------------
+// SEARCH QUERY
+// ---------------
+$('form.header_search').on('submit', function(e) {
+  e.preventDefault();
+  var query = $(this).find('input').val(),
+      url = 'api_results.html?term=' + query;
+  window.location = url;
+});
+
 
 // ---------------
 // SIDETAP SETUP
