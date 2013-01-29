@@ -28,7 +28,7 @@ $('header a.toggleSearch').click(toggleSearch);
 $('form.header_search').on('submit', function(e) {
   e.preventDefault();
   var query = $(this).find('input').val(),
-      url = 'api_results.html?term=' + query;
+      url = '/?term=' + query;
   window.location = url;
 });
 
