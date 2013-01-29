@@ -9,7 +9,7 @@ button,
 input,
 select,
 textarea{color:#222;}
-body{font-size:1em;line-height:1.4;background:#d9e0e7;width:320px;color:#7e858a;font-family: 'PT Sans', sans-serif;}
+body{font-size:1em;line-height:1.4;background:#d9e0e7;color:#7e858a;font-family: 'PT Sans', sans-serif;max-width:700px}
 a{color:#00e;}
 a:visited{color:#551a8b;}
 a:hover{color:#06e;}
@@ -51,9 +51,36 @@ p{margin:0 0 0.5em;}
 
 /* ALL SITE LAYOUT
 -------------------*/
-.stp-content-panel > header{padding:2.5%;background:url(../images/bg_header.png) repeat-x;text-align:center;z-index:10;position:relative;border-radius:3px 3px 0px 0px;}
-form.header_search{height:48px;position:relative;top:-48px;padding:8px 2%;background:#000;background:linear-gradient(to bottom,#ddd 0%,#aaa 99%);text-align:center;z-index:1;box-sizing:border-box;}
-form.header_search input[type="text"]{display:block;width:96%;padding:5px 1%;}
+.stp-content-panel > header {
+  background: url(../images/bg_header.png) repeat-x;
+  padding: 9.625px;
+  height:43.25px;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  border-radius: 3px 3px 0px 0px;
+  box-sizing: border-box;
+}
+.stp-content-panel > header .control_left,
+.stp-content-panel > header .control_right,
+.stp-content-panel > header #logo {
+}
+form.header_search {
+  height: 48px;
+  position: relative;
+  top: -48px;
+  padding: 8px 2%;
+  background: #000;
+  background: linear-gradient(to bottom,#ddd 0%,#aaa 99%);
+  text-align: center;
+  z-index: 1;
+  box-sizing: border-box;
+}
+form.header_search input[type="text"] {
+  display: block;
+  width: 96%;
+  padding: 5px 1%;
+}
 div.page_frame{position:relative;top:-48px;}
 .stp-content-frame{background:#d9e0e7;}
 .stp-content-body > h1,
