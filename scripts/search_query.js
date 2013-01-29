@@ -1,5 +1,6 @@
 $(function() {  	
-	$.post('http://api.onmystage.net/api/search?term=black', function(data) {
+	//$.post('http://api.onmystage.net/api/search?term=black', function(data) {
+  $.post('http://onmystage.azurewebsites.net/scripts/test_json.js', function(data) {
     var items = [];
 
     $.each(data, function(key, val) {
