@@ -72,6 +72,13 @@ fast and robust mobile web applications.
 
 * Implementing new OMS Styles
 
+1.28.2013
+
+* Expanding body width to max 700px
+* Locking header height for searchbar
+
+
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).
