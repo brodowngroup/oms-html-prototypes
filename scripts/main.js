@@ -1,7 +1,9 @@
+var oms = oms || {};
+
 // --------------------------------
 // HEADER SEARCH TOGGLE VISIBILITY
 // -------------------------------
-var toggleSearch = function() {
+oms.toggleSearch = function() {
   var $form = $('form.header_search'),
       $content = $('div.stp-content-frame');
       height = -($form.innerHeight()),
@@ -20,18 +22,29 @@ var toggleSearch = function() {
 
 };
 
-$('header a.toggleSearch').click(toggleSearch);
+$('header a.toggleSearch').click(oms.toggleSearch);
 
 // ---------------
 // SEARCH QUERY
 // ---------------
+oms.clearPage = function() {
+  
+};
+
 $('form.header_search').on('submit', function(e) {
   e.preventDefault();
   var query = $(this).find('input').val(),
-      url = '/?term=' + query;
-  window.location = url;
+      url = '#/?term=' + query;
+      
+  //oms.clearPage();
+  
+  //oms.loadSearchResults(query);
+  
 });
 
+// ---------------
+// MAP
+// ---------------
 
 // ---------------
 // SIDETAP SETUP
