@@ -83,8 +83,11 @@ form.header_search input[type="text"] {
 }
 div.page_frame{position:relative;top:-48px;}
 .stp-content-frame{background:#d9e0e7;}
+
 .stp-content-body > h1,
-.stp-content-body > h2 {margin:0 2.5% 0.5em;color:#222}
+.stp-content-body > h2,
+.stp-content-body > div > h1,
+.stp-content-body > div > h2{margin:0 2.5% 0.5em;color:#222}
 
 /* SUBNAV BUTTONS
 ------------------*/

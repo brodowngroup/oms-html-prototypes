@@ -77,7 +77,9 @@ fast and robust mobile web applications.
 * Expanding body width to max 700px
 * Locking header height for searchbar
 
+1.30.2013
 
+* Applies new styles to simple API results 
 
 ## Documentation
 
