@@ -42,7 +42,7 @@ oms.loadSearchResults = function(query) {
       var items = [];
   
       $.each(data, function(key, val) {
-        items.push('<div id="' + key + '">' + val.Name + '</div>');
+        items.push('<div data-property="' + key + '">' + val.Name + '</div>');
       });
   
       $('<section/>', {
