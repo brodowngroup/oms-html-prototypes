@@ -27,18 +27,31 @@ $('header a.toggleSearch').click(oms.toggleSearch);
 // ---------------
 // SEARCH QUERY
 // ---------------
-oms.clearPage = function() {
-  
+oms.loadSearchResults = function(query) {
+  $('div.stp-content-body').fadeOut('fast', function() {
+    $.getJSON('scripts/test_json.json', function(data) {
+
+      $('<p>' + query + '</p>').appendTo('div.stp-content-body');
+
+      // var items = [];
+      // 
+      // $.each(data, function(key, val) {
+      //   items.push('<li id="' + key + '">' + val + '</li>');
+      // });
+      // 
+      // $('<ul/>', {
+      //   'class': 'my-new-list',
+      //   html: items.join('')
+      // }).appendTo('div.stp-content-body');
+    });
+  });
 };
 
 $('form.header_search').on('submit', function(e) {
   e.preventDefault();
-  var query = $(this).find('input').val(),
-      url = '#/?term=' + query;
-      
-  //oms.clearPage();
-  
-  //oms.loadSearchResults(query);
+  var query = $(this).find('input').val();
+        
+  oms.loadSearchResults(query);
   
 });
 
