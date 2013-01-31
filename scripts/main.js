@@ -28,22 +28,28 @@ $('header a.toggleSearch').click(oms.toggleSearch);
 // SEARCH QUERY
 // ---------------
 oms.loadSearchResults = function(query) {
-  $('div.stp-content-body').fadeOut('fast', function() {
-    $.getJSON('scripts/test_json.json', function(data) {
-
-      $('<p>' + query + '</p>').appendTo('div.stp-content-body');
-
-      // var items = [];
-      // 
-      // $.each(data, function(key, val) {
-      //   items.push('<li id="' + key + '">' + val + '</li>');
-      // });
-      // 
-      // $('<ul/>', {
-      //   'class': 'my-new-list',
-      //   html: items.join('')
-      // }).appendTo('div.stp-content-body');
+  
+  console.log('enter loadSearchResults');
+  
+  $('div.stp-content-body > *').wrapAll('<div class="fadeTarget" />');
+  
+  $('div.fadeTarget').fadeOut('fast', function() {
+    
+    $(this).remove();
+    
+      
+    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+      var items = [];
+  
+      $.each(data, function(key, val) {
+        items.push('<div id="' + key + '">' + val.Name + '</div>');
+      });
+  
+      $('<section/>', {
+        html: items.join('')
+      }).appendTo('.stp-content-body');
     });
+  
   });
 };
 

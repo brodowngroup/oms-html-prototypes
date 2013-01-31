@@ -92,6 +92,7 @@ div.page_frame{position:relative;top:-48px;}
   margin:0 0 2.5%;
   padding:0;
   background:#000;
+  text-align:center;
 }
 
 .subheader.buttons {
@@ -110,7 +111,6 @@ div.page_frame{position:relative;top:-48px;}
 .subheader a {
   display:block;
   padding:2.5%;
-  text-align:center;
   float:left;
   text-decoration:none;
   color:#7e858a;
@@ -156,14 +156,14 @@ div.page_frame{position:relative;top:-48px;}
 
 /* TEXT SECTIONS
 ----------------*/
-.stp-content-body > section {
+.stp-content-body section {
   margin: 0 2.5% 2.5%;
   background: #fff;
   border-radius: 3px;
   box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.15);
 }
 
-.stp-content-body > section header {
+.stp-content-body section header {
   padding: 2.5%;
   background: #f6f8f9;
   color: #3f4b54;
@@ -173,7 +173,7 @@ div.page_frame{position:relative;top:-48px;}
   overflow:hidden;
 }
 
-.stp-content-body > section header a {
+.stp-content-body section header a {
   color: #3f4b54;
   text-decoration:none;
 }
@@ -183,40 +183,40 @@ Retain text mod header style
 regardless of first or second
 level SEO priority
 -----------------------------*/
-.stp-content-body > section header h1,
-.stp-content-body > section header h2{margin:0;font-size:0.875em;padding:1.25% 0 0;}
+.stp-content-body section header h1,
+.stp-content-body section header h2{margin:0;font-size:0.875em;padding:1.25% 0 0;}
 
 .stp-content-body .header_icon{float:left;margin:0 1.25% 0 0;}
 
-.stp-content-body > section > article{padding:2.5%;font-size: 0.8125em;}
-.stp-content-body > section > ul {
+.stp-content-body section > article{padding:2.5%;font-size: 0.8125em;}
+.stp-content-body section > ul {
   list-style-type:none;
   padding: 0 0 1.25%;
   margin:0;
 }
-.stp-content-body > section > ul > li {
+.stp-content-body section > ul > li {
   padding: 2.5%;
   border-bottom:1px solid #f6f7f8;
   font-size:0.8125em; /* 13px/16px */
 }
-.stp-content-body > section > ul > li:last-child {
+.stp-content-body section > ul > li:last-child {
   border-bottom:none;
 }
 
-.stp-content-body > section > .map_area > div.map_top {
+.stp-content-body section > .map_area > div.map_top {
   position:relative;
   z-index: 10;
   height: 11px;
   background: url(../images/map_top.png) repeat-x;
 }
-.stp-content-body > section > .map_area > div.map_bot {
+.stp-content-body section > .map_area > div.map_bot {
   position:relative;
   z-index: 10;
   height: 11px;
   background: url(../images/map_bot.png) repeat-x;
 }
 
-.stp-content-body > section > .map_area img.map {
+.stp-content-body section > .map_area img.map {
   margin: -11px 0;
   z-index: 1;
 }
