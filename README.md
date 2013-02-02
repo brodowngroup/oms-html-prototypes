@@ -4,7 +4,6 @@ The pages are built using mobile boilerplate as a starting point.
 
 * Source: [https://github.com/h5bp/mobile-boilerplate](https://github.com/h5bp/mobile-boilerplate)
 * Homepage: [http://mobileboilerplate.com](http://mobileboilerplate.com)
-* Twitter: [@h5bp](http://twitter.com/h5bp)
 
 ## Description of All Required User Actions for initial launch
 * __COMMON ACTIONS - ALL USERS__
