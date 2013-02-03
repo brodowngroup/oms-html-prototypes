@@ -40,19 +40,15 @@
     <!-- BEGIN SETTINGS NAVIGATION-->
     <!------------------------------------
       NAV CLASS GUIDE :
-      a tags : 
-      current - currently selected page
-      later - link will work later
-      
-      nav tags :
-      user - show this for registered users
+      a class="current" - currently selected page
+      nav class="user" - show this for registered users only
     -------------------------------------->
     <div class="stp-nav">
       <nav>
         <h3>HTML Prototype Links</h3>
         <a href="index.html">Homepage - Registered</a>
         <a href="unreg.html">Homepage - Unregistered</a>
-        <a href="search_results.html" class="current">Search Results</a>
+        <a href="search_results.html">Search Results</a>
         <a href="detail.html">Details</a>
       </nav>
       <nav class="user">
@@ -63,20 +59,20 @@
       </nav>
       <nav>
         <h3>Links</h3>
-        <a href="about.html" >About Us</a>
-        <a href="terms.html" >Terms &amp; Conditions</a>
-        <a href="privacy.html" >Privacy Policies</a>
+        <a href="about.html">About Us</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policies</a>
       </nav>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
     <!-- BEGIN SIDETAP CONTAINER FOR ALL PAGES -->
-    <div class="stp-content" id="content">
+    <div class="stp-content">
       
       <div class="stp-overlay nav-toggle">&nbsp;</div>
 
       <!-- BEGIN SEARCH RESULTS CONTENT -->
-      <div class="stp-content-panel" id="search_results">
+      <div class="stp-content-panel">
         <header class="clearfix">
           <a class="control_left" href="#">
             <img src="images/icon-settings.png">
@@ -88,7 +84,7 @@
             <img src="images/icon-search.png">
           </a>
         </header>
-        <form class="header_search" action="/">
+        <form class="header_search" action="search_results.html">
           <input name="s" class="shadow-inset corner" type="text">
         </form>
         
@@ -104,149 +100,27 @@
             
             <h1>Search Results</h1>
             
-            <section>
-              <header>
-                <img src="images/icon-star.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Long Event Name For Some Crappy... I mean AWESOME Festival</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">Lincoln Square | Chicago, IL | 0.2m S</span>
-                </li>
-              </ul>
-            </section>
-              
-            <section>
-              <header>
-                <img src="images/icon-star-on.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Dangerous Clowns in Dangerous Places, the Musical</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">Harvey's Closet | Chicago, IL | 0.3m E</span>
-                </li>
-              </ul>
-            </section>
+            <!-- THE FOLLOWING 2 COMMENTS ARE REQUIRED BY KNOCKOUT -->
 
-            <section>
-              <header>
-                <img src="images/icon-star-on.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Dog / Cat thing presents : mushrooms</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">Bilko's | Chicago, IL | 0.5m E</span>
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <header>
-                <img src="images/icon-star.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Extreme Staring Contest</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">Tank Sushi | Chicago, IL | 0.5m N</span>
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <header>
-                <img src="images/icon-star.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Extreme Staring Contest</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">Tank Sushi | Chicago, IL | 0.5m N</span>
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <header>
-                <img src="images/icon-star.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Four Films in Six Seconds</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">The Alley | Chicago, IL | 0.9m S</span>
-                </li>
-              </ul>
-            </section>
-            
-            <section>
-              <header>
-                <img src="images/icon-star.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Long Event Name For Some Crappy... I mean AWESOME Festival</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">Lincoln Square | Chicago, IL | 0.2m S</span>
-                </li>
-              </ul>
-            </section>
-              
-            <section>
-              <header>
-                <img src="images/icon-star-on.png" class="control_right">
-                <a href="detail.html">
-                  <img class="header_icon" src="images/tmp_icon.png">
-                  <h2>Dangerous Clowns in Dangerous Places, the Musical</h2>
-                </a>
-              </header>
-              <ul>
-                <li>
-                  <span class="date">Dec 3, 2012 | 8pm</span>
-                </li>
-                <li>
-                  <span class="loc">Harvey's Closet | Chicago, IL | 0.3m E</span>
-                </li>
-              </ul>
-            </section>
+            <!-- ko foreach: results -->
+              <section>
+                <header>
+                  <img src="images/icon-star.png" class="control_right">
+                  <a href="detail.html">
+                    <img class="header_icon" src="images/tmp_icon.png">
+                    <h2 data-bind="text: name"></h2>
+                  </a>
+                </header>
+                <ul>
+                  <li>
+                    <span class="date">Dec 3, 2012 | 8pm
+                  </li>
+                  <li>
+                    <span class="loc">Lincoln Square | Chicago, IL | 0.2m S
+                  </li>
+                </ul>
+              </section>
+            <!-- /ko -->
 
             <button class="full_button">More Results...</button>
             
@@ -265,6 +139,8 @@
   <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="scripts/vendor/mbp.helper.js"></script>
   <script src="scripts/vendor/sidetap.min.js"></script>
+  <script src="scripts/vendor/knockout.min.js"></script>
+  <script src="scripts/searchResultsModel.js"></script>
   <script src="scripts/main.js"></script>
   <!-- Google Analytics? -->
 </body>

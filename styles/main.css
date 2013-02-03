@@ -139,6 +139,15 @@ div.page_frame{position:relative;top:-48px;}
 .stp-nav a{color:#7e858a;text-decoration:none;display:block;padding:2.5%;border-top:1px solid #2a2b2d;border-bottom:1px solid #000;font-size:0.875em;/* 14px/16px */}
 .stp-nav a.current {color: #fff;}
 
+.stp-nav a span {
+  display:block;
+  width: 15px;
+  height:15px;
+  background: url(../images/sp_menu_icons.png) no-repeat;
+  float:left;
+  margin: 3px 5px 0 0;
+}
+
 .stp-nav nav h3 {
   margin: 0;
   padding: 1.666666666% 2.5%;

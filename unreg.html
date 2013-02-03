@@ -40,18 +40,14 @@
     <!-- BEGIN SETTINGS NAVIGATION-->
     <!------------------------------------
       NAV CLASS GUIDE :
-      a tags : 
-      current - currently selected page
-      later - link will work later
-      
-      nav tags :
-      user - show this for registered users
+      a class="current" - currently selected page
+      nav class="user" - show this for registered users only
     -------------------------------------->
     <div class="stp-nav unreg">
       <nav>
         <h3>HTML Prototype Links</h3>
         <a href="index.html">Homepage - Registered</a>
-        <a href="unreg.html" class="current">Homepage - Unregistered</a>
+        <a href="unreg.html">Homepage - Unregistered</a>
         <a href="search_results.html">Search Results</a>
         <a href="detail.html">Details</a>
       </nav>
@@ -63,20 +59,20 @@
       </nav>
       <nav>
         <h3>Links</h3>
-        <a href="about.html" >About Us</a>
-        <a href="terms.html" >Terms &amp; Conditions</a>
-        <a href="privacy.html" >Privacy Policies</a>
+        <a href="about.html">About Us</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policies</a>
       </nav>
     </div>
     <!-- END SETTINGS NAVIGATION-->
 
     <!-- BEGIN SIDETAP CONTAINER FOR ALL PAGES -->
-    <div class="stp-content" id="content">
+    <div class="stp-content">
       
       <div class="stp-overlay nav-toggle">&nbsp;</div>
       
       <!-- BEGIN UNREGISTERED HOMEPAGE CONTENT -->
-      <div class="stp-content-panel" id="home_unreg">
+      <div class="stp-content-panel">
         <header class="clearfix">
           <a class="control_left" href="#">
             <img src="images/icon-settings.png">
@@ -88,7 +84,7 @@
             <img src="images/icon-search.png">
           </a>
         </header>
-        <form class="header_search" action="/">
+        <form class="header_search" action="search_results.html">
           <input name="s" class="shadow-inset corner" type="text">
         </form>
         
@@ -135,7 +131,7 @@
                       <em>&bull;</em>
                       <em>&bull;</em>
                       <em>&bull;</em>
-                    </span>
+                    
                     <a href='#' id='next' onclick='slider.next();return false;'><em>next</em></a>
                   </nav>
                 </div>
@@ -158,6 +154,7 @@
   <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="scripts/vendor/mbp.helper.js"></script>
   <script src="scripts/vendor/sidetap.min.js"></script>
+  <script src="scripts/vendor/knockout.min.js"></script>
   <script src="scripts/main.js"></script>
   
   <script src="scripts/vendor/swipe.min.js"></script>

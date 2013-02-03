@@ -4,6 +4,9 @@
 var st = new sidetap();
 $('header a.control_left').click(st.toggle_nav);
 
+// add icon spans for bg images
+$('<span/>').prependTo('div.stp-nav nav a');
+
 // oms used for On My Stage custom display functions
 var oms = oms || {};
 
@@ -43,7 +46,6 @@ oms.loadSearchResults = function(query) {
   $('div.fadeTarget').fadeOut('fast', function() {
     
     $(this).remove();
-    
       
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
       var page = [];
@@ -68,10 +70,10 @@ oms.loadSearchResults = function(query) {
 
         page.push('  <ul>');
         page.push('    <li>');
-        page.push('      <span class="date">'+val.Date+' | '+val.Time+'</span>');
+        page.push('      <span class="date">'+val.Date+' | '+val.Time+'');
         page.push('    </li>');
         page.push('    <li>');
-        page.push('      <span class="loc">'+val.Venue+' '+val.Neighborhood+' | '+val.City+', '+val.State+' | X.Xm S</span>');
+        page.push('      <span class="loc">'+val.Venue+' '+val.Neighborhood+' | '+val.City+', '+val.State+' | X.Xm S');
         page.push('    </li>');
         page.push('  </ul>');
 
