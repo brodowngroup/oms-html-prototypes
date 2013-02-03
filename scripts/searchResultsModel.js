@@ -29,3 +29,8 @@ function SearchResultsModel() {
 };
 
 ko.applyBindings(new SearchResultsModel());
+
+$('form.header_search').off('submit');
+$('form.header_search').on('submit', function(e) {
+  alert('control fired from results model');
+});
