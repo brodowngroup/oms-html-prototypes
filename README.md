@@ -105,7 +105,11 @@ The pages are built using mobile boilerplate as a starting point.
 
 1.30.2013
 
-* Applies new styles to simple API results 
+* Applies new styles to simple API results
+
+2.2.2013
+
+* knockout trial started on search_results.html
 
 ## Documentation
 
