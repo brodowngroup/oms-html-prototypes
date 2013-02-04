@@ -3,7 +3,7 @@
 <!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>On My Stage Knockout Demo</title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -101,7 +101,7 @@
             
             <!-- THE FOLLOWING 2 COMMENTS ARE REQUIRED BY KNOCKOUT -->
 
-            <!-- ko foreach: results -->
+            <div class="results_frame hidden" data-bind="foreach: results">
               <section>
                 <header>
                   <img src="images/icon-star.png" class="control_right">
@@ -125,7 +125,7 @@
                   </li>
                 </ul>
               </section>
-            <!-- /ko -->
+            </div>
 
             <button class="full_button">More Results...</button>
             

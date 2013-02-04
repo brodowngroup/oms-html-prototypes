@@ -14,11 +14,19 @@ function Result(data) {
   this.longitude = data.Longitude;
 }
 
-// Main Viewmodel for the results page
-function SearchResultsModel() {
-  // Data
+// Main Viewmodel for OMS
+function OMSAppModel() {
   var self = this;
-  self.results = ko.observableArray([]);
+  
+  // HTML pageloader
+  self.page = ko.observable();
+  
+  self.loadPage = function() {
+    //$.get
+  };
+
+  // Search Result
+  self.results = ko.observableArray([]); //starts empty
   
   self.newSearch = function() {
     var query = $('form.header_search').find('input').val();
@@ -27,14 +35,16 @@ function SearchResultsModel() {
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
         var mappedResults = $.map(data, function(item) { return new Result(item) });
         self.results(mappedResults);
+        $('div.results_frame').removeClass('hidden');
     }, 'json');
   };
 };
 
-ko.applyBindings(new SearchResultsModel());
+ko.applyBindings(new OMSAppModel());
 
 // REST OF FILE HERE BELOW FOR DEVELOPMENT
 // SHOULD EVENTUALLY REPLACE CONTENTS OF MAN.JS
+// AFTER SEARCH RESULTS AND PAGEVIEWS ARE FUNCTIONAL
 
 // ---------------
 // SIDETAP SETUP
