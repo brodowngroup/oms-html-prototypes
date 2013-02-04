@@ -19,8 +19,19 @@ function SearchResultsModel() {
   // Data
   var self = this;
   self.results = ko.observableArray([]);
+  
+  self.newSearch = function() {
+    var query = $('form.header_search').find('input').val();
 
+    // Get json from api call
+    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+        var mappedResults = $.map(data, function(item) { return new Result(item) });
+        self.results(mappedResults);
+    }, 'json');
+  };
 };
+
+ko.applyBindings(new SearchResultsModel());
 
 // REST OF FILE HERE BELOW FOR DEVELOPMENT
 // SHOULD EVENTUALLY REPLACE CONTENTS OF MAN.JS
@@ -60,17 +71,3 @@ oms.toggleSearch = function() {
 };
 
 $('header a.toggleSearch').click(oms.toggleSearch);
-
-$('form.header_search').on('submit', function(e) {
-  e.preventDefault();
-  var query = $(this).find('input').val(),
-      queryReturn;
-
-  // Get json from api call
-  $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
-      var mappedResults = $.map(data, function(item) { return new Result(item) });
-      queryReturn = new SearchResultsModel();
-      queryReturn.results(mappedResults);
-      ko.applyBindings(queryReturn);
-  }, 'json');
-});
