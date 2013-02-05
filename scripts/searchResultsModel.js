@@ -1,21 +1,12 @@
-// Class that defines an individual
-// event returned from the api
-function Result(data) {  
-  this.id = data.ID;
-  this.name = data.Name;
-  this.image = data.Image;
-  this.date = data.Date;
-  this.time = data.Time;
-  this.venue = data.Venue;
-  this.neighborhood = data.Neighborhood;
-  this.city = data.City;
-  this.state = data.State;
-  this.latitude = data.Latitude;
-  this.longitude = data.Longitude;
-}
+// oms used for On My Stage custom display functions
+var oms = oms || {};
+
+// ---------------
+// Knockout Setup
+// ---------------
 
 // Main Viewmodel for OMS
-function OMSAppModel() {
+oms.App = function OMSAppModel() {
   var self = this;
   
   // HTML pageloader
@@ -33,37 +24,51 @@ function OMSAppModel() {
 
     // Get json from api call
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
-        var mappedResults = $.map(data, function(item) { return new Result(item) });
+        var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
         self.results(mappedResults);
         
         // Clear the current page
+        self.page(null);
         
         $('div.results_frame').removeClass('hidden');
     }, 'json');
   };
 };
 
-ko.applyBindings(new OMSAppModel());
+// Class that defines a single
+// event returned from the api
+oms.Result = function Result(data) {  
+  this.id = data.ID;
+  this.name = data.Name;
+  this.image = data.Image;
+  this.date = data.Date;
+  this.time = data.Time;
+  this.venue = data.Venue;
+  this.neighborhood = data.Neighborhood;
+  this.city = data.City;
+  this.state = data.State;
+  this.latitude = data.Latitude;
+  this.longitude = data.Longitude;
+}
 
-// REST OF FILE HERE BELOW FOR DEVELOPMENT
-// SHOULD EVENTUALLY REPLACE CONTENTS OF MAN.JS
-// AFTER SEARCH RESULTS AND PAGEVIEWS ARE FUNCTIONAL
+// var newPage = myViewModel.personName.subscribe(function(newValue) {
+//   alert("The person's new name is " + newValue);
+// });
 
-// ---------------
-// SIDETAP SETUP
-// ---------------
-var st = new sidetap();
-$('header a.control_left').click(st.toggle_nav);
+ko.applyBindings(new oms.App());
+
+// -------------------
+// SIDETAP MENU SETUP
+// -------------------
+oms.st = new sidetap();
+$('header a.control_left').click(oms.st.toggle_nav);
 
 // add icon spans for bg images
 $('<span/>').prependTo('div.stp-nav nav a');
 
-// oms used for On My Stage custom display functions
-var oms = oms || {};
-
 // --------------------------------
 // HEADER SEARCH TOGGLE VISIBILITY
-// -------------------------------
+// --------------------------------
 oms.toggleSearch = function() {
   var $form = $('form.header_search'),
       $content = $('div.stp-content-frame');
