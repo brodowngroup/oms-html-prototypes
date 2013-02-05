@@ -14,23 +14,70 @@ function Result(data) {
   this.longitude = data.Longitude;
 }
 
-// Main Viewmodel for the results page
-function SearchResultsModel() {
-  // Data
+// Main Viewmodel for OMS
+function OMSAppModel() {
   var self = this;
-  self.results = ko.observableArray([]);
-
-  // Get json from api call
-  $.post("http://api.onmystage.net/api/search/", { term: 'mad bread' }, function(data) {
-      var mappedResults = $.map(data, function(item) { return new Result(item) });
-      self.results(mappedResults);
-  }, 'json');
   
+  // HTML pageloader
+  self.page = ko.observable();
+  
+  self.loadPage = function() {
+    //$.get
+  };
+
+  // Search Result
+  self.results = ko.observableArray([]); //starts empty
+  
+  self.newSearch = function() {
+    var query = $('form.header_search').find('input').val();
+
+    // Get json from api call
+    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+        var mappedResults = $.map(data, function(item) { return new Result(item) });
+        self.results(mappedResults);
+        $('div.results_frame').removeClass('hidden');
+    }, 'json');
+  };
 };
 
-ko.applyBindings(new SearchResultsModel());
+ko.applyBindings(new OMSAppModel());
 
-$('form.header_search').off('submit');
-$('form.header_search').on('submit', function(e) {
-  alert('control fired from results model');
-});
+// REST OF FILE HERE BELOW FOR DEVELOPMENT
+// SHOULD EVENTUALLY REPLACE CONTENTS OF MAN.JS
+// AFTER SEARCH RESULTS AND PAGEVIEWS ARE FUNCTIONAL
+
+// ---------------
+// SIDETAP SETUP
+// ---------------
+var st = new sidetap();
+$('header a.control_left').click(st.toggle_nav);
+
+// add icon spans for bg images
+$('<span/>').prependTo('div.stp-nav nav a');
+
+// oms used for On My Stage custom display functions
+var oms = oms || {};
+
+// --------------------------------
+// HEADER SEARCH TOGGLE VISIBILITY
+// -------------------------------
+oms.toggleSearch = function() {
+  var $form = $('form.header_search'),
+      $content = $('div.stp-content-frame');
+      height = -($form.innerHeight()),
+
+      showSearch = function() {
+        $form.animate({'top': 0}, 100).addClass('active').find('input[type=text]').focus();
+        $content.animate({'top': 0}, 100);
+      },
+      
+      hideSearch = function() {
+        $form.animate({'top': height}, 100).removeClass('active');
+        $content.animate({'top': height}, 100);
+      };
+  
+  $form.hasClass('active') ? hideSearch() : showSearch();
+
+};
+
+$('header a.toggleSearch').click(oms.toggleSearch);

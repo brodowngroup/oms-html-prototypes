@@ -3,7 +3,7 @@
 <!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>On My Stage Knockout Demo</title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -83,7 +83,7 @@
             <img src="images/icon-search.png">
           </a>
         </header>
-        <form class="header_search" action="search_results.html">
+        <form class="header_search"  data-bind="submit: newSearch">
           <input name="s" class="shadow-inset corner" type="text">
         </form>
         
@@ -101,7 +101,7 @@
             
             <!-- THE FOLLOWING 2 COMMENTS ARE REQUIRED BY KNOCKOUT -->
 
-            <!-- ko foreach: results -->
+            <div class="results_frame hidden" data-bind="foreach: results">
               <section>
                 <header>
                   <img src="images/icon-star.png" class="control_right">
@@ -112,14 +112,20 @@
                 </header>
                 <ul>
                   <li>
-                    <span class="date">Dec 3, 2012 | 8pm
+                    <span class="date"><span data-bind="text: date"></span>
+                    <span data-bind="">|</span>
+                    <span data-bind="text: time"></span>
                   </li>
                   <li>
-                    <span class="loc">Lincoln Square | Chicago, IL | 0.2m S
+                    <span class="loc">
+                      <span data-bind="text: venue">
+                      <span data-bind="text: neighborhood">
+                      |
+                      <span data-bind="text: city"></span>, <span data-bind="text: state"></span>
                   </li>
                 </ul>
               </section>
-            <!-- /ko -->
+            </div>
 
             <button class="full_button">More Results...</button>
             
@@ -140,7 +146,6 @@
   <script src="scripts/vendor/sidetap.min.js"></script>
   <script src="scripts/vendor/knockout.min.js"></script>
   <script src="scripts/searchResultsModel.js"></script>
-  <script src="scripts/main.js"></script>
   <!-- Google Analytics? -->
 </body>
 </html>

@@ -62,7 +62,7 @@ oms.loadSearchResults = function(query) {
       $.each(data, function(key, val) {
         page.push('<section data-property="'+key+'">');  // + val.Name;
         page.push('  <header>');
-        page.push('    <a href="detail.html?id='+val.ID+'.html">');
+        page.push('    <a href="detail.html?id='+val.ID+'"');
         page.push('      <img data-image="'+val.Image+'" class="header_icon" src="images/tmp_icon.png">');
         page.push('      <h2>'+val.Name+'</h2>');
         page.push('    </a>');
