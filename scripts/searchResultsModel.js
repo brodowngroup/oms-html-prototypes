@@ -53,6 +53,10 @@ oms.AppObject = function OMSAppModel() {
         
         // Clear the current page
         self.page();
+        
+        // set subheader classes
+        $('div.subheader').addClass('three_items buttons').removeClass('two_items')
+        
     }, 'json');
   };
 };
