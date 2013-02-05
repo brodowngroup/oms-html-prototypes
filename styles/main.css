@@ -29,6 +29,12 @@ textarea{resize:vertical;}
 .date{padding:0 0 0 20px;background:url(../images/icon-cal.png) no-repeat;}
 .loc{padding:0 0 0 20px;background:url(../images/icon-loc.png) 2px 0 no-repeat;}
 
+/*---------------------------------------------
+Due to a delay in knockout bindings, I use
+the ko_flicker_fix class to hide elements 
+hidden by knockout bindings during pageload.
+---------------------------------------------*/
+.ko_flicker_fix {display: none}
 /* TEXT
 -------*/
 h1,h2,h3,h4,h5,h6{margin:0 0 0.5em;}
@@ -232,12 +238,6 @@ level SEO priority
   margin: -11px 0;
   z-index: 1;
 }
-
-/* SEARCH RESULTS
------------------*/
-
-/* DETAIL PAGE
-----------------*/
 
 /* UNREG HOMEPAGE
 -------------------*/

@@ -31,14 +31,17 @@ oms.AppObject = function OMSAppModel() {
   // HTML pageloader
   self.page = ko.observable();
   
+  // Search Results Array
+  self.results = ko.observableArray([]);
+  
   self.loadPage = function() {
     $.get("snippets/privacy.html", function(snippet) {
+      // Clear the current results
+      self.results();
+      
       self.page(snippet);
     }, 'html');
   };
-  
-  // Search Result
-  self.results = ko.observableArray([]); //starts empty
   
   self.newSearch = function() {
     var query = $('form.header_search').find('input').val();
@@ -50,8 +53,6 @@ oms.AppObject = function OMSAppModel() {
         
         // Clear the current page
         self.page();
-        
-        $('div.results_frame').removeClass('hidden');
     }, 'json');
   };
 };
@@ -60,9 +61,17 @@ oms.app = new oms.AppObject();
 
 oms.newPage = oms.app.page.subscribe(function(newPage) {
   console.log("Received New Page : " + newPage);
+  
  });
 
+// Initialize knockout bindings
 ko.applyBindings(oms.app);
+
+// Remove hidden class on pageload hidden Items
+$('div.ko_flicker_fix').add('h2.ko_flicker_fix')
+                       .add('button.ko_flicker_fix')
+                       .removeClass('ko_flicker_fix');
+
 
 // -------------------
 // SIDETAP MENU SETUP
