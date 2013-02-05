@@ -1,12 +1,31 @@
 // oms used for On My Stage custom display functions
 var oms = oms || {};
 
+// -----------------
+// Knockout Classes
+// -----------------
+
+// a single event returned from the api
+oms.Result = function Result(data) {  
+  this.id = data.ID;
+  this.name = data.Name;
+  this.image = data.Image;
+  this.date = data.Date;
+  this.time = data.Time;
+  this.venue = data.Venue;
+  this.neighborhood = data.Neighborhood;
+  this.city = data.City;
+  this.state = data.State;
+  this.latitude = data.Latitude;
+  this.longitude = data.Longitude;
+}
+
 // ---------------
 // Knockout Setup
 // ---------------
 
 // Main Viewmodel for OMS
-oms.App = function OMSAppModel() {
+oms.AppObject = function OMSAppModel() {
   var self = this;
   
   // HTML pageloader
@@ -28,34 +47,20 @@ oms.App = function OMSAppModel() {
         self.results(mappedResults);
         
         // Clear the current page
-        self.page(null);
+        self.page();
         
         $('div.results_frame').removeClass('hidden');
     }, 'json');
   };
 };
 
-// Class that defines a single
-// event returned from the api
-oms.Result = function Result(data) {  
-  this.id = data.ID;
-  this.name = data.Name;
-  this.image = data.Image;
-  this.date = data.Date;
-  this.time = data.Time;
-  this.venue = data.Venue;
-  this.neighborhood = data.Neighborhood;
-  this.city = data.City;
-  this.state = data.State;
-  this.latitude = data.Latitude;
-  this.longitude = data.Longitude;
-}
+oms.app = new oms.AppObject();
 
-// var newPage = myViewModel.personName.subscribe(function(newValue) {
-//   alert("The person's new name is " + newValue);
-// });
+oms.newPage = oms.app.page.subscribe(function(newPage) {
+  console.log("Received New Page : " + newPage);
+ });
 
-ko.applyBindings(new oms.App());
+ko.applyBindings(oms.app);
 
 // -------------------
 // SIDETAP MENU SETUP
