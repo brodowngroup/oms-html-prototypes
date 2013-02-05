@@ -32,9 +32,11 @@ oms.AppObject = function OMSAppModel() {
   self.page = ko.observable();
   
   self.loadPage = function() {
-    //$.get
+    $.get("snippets/privacy.html", function(snippet) {
+      self.page(snippet);
+    }, 'html');
   };
-
+  
   // Search Result
   self.results = ko.observableArray([]); //starts empty
   
@@ -93,4 +95,8 @@ oms.toggleSearch = function() {
 
 };
 
+// ---------------
+// Bind UI Events
+// ---------------
 $('header a.toggleSearch').click(oms.toggleSearch);
+$('div.subheader a').click(oms.app.loadPage);
