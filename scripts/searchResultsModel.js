@@ -35,6 +35,10 @@ function OMSAppModel() {
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
         var mappedResults = $.map(data, function(item) { return new Result(item) });
         self.results(mappedResults);
+        
+        // Clear the current page
+        self.page().length = 0;
+        
         $('div.results_frame').removeClass('hidden');
     }, 'json');
   };
