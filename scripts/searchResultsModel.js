@@ -37,7 +37,7 @@ oms.AppObject = function OMSAppModel() {
   self.loadPage = function() {
     $.get("snippets/privacy.html", function(snippet) {
       // Clear the current results
-      self.results();
+      self.results(null);
       
       self.page(snippet);
     }, 'html');
@@ -60,9 +60,8 @@ oms.AppObject = function OMSAppModel() {
 oms.app = new oms.AppObject();
 
 oms.newPage = oms.app.page.subscribe(function(newPage) {
-  console.log("Received New Page : " + newPage);
   
- });
+});
 
 // Initialize knockout bindings
 ko.applyBindings(oms.app);
