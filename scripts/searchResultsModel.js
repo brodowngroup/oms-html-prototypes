@@ -37,7 +37,7 @@ oms.AppObject = function OMSAppModel() {
   self.loadPage = function() {
     $.get("snippets/privacy.html", function(snippet) {
       // Clear the current results
-      self.results(null);
+      self.results([]);
       
       self.page(snippet);
     }, 'html');
