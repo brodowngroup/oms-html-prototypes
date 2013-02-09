@@ -41,6 +41,7 @@ oms.AppObject = function OMSAppModel() {
       self.results([]);
       
       self.page(snippet);
+      oms.st.toggle_nav();
     }, 'html');
   };
   
@@ -113,10 +114,9 @@ oms.toggleSearch = function() {
 // ---------------
 $('header a.toggleSearch').click(oms.toggleSearch);
 $('div.subheader a').click(oms.app.loadPage);
-$('div.stp-nav > nav > a').click(function(e) {
+$('div.stp-nav > nav > a.loadPage').click(function(e) {
   e.preventDefault();
   e.stopPropagation();
   var url = $(this).data('snippet');
   oms.app.loadPage(url);
-  oms.st.toggle_nav();
 });
