@@ -118,7 +118,7 @@ $('div.subheader a').click(oms.app.loadPage);
 $('div.stp-nav > nav > a').click(function(e) {
   e.preventDefault();
   e.stopPropagation();
-  var url = $(this).prop('data-snippet');
+  var url = $(this).data('snippet');
   console.log('found url : ' + url);
   oms.app.loadPage(url);
   oms.st.toggle_nav();
