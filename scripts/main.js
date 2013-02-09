@@ -36,7 +36,7 @@ oms.AppObject = function OMSAppModel() {
   self.page = ko.observable();
 
   // HTML pageloader
-  self.event = ko.observable();
+  self.event = ko.observableArray([]);
   
   // Search Results Array
   self.results = ko.observableArray([]);
