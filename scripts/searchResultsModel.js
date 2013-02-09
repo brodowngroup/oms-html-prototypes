@@ -35,7 +35,9 @@ oms.AppObject = function OMSAppModel() {
   self.results = ko.observableArray([]);
   
   self.loadPage = function(url) {
+    console.log('url before snippet : ' + url);
     url = 'snippets/' + url;
+    console.log('url after snippet : ' + url);
     $.get(url, function(snippet) {
       // Clear the current results
       self.results([]);
@@ -117,6 +119,7 @@ $('div.stp-nav > nav > a').click(function(e) {
   e.preventDefault();
   e.stopPropagation();
   var url = $(this).prop('data-snippet');
+  console.log('found url : ' + url);
   oms.app.loadPage(url);
   oms.st.toggle_nav();
 });
