@@ -34,8 +34,9 @@ oms.AppObject = function OMSAppModel() {
   // Search Results Array
   self.results = ko.observableArray([]);
   
-  self.loadPage = function() {
-    $.get("snippets/privacy.html", function(snippet) {
+  self.loadPage = function(url) {
+    url = 'snippets/' + url;
+    $.get(url, function(snippet) {
       // Clear the current results
       self.results([]);
       
@@ -112,3 +113,10 @@ oms.toggleSearch = function() {
 // ---------------
 $('header a.toggleSearch').click(oms.toggleSearch);
 $('div.subheader a').click(oms.app.loadPage);
+$('div.stp-nav > nav > a').click(function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  var url = $(this).prop('href');
+  oms.app.loadPage(url);
+  oms.st.toggle_nav();
+});
