@@ -18,6 +18,10 @@ oms.Result = function Result(data) {
   this.state = data.State;
   this.latitude = data.Latitude;
   this.longitude = data.Longitude;
+  
+  this.url = ko.computed(function() {
+    return '/event/' + this.id;
+  });
 }
 
 // ---------------
