@@ -72,6 +72,9 @@ oms.newPage = oms.app.page.subscribe(function(newPage) {
 // Initialize knockout bindings
 ko.applyBindings(oms.app);
 
+// Load Index page
+oms.app.loadPage('home_unreg.html');
+
 // Remove hidden class on pageload hidden Items
 $('div.ko_flicker_fix').add('h2.ko_flicker_fix')
                        .add('button.ko_flicker_fix')
