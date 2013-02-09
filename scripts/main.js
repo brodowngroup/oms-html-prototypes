@@ -20,7 +20,7 @@ oms.Result = function Result(data) {
   this.longitude = data.Longitude;
   
   this.url = ko.computed(function() {
-    return '/event/' + this.id;
+    return '/event/' + data.ID;
   });
 }
 
