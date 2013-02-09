@@ -1,18 +1,94 @@
+// oms used for On My Stage custom display functions
+var oms = oms || {};
+
+// -----------------
+// Knockout Classes
+// -----------------
+
+// a single event returned from the api
+oms.Result = function Result(data) {  
+  this.id = data.ID;
+  this.name = data.Name;
+  this.image = data.Image;
+  this.date = data.Date;
+  this.time = data.Time;
+  this.venue = data.Venue;
+  this.neighborhood = data.Neighborhood;
+  this.city = data.City;
+  this.state = data.State;
+  this.latitude = data.Latitude;
+  this.longitude = data.Longitude;
+}
+
 // ---------------
-// SIDETAP SETUP
+// Knockout Setup
 // ---------------
-var st = new sidetap();
-$('header a.control_left').click(st.toggle_nav);
+
+// Main Viewmodel for OMS
+oms.AppObject = function OMSAppModel() {
+  var self = this;
+  
+  // HTML pageloader
+  self.page = ko.observable();
+  
+  // Search Results Array
+  self.results = ko.observableArray([]);
+  
+  self.loadPage = function(url) {
+    url = 'snippets/' + url;
+    $.get(url, function(snippet) {
+      // Clear the current results
+      self.results([]);
+      
+      self.page(snippet);
+    }, 'html');
+  };
+  
+  self.newSearch = function() {
+    var query = $('form.header_search').find('input').val();
+
+    // Get json from api call
+    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+        var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
+        self.results(mappedResults);
+        
+        // Clear the current page
+        self.page();
+        
+        // set subheader classes
+        $('div.subheader').addClass('three_items buttons').removeClass('two_items')
+        
+    }, 'json');
+  };
+};
+
+oms.app = new oms.AppObject();
+
+oms.newPage = oms.app.page.subscribe(function(newPage) {
+  
+});
+
+// Initialize knockout bindings
+ko.applyBindings(oms.app);
+
+// Remove hidden class on pageload hidden Items
+$('div.ko_flicker_fix').add('h2.ko_flicker_fix')
+                       .add('button.ko_flicker_fix')
+                       .removeClass('ko_flicker_fix');
+
+
+// -------------------
+// SIDETAP MENU SETUP
+// -------------------
+oms.st = new sidetap();
+$('header a.control_left').click(oms.st.toggle_nav);
 
 // add icon spans for bg images
 $('<span/>').prependTo('div.stp-nav nav a');
 
-// oms used for On My Stage custom display functions
-var oms = oms || {};
-
 // --------------------------------
 // HEADER SEARCH TOGGLE VISIBILITY
-// -------------------------------
+// --------------------------------
 oms.toggleSearch = function() {
   var $form = $('form.header_search'),
       $content = $('div.stp-content-frame');
@@ -32,76 +108,15 @@ oms.toggleSearch = function() {
 
 };
 
+// ---------------
+// Bind UI Events
+// ---------------
 $('header a.toggleSearch').click(oms.toggleSearch);
-
-// ---------------
-// SEARCH QUERY
-// ---------------
-oms.loadSearchResults = function(query) {
-  
-  console.log('enter loadSearchResults');
-  
-  $('div.stp-content-body > *').wrapAll('<div class="fadeTarget" />');
-  
-  $('div.fadeTarget').fadeOut('fast', function() {
-    
-    $(this).remove();
-      
-    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
-      var page = [];
-      
-      page.push('<div class="subheader three_items shadow buttons">');
-      page.push('  <a href="#" class="active">Distance</a>');
-      page.push('  <a href="#">Venue</a>');
-      page.push('  <a href="#">Location</a>');
-      page.push('  <br class="clear">');
-      page.push('</div>');
-      
-      page.push('<h1>Search Results</h1>');
-  
-      $.each(data, function(key, val) {
-        page.push('<section data-property="'+key+'">');  // + val.Name;
-        page.push('  <header>');
-        page.push('    <a href="detail.html?id='+val.ID+'"');
-        page.push('      <img data-image="'+val.Image+'" class="header_icon" src="images/tmp_icon.png">');
-        page.push('      <h2>'+val.Name+'</h2>');
-        page.push('    </a>');
-        page.push('  </header>');
-
-        page.push('  <ul>');
-        page.push('    <li>');
-        page.push('      <span class="date">'+val.Date+' | '+val.Time+'');
-        page.push('    </li>');
-        page.push('    <li>');
-        page.push('      <span class="loc">'+val.Venue+' '+val.Neighborhood+' | '+val.City+', '+val.State+' | X.Xm S');
-        page.push('    </li>');
-        page.push('  </ul>');
-
-        page.push('</section>');
-      });
-
-      // Wrapping contents in one temporary
-      // div to avoid multiple DOM additions
-      $('<div/>', {
-        html: page.join('')
-      }).appendTo('.stp-content-body');
-      
-      // Remove temorary wrapping div
-      $('.stp-content-body > div > *').unwrap('div');
-    });
-  
-  });
-};
-
-$('form.header_search').on('submit', function(e) {
+$('div.subheader a').click(oms.app.loadPage);
+$('div.stp-nav > nav > a').click(function(e) {
   e.preventDefault();
-  var query = $(this).find('input').val();
-        
-  oms.loadSearchResults(query);
-  
+  e.stopPropagation();
+  var url = $(this).data('snippet');
+  oms.app.loadPage(url);
+  oms.st.toggle_nav();
 });
-
-// ---------------
-// MAP
-// ---------------
-

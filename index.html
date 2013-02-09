@@ -3,7 +3,7 @@
 <!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>On My Stage Knockout Demo</title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -21,8 +21,6 @@
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/apple-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#222222">
-
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
 
     <link rel="stylesheet" href="styles/normalize.css">
     
@@ -42,30 +40,26 @@
     <!-- BEGIN SETTINGS NAVIGATION-->
     <!------------------------------------
       NAV CLASS GUIDE :
-      a tags : 
-      current - currently selected page
-      
-      nav tags :
-      user - show this for registered users
+      a class="current" - currently selected page
+      nav class="user" - show this for registered users only
     -------------------------------------->
     <div class="stp-nav">
       <nav>
         <h3>HTML Prototype Links</h3>
-        <a href="index.html">Homepage - Registered</a>
-        <a href="unreg.html">Homepage - Unregistered</a>
-        <a href="search_results.html">Results - knockout demo</a>
+        <a data-snippet="home_reg.html">Homepage - Registered</a>
+        <a data-snippet="home_unreg.html">Homepage - Unregistered</a>
       </nav>
       <nav class="user">
         <h3>My Account</h3>
-        <a href="settings.html">My Settings</a>
-        <a href="favorites.html">My Favorites</a>
+        <a data-snippet="settings.html">My Settings</a>
+        <a data-snippet="favorites.html">My Favorites</a>
         <a href="#">Log Out</a>
       </nav>
       <nav>
         <h3>Links</h3>
-        <a href="about.html">About Us</a>
-        <a href="terms.html">Terms &amp; Conditions</a>
-        <a href="privacy.html">Privacy Policies</a>
+        <a data-snippet="about.html">About Us</a>
+        <a data-snippet="terms.html">Terms &amp; Conditions</a>
+        <a data-snippet="privacy.html">Privacy Policies</a>
       </nav>
     </div>
     <!-- END SETTINGS NAVIGATION-->
@@ -75,7 +69,7 @@
       
       <div class="stp-overlay nav-toggle">&nbsp;</div>
 
-      <!-- BEGIN REGISTERED HOMEPAGE CONTENT -->
+      <!-- BEGIN SEARCH RESULTS CONTENT -->
       <div class="stp-content-panel">
         <header class="clearfix">
           <a class="control_left" href="#">
@@ -89,34 +83,62 @@
           </a>
         </header>
         
-        <form class="header_search" action="search_results.html">
-          <input name="s" class="shadow-inset" value="search" type="text">
+        <form class="header_search" data-bind="submit: newSearch">
+          <input name="s" class="shadow-inset corner" type="text">
         </form>
         
         <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
+                        
+            <div class="subheader shadow">
+              <div class="ko_flicker_fix" data-bind="visible: results().length > 0">
+                  <a href="#" class="active">Distance</a>
+                  <a href="#">Venue</a>
+                  <a href="#">Location</a>              
+                  <br class="clear">              
+              </div>
+            </div>
             
-            <div class="subheader"></div>
+            <div class="snippet_frame" data-bind="html: page"></div>
             
-            <section>
-              <header>
-                <img class="header_icon" src="images/tmp_icon.png">
-                <h1>You are registered into On My Stage</h1>
-              </header>
-              <article>
-                <p>Suspendisse bibendum faucibus malesuada. In posuere fringilla diam, a imperdiet metus fringilla ac. Proin at consectetur nisi. Aenean a neque vitae risus cursus placerat placerat eu eros. Pellentesque tincidunt, est vitae tempus blandit, justo purus vestibulum quam, a elementum metus magna nec velit.</p>
-              
-                <p>Aliquam erat volutpat. Nunc ac dolor ut metus rutrum dignissim quis nec enim. Donec magna libero, adipiscing in ultricies in, lacinia sit amet leo. Donec porttitor gravida purus ut lacinia. Quisque sodales eros iaculis odio porta et lobortis erat eleifend.</p>
+            <div class="results_area ko_flicker_fix" data-bind="visible: results().length > 0">
+            
+              <h2>Search Results</h2>
+            
+              <div data-bind="foreach: results">
+                <section>
+                  <header>
+                    <img src="images/icon-star.png" class="control_right">
+                    <a href="detail.html">
+                      <img class="header_icon" src="images/tmp_icon.png">
+                      <h2 data-bind="text: name"></h2>
+                    </a>
+                  </header>
+                  <ul>
+                    <li>
+                      <span class="date"><span data-bind="text: date"></span>
+                      <span data-bind="">|</span>
+                      <span data-bind="text: time"></span>
+                    </li>
+                    <li>
+                      <span class="loc">
+                        <span data-bind="text: venue"></span>
+                        <span data-bind="text: neighborhood"></span>
+                        |
+                        <span data-bind="text: city"></span>, <span data-bind="text: state"></span>
+                    </li>
+                  </ul>
+                </section>
+              </div>
 
-                <p>sed faucibus neque urna a ligula. Nulla euismod erat nec lacus adipiscing a condimentum turpis sagittis.</p>
-              </article>
-            </section>
-          
+              <button class="full_button">More Results...</button>
+            </div> <!-- /results_area -->
+            
           </div>
         </div>
 
       </div>
-      <!-- END REGISTERED HOMEPAGE CONTENT -->
+      <!-- END SEARCH RESULTS CONTENT -->
       
     </div>
     <!-- END STP-CONTENT -->
@@ -127,6 +149,7 @@
   <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="scripts/vendor/mbp.helper.js"></script>
   <script src="scripts/vendor/sidetap.min.js"></script>
+  <script src="scripts/vendor/knockout.min.js"></script>
   <script src="scripts/main.js"></script>
   <!-- Google Analytics? -->
 </body>
