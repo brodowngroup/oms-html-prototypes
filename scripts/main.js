@@ -113,7 +113,6 @@ oms.toggleSearch = function() {
 // Bind UI Events
 // ---------------
 $('header a.toggleSearch').click(oms.toggleSearch);
-$('div.subheader a').click(oms.app.loadPage);
 $('div.stp-nav > nav > a.loadPage').click(function(e) {
   e.preventDefault();
   e.stopPropagation();
