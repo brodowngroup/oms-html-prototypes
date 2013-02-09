@@ -12,24 +12,24 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/touch/apple-touch-icon-144x144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/touch/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/touch/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/touch/apple-touch-icon-57x57-precomposed.png">
-    <link rel="shortcut icon" href="images/touch/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" data-snipppet="images/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" data-snipppet="images/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" data-snipppet="images/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" data-snipppet="images/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" data-snipppet="images/touch/apple-touch-icon.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/apple-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#222222">
 
-    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" data-snipppet="styles/normalize.css">
     
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="styles/vendor/boilerplateHelpers.css">
-    <link rel="stylesheet" href="styles/vendor/sidetap.css">
+    <link rel="stylesheet" data-snipppet="styles/vendor/boilerplateHelpers.css">
+    <link rel="stylesheet" data-snipppet="styles/vendor/sidetap.css">
 
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" data-snipppet="styles/main.css">
+    <link rel="stylesheet" data-snipppet="styles/responsive.css">
 
     <script src="scripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -46,21 +46,21 @@
     <div class="stp-nav">
       <nav>
         <h3>HTML Prototype Links</h3>
-        <a href="index.html">Homepage - Registered</a>
-        <a href="unreg.html">Homepage - Unregistered</a>
-        <a href="search_results.html">Results - knockout demo</a>
+        <a data-snipppet="index.html" href="#">Homepage - Registered</a>
+        <a data-snipppet="unreg.html" href="#">Homepage - Unregistered</a>
+        <a data-snipppet="search_results.html" href="#">Results - knockout demo</a>
       </nav>
       <nav class="user">
         <h3>My Account</h3>
-        <a href="settings.html">My Settings</a>
-        <a href="favorites.html">My Favorites</a>
-        <a href="#">Log Out</a>
+        <a data-snipppet="settings.html" href="#">My Settings</a>
+        <a data-snipppet="favorites.html" href="#">My Favorites</a>
+        <a data-snipppet="logout.html" href="#">Log Out</a>
       </nav>
       <nav>
         <h3>Links</h3>
-        <a href="about.html">About Us</a>
-        <a href="terms.html">Terms &amp; Conditions</a>
-        <a href="privacy.html">Privacy Policies</a>
+        <a data-snipppet="about.html" href="#">About Us</a>
+        <a data-snipppet="terms.html" href="#">Terms &amp; Conditions</a>
+        <a data-snipppet="privacy.html" href="#">Privacy Policies</a>
       </nav>
     </div>
     <!-- END SETTINGS NAVIGATION-->
@@ -110,7 +110,7 @@
                 <section>
                   <header>
                     <img src="images/icon-star.png" class="control_right">
-                    <a href="detail.html">
+                    <a data-snipppet="detail.html">
                       <img class="header_icon" src="images/tmp_icon.png">
                       <h2 data-bind="text: name"></h2>
                     </a>
