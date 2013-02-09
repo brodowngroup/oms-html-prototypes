@@ -111,6 +111,12 @@ The pages are built using mobile boilerplate as a starting point.
 
 * knockout trial started on search_results.html
 
+2.9.2013
+
+* Moved all search_results.html funcitonality to index.html
+* Conversion of site to initial SPA (single page application)
+* Added CSS for nav sprite
+
 ## Documentation
 
 Take a look at the [documentation table of contents](doc/README.md).

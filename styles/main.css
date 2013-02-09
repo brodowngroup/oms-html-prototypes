@@ -154,6 +154,23 @@ div.page_frame{position:relative;top:-48px;}
   margin: 3px 5px 0 0;
 }
 
+.stp-nav a.settings span {
+  background-position: 0 -15px;
+}
+
+.stp-nav a.favorites span {
+  background-position: 0 -30px;
+}
+.stp-nav a.about span {
+  background-position: 0 -45px;
+}
+.stp-nav a.terms span {
+  background-position: 0 -60px;
+}
+.stp-nav a.privacy span {
+  background-position: 0 -75px;
+}
+
 .stp-nav nav h3 {
   margin: 0;
   padding: 1.666666666% 2.5%;
