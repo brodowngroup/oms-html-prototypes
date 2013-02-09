@@ -34,11 +34,24 @@ oms.AppObject = function OMSAppModel() {
   
   // HTML pageloader
   self.page = ko.observable();
+
+  // HTML pageloader
+  self.event = ko.observable();
   
   // Search Results Array
   self.results = ko.observableArray([]);
   
   self.loadPage = function(url) {
+    url = 'snippets/' + url;
+    $.get(url, function(snippet) {
+      // Clear the current results
+      self.results([]);
+      
+      self.page(snippet);
+    }, 'html');
+  };
+  
+  self.loadEvent = function(url) {
     url = 'snippets/' + url;
     $.get(url, function(snippet) {
       // Clear the current results
@@ -60,17 +73,13 @@ oms.AppObject = function OMSAppModel() {
         self.page('');
         
         // set subheader classes
-        $('div.subheader').addClass('three_items buttons').removeClass('two_items')
+        $('div.subheader').addClass('three_items buttons').removeClass('two_items');
         
     }, 'json');
   };
 };
 
 oms.app = new oms.AppObject();
-
-oms.newPage = oms.app.page.subscribe(function(newPage) {
-  
-});
 
 // Initialize knockout bindings
 ko.applyBindings(oms.app);
@@ -118,11 +127,12 @@ oms.toggleSearch = function() {
 // ---------------
 // Bind UI Events
 // ---------------
-$('header a.toggleSearch').click(oms.toggleSearch);
-$('div.stp-nav > nav > a.loadPage').click(function(e) {
+$('header a.toggleSearch').on('click', oms.toggleSearch);
+$('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   e.preventDefault();
   e.stopPropagation();
   var url = $(this).data('snippet');
   oms.app.loadPage(url);
   oms.st.toggle_nav();
 });
+$('section.result a').on('click', oms.app.loadEvent);

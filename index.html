@@ -105,7 +105,7 @@
               <h2>Search Results</h2>
             
               <div data-bind="foreach: results">
-                <section>
+                <section class="result">
                   <header>
                     <img src="images/icon-star.png" class="control_right">
                     <a data-bind="attr: { href: url }">
@@ -133,6 +133,38 @@
               <button class="full_button">More Results...</button>
             </div> <!-- /results_area -->
             
+            <div class="event_area ko_flicker_fix" data-bind="visible: event().length > 0">
+            
+              <section class="event">
+                <header>
+                  <img src="images/icon-star.png" class="control_right">
+                  <a href="detail.html">
+                    <img class="header_icon" src="images/tmp_icon.png">
+                    <h2>Long Event Name For Some Crappy... I mean AWESOME Festival</h2>
+                  </a>
+                </header>
+                <ul>
+                  <li>
+                    <span class="date">Dec 3, 2012 | 8pm
+                  </li>
+                  <li>
+                    <span class="loc">Lincoln Square | Chicago, IL | 0.2m S
+                  </li>
+                </ul>
+              
+                <div class="map_area">
+                  <div class="map_top"></div>
+                  <img class="map" src="images/tmp_map.png">
+                  <div class="map_bot"></div>
+                </div>
+              
+                <article>
+                  Event Details here
+                </article>
+              </section>
+
+            </div> <!-- /event_area -->
+
           </div>
         </div>
 
