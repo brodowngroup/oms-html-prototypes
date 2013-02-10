@@ -1,5 +1,4 @@
-[Mobile Boilerplate homepage](http://mobileboilerplate.com/) | [Documentation
-table of contents](README.md)
+[Documentation table of contents](README.md)
 
 # The HTML
 

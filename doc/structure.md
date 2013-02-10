@@ -1,3 +1,5 @@
+[Documentation table of contents](README.md)
+
 ## Basic structure
 
 ### View the raw file to see structure
