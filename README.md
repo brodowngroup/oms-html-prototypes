@@ -1,131 +1,23 @@
-## OMS HTML Prototypes
+# OMS HTML Prototypes
+
+## Beta Project Development Info
+
+*   [Changelog](changelog.md)
+*   [Beta Launch Goals](beta_launch_goals.md)
+
+## [Documentation](doc/README.md)
+
+=======================
+HTML5 Boilerplate Base
+=======================
 
 The pages are built using mobile boilerplate as a starting point.
 
 * Source: [https://github.com/h5bp/mobile-boilerplate](https://github.com/h5bp/mobile-boilerplate)
 * Homepage: [http://mobileboilerplate.com](http://mobileboilerplate.com)
 
-## Description of All Required User Actions for initial launch
-* __COMMON ACTIONS - ALL USERS__
-  * Any Page
-    * Open Searchbox
-      * enter search term
-    * Open sidebar
-      * load page copy (about, terms, privacy...)
-    * Load homepage (click on logo)
-  * Search Results
-    * Open page details
-    * See more results (on scroll - appends to current results)
-    * Filter current visible set of 20+ results
-      * by distance
-      * by venue
-      * by location (city)
-  * Details Page
-    * Share to facebook
-    * Share to twitter
-    * Map link to google
-* __Unique Actions - Registered Users__
-  * Any Page
-    * Open Sidebar
-      * Open my settings
-      * Open my favorites
-      * Log out
-  * Search Results
-    * Add to favorites/favorite star appears
-  * Details Page
-    * Add to favorites/favorite star appears
-* __Unique Actions - Registered Users__
-  * Any Page
-    * Open Sidebar
-      * Log In
-
-## Changelog
-
-11.11.2012
-
-* Installed base mobile boilerplate files
-* Stripped out parts not applicable for OMS
-* Moved helper.js to vendor/mbp.helper.js
-
-11.12.2012
-
-* Started Git Repository
-* Setup directory organization
-* Created Dummy Header
-* Uploaded Initial Files
-
-11.13.2012
-
-* Added Search Box
-* First time using Zepto
-** If zepto goes live, grab custom js before prod
-
-11.15.2012
-
-* First Sidetap implementation
-
-11.17.2012
-
-* Added temp touch icons
-* Added some content pages
-* Setup page transitions for prototypes
-
-11.22.2012
-
-* Split pages into individual HTML files (ajax transitions not cross-device functional)
-* Adjusted CSS to let settings flout menu be taller than content
-* Improved searchbar animation to move page content with toggle
-* Moved to jQuery over CSS for greater device support
-
-11.23.2012
-
-* Added Detail page template
-* makes search action go to search_results.html
-* Creates subheader styles
-* Added icons to detail pages 
-
-12.6.2012
-
-* Added jPanelTest.html test
-** Set up to test jPanel implementation
-** uses js and css in jPanelTest directories
-
-1.20.2013
-
-* Removed jPanelTest.html test
-
-1.26.2013
-
-* Implementing new OMS Styles
-
-1.28.2013
-
-* Expanding body width to max 700px
-* Locking header height for searchbar
-
-1.30.2013
-
-* Applies new styles to simple API results
-
-2.2.2013
-
-* knockout trial started on search_results.html
-
-2.9.2013
-
-* Moved all search_results.html funcitonality to index.html
-* Conversion of site to initial SPA (single page application)
-* Added CSS for nav sprite
-
 ## Documentation
 
-Take a look at the [documentation table of contents](doc/README.md).
+I left the original documentation that came with 
 
-All Docs located in [doc directory](doc)
-=======
-oms-html-prototypes
-===================
-
-Initial oms UI prototypes pre-design
-
-
+Take a look at the [HTML5 mobile-boilerplate documentation table of contents](html5_mb_doc/README.md).

@@ -1,7 +1,6 @@
 # OMS Prototype Documentation
 
-MBP (Mobile Boilerplate) is based on H5BP (HTML5 Boilerplate), a rock-solid HTML5 default for web developer to quickly start their mobile web development. This documentation contains docs specific to the MBP; only mobile specific topics are addressed here.
-
+I ganked this doc template from the HTML5 docs
 
 ## Table of Contents
 
