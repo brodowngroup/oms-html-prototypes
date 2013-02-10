@@ -1,4 +1,7 @@
 ## Basic structure
+
+### View the raw file to see structure
+
 .
 ├── styles
 │   ├── main.css
