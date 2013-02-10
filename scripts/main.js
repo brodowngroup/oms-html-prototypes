@@ -46,19 +46,14 @@ oms.AppObject = function OMSAppModel() {
     $.get(url, function(snippet) {
       // Clear the current results
       self.results([]);
+      self.event([]);
       
       self.page(snippet);
     }, 'html');
   };
   
   self.loadEvent = function(url) {
-    url = 'snippets/' + url;
-    $.get(url, function(snippet) {
-      // Clear the current results
-      self.results([]);
-      
-      self.page(snippet);
-    }, 'html');
+    console.log(loadEvent);
   };
   
   self.newSearch = function() {
@@ -71,6 +66,7 @@ oms.AppObject = function OMSAppModel() {
         
         // Clear the current page
         self.page('');
+        self.event([]);
         
         // set subheader classes
         $('div.subheader').addClass('three_items buttons').removeClass('two_items');
