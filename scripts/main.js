@@ -54,8 +54,8 @@ oms.AppObject = function OMSAppModel() {
     // Get json from api call
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
-      self.results(mappedResults);
       self.clearDisplay();        
+      self.results(mappedResults);
       
       // set subheader classes
       $('div.subheader').addClass('three_items buttons').removeClass('two_items');
