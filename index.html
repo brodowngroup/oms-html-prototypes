@@ -145,10 +145,16 @@
                   </header>
                   <ul>
                     <li>
-                      <span class="date">Dec 3, 2012 | 8pm</span>
+                      <span class="date"><span data-bind="text: date"></span>
+                      <span data-bind="">|</span>
+                      <span data-bind="text: time"></span>
                     </li>
                     <li>
-                      <span class="loc">Lincoln Square | Chicago, IL | 0.2m S</span>
+                      <span class="loc">
+                        <span data-bind="text: venue"></span>
+                        <span data-bind="text: neighborhood"></span>
+                        |
+                        <span data-bind="text: city"></span>, <span data-bind="text: state"></span>
                     </li>
                   </ul>
               
