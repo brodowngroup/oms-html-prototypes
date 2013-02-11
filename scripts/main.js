@@ -59,13 +59,7 @@ oms.AppObject = function OMSAppModel() {
       
       // set subheader classes
       $('div.subheader').addClass('three_items buttons').removeClass('two_items');
-        
-      $('section.result').on('click', 'a', function(e) {
-        e.preventDefault();
-        console.log('click');
-        oms.app.loadEvent();
-      });
-        
+                
     }, 'json');
   };
   
@@ -135,8 +129,9 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.app.loadPage(url);
   oms.st.toggle_nav();
 });
-$('section.result').on('click', 'a', function(e) {
-  return false;
+$('div.results_area > div').on('click', 'section.result a', function(e) {
+  e.preventDefault();
+  console.log('click');
   oms.app.loadEvent();
 });
 
