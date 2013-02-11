@@ -131,7 +131,7 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
 });
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
-  //get result index and pass to loadEvent()
-  oms.app.loadEvent();
+  var index = $(this).prop('rel');
+  oms.app.loadEvent(index);
 });
 
