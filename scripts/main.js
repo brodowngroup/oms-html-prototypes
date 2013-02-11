@@ -44,8 +44,8 @@ oms.AppObject = function OMSAppModel() {
   };
   
   self.loadEvent = function(index) {
-    self.clearDisplay();
     var eventData = self.results()[index];
+    self.clearDisplay();
     self.events.push(eventData);
   };
   
