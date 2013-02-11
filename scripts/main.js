@@ -129,7 +129,7 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.app.loadPage(url);
   oms.st.toggle_nav();
 });
-$('div.results_area > div').on('click', 'section.result a', function(e) {
+$('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
   console.log('click');
   oms.app.loadEvent();
