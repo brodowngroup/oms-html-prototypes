@@ -45,7 +45,8 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadEvent = function(index) {
     self.clearDisplay();
-    console.log(index);
+    var eventData = self.results()[index];
+    self.events.push(eventData);
   };
   
   self.newSearch = function() {
