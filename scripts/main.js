@@ -129,8 +129,8 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.app.loadPage(url);
   oms.st.toggle_nav();
 });
-$('section.result').on('click', 'a', function(e){
-  e.preventDefault();
+$('section.result').on('click', 'a', function(e) {
+  return false;
   oms.app.loadEvent();
 });
 
