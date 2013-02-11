@@ -1,4 +1,4 @@
-// oms used for On My Stage custom display functions
+// oms used for On My Stage custom functions
 var oms = oms || {};
 
 // -----------------
@@ -24,35 +24,27 @@ oms.Result = function Result(data) {
   });
 }
 
-// ---------------
-// Knockout Setup
-// ---------------
-
+// ----------------------
 // Main Viewmodel for OMS
+// ----------------------
 oms.AppObject = function OMSAppModel() {
   var self = this;
   
-  // HTML pageloader
+  // Knockout Display Models
   self.page = ko.observable();
-
-  // HTML pageloader
   self.event = ko.observableArray([]);
-  
-  // Search Results Array
   self.results = ko.observableArray([]);
   
   self.loadPage = function(url) {
     url = 'snippets/' + url;
     $.get(url, function(snippet) {
-      // Clear the current results
-      self.results([]);
-      self.event([]);
-      
+      self.clearDisplay();
       self.page(snippet);
     }, 'html');
   };
   
   self.loadEvent = function(url) {
+    self.clearDisplay();
     console.log(loadEvent);
   };
   
@@ -61,42 +53,24 @@ oms.AppObject = function OMSAppModel() {
 
     // Get json from api call
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
-        var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
-        self.results(mappedResults);
-        
-        // Clear the current page
-        self.page('');
-        self.event([]);
-        
-        // set subheader classes
-        $('div.subheader').addClass('three_items buttons').removeClass('two_items');
+      var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
+      self.results(mappedResults);
+      self.clearDisplay();        
+      
+      // set subheader classes
+      $('div.subheader').addClass('three_items buttons').removeClass('two_items');
         
     }, 'json');
   };
+  
+  self.clearDisplay = function () {
+    // Clear the current page
+    self.page('');
+    self.event([]);
+    self.results([]);
+  }
+  
 };
-
-oms.app = new oms.AppObject();
-
-// Initialize knockout bindings
-ko.applyBindings(oms.app);
-
-// Load Index page
-oms.app.loadPage('home_unreg.html');
-
-// Remove hidden class on pageload hidden Items
-$('div.ko_flicker_fix').add('h2.ko_flicker_fix')
-                       .add('button.ko_flicker_fix')
-                       .removeClass('ko_flicker_fix');
-
-
-// -------------------
-// SIDETAP MENU SETUP
-// -------------------
-oms.st = new sidetap();
-$('header a.control_left').click(oms.st.toggle_nav);
-
-// add icon spans for bg images
-$('<span/>').prependTo('div.stp-nav nav a');
 
 // --------------------------------
 // HEADER SEARCH TOGGLE VISIBILITY
@@ -121,8 +95,32 @@ oms.toggleSearch = function() {
 };
 
 // ---------------
-// Bind UI Events
+// Init Functions
 // ---------------
+
+// Sidetap 
+// ------------
+oms.st = new sidetap();
+$('header a.control_left').click(oms.st.toggle_nav);
+
+// add icon spans for bg images
+$('<span/>').prependTo('div.stp-nav nav a');
+
+// Knockout 
+// -------------
+oms.app = new oms.AppObject();
+ko.applyBindings(oms.app);
+
+// Load initial page snippet
+oms.app.loadPage('home_unreg.html');
+
+// Remove hidden class on pageload hidden Items
+$('div.ko_flicker_fix').add('h2.ko_flicker_fix')
+                       .add('button.ko_flicker_fix')
+                       .removeClass('ko_flicker_fix');
+
+// Bind UI Events
+// -------------------
 $('header a.toggleSearch').on('click', oms.toggleSearch);
 $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   e.preventDefault();
@@ -135,3 +133,4 @@ $('section.result').on('click', 'a', function(e){
   e.preventDefault();
   oms.app.loadEvent();
 });
+

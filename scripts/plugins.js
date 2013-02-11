@@ -1,11 +1,15 @@
-// ---------------------
+// ------------------------------------------
 // This file is for non-specific vendors that
 // bring some browsers / devices up to date
-// ---------------------
+//
+// Test device behavior and remove before
+// prod if possible
+// ----------------------------------------
 
-// ---------------------
+// -------------------------------------
 // Fix for ios6 devices
-// ----------------------
+// Use in case of ios sidetap wierdness
+// --------------------------------------
 $(document).ready(function() {
   var my_sidetap = function() {
     var ios5;
@@ -18,7 +22,6 @@ $(document).ready(function() {
       return new SidetapStandard();
     }
   }();
-  $('header a.control_left').on('click',my_sidetap.toggle_nav)
 });
 
 // ---------------------------------------------------------
