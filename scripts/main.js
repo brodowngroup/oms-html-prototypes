@@ -32,7 +32,7 @@ oms.AppObject = function OMSAppModel() {
   
   // Knockout Display Models
   self.page = ko.observable();
-  self.event = ko.observableArray([]);
+  self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
   
   self.loadPage = function(url) {
@@ -43,9 +43,9 @@ oms.AppObject = function OMSAppModel() {
     }, 'html');
   };
   
-  self.loadEvent = function(url) {
+  self.loadEvent = function(index) {
     self.clearDisplay();
-    console.log('loadEvent called');
+    console.log(index);
   };
   
   self.newSearch = function() {
@@ -66,7 +66,7 @@ oms.AppObject = function OMSAppModel() {
   self.clearDisplay = function () {
     // Clear the current page
     self.page('');
-    self.event([]);
+    self.events([]);
     self.results([]);
   }
   
@@ -131,7 +131,7 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
 });
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
-  console.log('click');
+  //get result index and pass to loadEvent()
   oms.app.loadEvent();
 });
 
