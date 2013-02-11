@@ -45,7 +45,7 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadEvent = function(url) {
     self.clearDisplay();
-    console.log(loadEvent);
+    console.log('loadEvent called');
   };
   
   self.newSearch = function() {
@@ -59,6 +59,12 @@ oms.AppObject = function OMSAppModel() {
       
       // set subheader classes
       $('div.subheader').addClass('three_items buttons').removeClass('two_items');
+        
+      $('section.result').on('click', 'a', function(e) {
+        e.preventDefault();
+        console.log('click');
+        oms.app.loadEvent();
+      });
         
     }, 'json');
   };
