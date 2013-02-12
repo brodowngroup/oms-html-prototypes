@@ -69,7 +69,7 @@ oms.AppObject = function OMSAppModel() {
       
       // set subheader classes
       $('div.subheader').removeClass()
-                        .addClass('three_items buttons shadow');
+                        .addClass('subheader three_items buttons shadow');
                 
     }, 'json');
   };
