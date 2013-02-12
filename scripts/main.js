@@ -31,6 +31,7 @@ oms.AppObject = function OMSAppModel() {
   var self = this;
   
   // Knockout Display Models
+  self.subheader = ko.observable();
   self.page = ko.observable();
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
@@ -59,13 +60,15 @@ oms.AppObject = function OMSAppModel() {
       self.results(mappedResults);
       
       // set subheader classes
-      $('div.subheader').addClass('three_items buttons').removeClass('two_items');
+      $('div.subheader').removeClass()
+                        .addClass('three_items buttons shadow');
                 
     }, 'json');
   };
   
   self.clearDisplay = function () {
     // Clear the current page
+    self.subheader('');
     self.page('');
     self.events([]);
     self.results([]);
@@ -126,8 +129,8 @@ $('header a.toggleSearch').on('click', oms.toggleSearch);
 $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   e.preventDefault();
   e.stopPropagation();
-  var url = $(this).data('snippet');
-  oms.app.loadPage(url);
+  var snippet = $(this).data('snippet');
+  oms.app.loadPage(snippet);
   oms.st.toggle_nav();
 });
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
