@@ -75,3 +75,8 @@
 * Moved all search_results.html funcitonality to index.html
 * Conversion of site to initial SPA (single page application)
 * Added CSS for nav sprite
+
+2.10.2031
+
+* Event results setup in knockout model
+* Organized main.js into functions then inits

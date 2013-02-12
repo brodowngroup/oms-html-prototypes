@@ -53,7 +53,7 @@ p{margin:0 0 0.5em;}
 ---------------*/
 .corner{border-radius:3px;}
 .shadow{box-shadow:2px 2px 3px 1px rgba(0,0,0,0.15);}
--inset{box-shadow:inset 0 1px 4px rgba(0,0,0,.2);}
+.shadow-inset{box-shadow:inset 0 1px 4px rgba(0,0,0,.2);}
 
 /* ALL SITE LAYOUT
 -------------------*/
@@ -114,9 +114,10 @@ div.page_frame{position:relative;top:-48px;}
   background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(240,243,246,1) 100%);  
 }
 
+.subheader .unreg_home {display:none;}
+
 .subheader.two_items a{width:45%;}
 .subheader.three_items a{width:28%;}
-
 .subheader a {
   display:block;
   padding:2.5%;
@@ -151,7 +152,7 @@ div.page_frame{position:relative;top:-48px;}
   height:15px;
   background: url(../images/sp_menu_icons.png) no-repeat;
   float:left;
-  margin: 3px 5px 0 0;
+  margin: 2px 5px 0 0;
 }
 
 .stp-nav a.settings span {
