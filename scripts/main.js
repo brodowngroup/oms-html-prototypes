@@ -36,6 +36,10 @@ oms.AppObject = function OMSAppModel() {
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
   
+  self.loadSubheader = function() {
+    
+  }
+  
   self.loadPage = function(url) {
     url = 'snippets/' + url;
     $.get(url, function(snippet) {
