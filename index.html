@@ -46,7 +46,7 @@
       <nav>
         <h3>HTML Prototype Links</h3>
         <a data-snippet="home_reg.html" class="loadPage" href="#">Homepage - Registered</a>
-        <a data-snippet="home_unreg.html" class="loadPage" href="#">Homepage - Unregistered</a>
+        <a data-snippet="home_unreg.html" data-subheader="true" class="loadPage" href="#">Homepage - Unregistered</a>
       </nav>
       <nav class="user">
         <h3>My Account</h3>
@@ -89,19 +89,7 @@
         <div class="stp-content-frame page_frame">
           <div class="stp-content-body">
                         
-            <div class="subheader" data-bind="html: subheader">
-              <div class="ko_flicker_fix" data-bind="visible: results().length > 0">
-                <a href="#" class="active">Distance</a>
-                <a href="#">Venue</a>
-                <a href="#">Location</a>              
-                <br class="clear">              
-             </div>
-             <div class="unreg_home">
-               <a href="#">Register Now</a>
-               <a href="#">Login</a>
-               <br class="clear">
-             </div>
-            </div>
+            <div class="subheader" data-bind="html: subheader"></div>
 
             <div class="snippet_frame" data-bind="html: page"></div>
             

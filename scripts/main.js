@@ -36,8 +36,11 @@ oms.AppObject = function OMSAppModel() {
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
   
-  self.loadSubheader = function() {
-    
+  self.loadSubheader = function(url) {
+    url = 'snippets/subheader/' + url;
+    $.get(url, function(snippet) {
+      self.subheader(snippet);
+    }, 'html');
   }
   
   self.loadPage = function(url) {
@@ -61,6 +64,7 @@ oms.AppObject = function OMSAppModel() {
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
       self.clearDisplay();        
+      self.loadSubheader('results.html');
       self.results(mappedResults);
       
       // set subheader classes
