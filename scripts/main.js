@@ -142,9 +142,7 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.app.loadPage(snippet);
 
   if ($this.data('subheader')) {
-    console.log('subheader : ' + $this.data('subheader'));
-    
-    console.log('snippet : ' + $this.data('snippet'));
+    oms.app.loadSubheader($this.data('snippet'));
   }
   
   oms.st.toggle_nav();
