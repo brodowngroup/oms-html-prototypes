@@ -137,8 +137,14 @@ $('header a.toggleSearch').on('click', oms.toggleSearch);
 $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   e.preventDefault();
   e.stopPropagation();
-  var snippet = $(this).data('snippet');
+  var $this = $(this);
+  var snippet = $this.data('snippet');
   oms.app.loadPage(snippet);
+
+  if ($this.data('subheader')) {
+    alert($this.data('subheader'));
+  }
+  
   oms.st.toggle_nav();
 });
 $('div.results_area > div').on('click', 'a.event_link', function(e) {

@@ -10,8 +10,3 @@ var slider = new Swipe(document.getElementById('slider'), {
       }
     }),
     bullets = document.getElementById('position').getElementsByTagName('em');
-
-// set subheader
-// $('div.subheader').addClass('two_items buttons')
-//                   .removeClass('three_items')
-//                   .find('div.unreg_home').show();
