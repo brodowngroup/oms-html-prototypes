@@ -36,10 +36,19 @@ oms.AppObject = function OMSAppModel() {
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
   
-  self.loadSubheader = function(url) {
+  self.loadSubheader = function(url, buttons, custom_class) {
     url = 'snippets/subheader/' + url;
     $.get(url, function(snippet) {
       self.subheader(snippet);
+      
+      // set subheader classes
+      var classes = 'subheader shadow';
+      
+      if(buttons)          { classes = classes + ' buttons'; }
+      if(custom_class)     { classes = classes + ' ' + custom_class; }
+      
+      $('div.subheader').removeClass()
+                        .addClass(classes);
     }, 'html');
   }
   
@@ -53,6 +62,7 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadEvent = function(index) {
     var eventData = self.results()[index];
+
     self.clearDisplay();
     self.events.push(eventData);
   };
@@ -62,14 +72,12 @@ oms.AppObject = function OMSAppModel() {
 
     // Get json from api call
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
+
       self.clearDisplay();        
-      self.loadSubheader('results.html');
+      self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
-      
-      // set subheader classes
-      $('div.subheader').removeClass()
-                        .addClass('subheader three_items buttons shadow');
                 
     }, 'json');
   };
@@ -134,6 +142,7 @@ $('div.ko_flicker_fix').add('h2.ko_flicker_fix')
 // Bind UI Events
 // -------------------
 $('header a.toggleSearch').on('click', oms.toggleSearch);
+
 $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   e.preventDefault();
   e.stopPropagation();
@@ -142,7 +151,11 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.app.loadPage(snippet);
 
   if ($this.data('subheader')) {
-    oms.app.loadSubheader($this.data('snippet'));
+    if($this.data('subbuttons')) {
+      oms.app.loadSubheader($this.data('snippet'), true, $this.data('subclass'));
+    } else {
+      oms.app.loadSubheader($this.data('snippet'));
+    }
   }
   
   oms.st.toggle_nav();
