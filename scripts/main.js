@@ -79,9 +79,9 @@ oms.AppObject = function OMSAppModel() {
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
-      $('section.result').last().addClass('loadMore');
+      //$('section.result').last().addClass('loadMore');
       
-      var target = $('section.loadMore').offset().top;
+      var target = $('button.fullButton').offset().top;
       console.log(target);
       oms.scrollInterval = setInterval(function() {
           console.log('interval test');
