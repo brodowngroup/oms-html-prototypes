@@ -85,6 +85,7 @@ oms.AppObject = function OMSAppModel() {
       console.log(target);
       oms.scrollInterval = setInterval(function() {
           console.log('interval test');
+          console.log('window pos : ' + $(window).scrollTop());
           if ($(window).scrollTop() >= target) {
               alert("Scrolled to bottom");
               clearInterval(oms.scrollInterval);
