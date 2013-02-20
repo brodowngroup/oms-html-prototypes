@@ -81,7 +81,7 @@ oms.AppObject = function OMSAppModel() {
       
       //$('section.result').last().addClass('loadMore');
       
-      var target = $('button.fullButton').offset().top;
+      var target = $('button.full_button').offset().top;
       console.log(target);
       oms.scrollInterval = setInterval(function() {
           console.log('interval test');
