@@ -176,9 +176,3 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
   var index = $(this).prop('rel');
   oms.app.loadEvent(index);
 });
-
-$(function(){
-  $(document).scroll(function() {
-    if($(document).scrollTop() == 0) alert("top");
-  })
-})
