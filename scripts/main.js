@@ -83,10 +83,11 @@ oms.AppObject = function OMSAppModel() {
       
       var target = $('section.loadMore').offset().top;
       console.log(target);
-      var interval = setInterval(function() {
+      oms.scrollInterval = setInterval(function() {
+          console.log('interval test');
           if ($(window).scrollTop() >= target) {
               alert("Scrolled to bottom");
-              clearInterval(interval);
+              clearInterval(oms.scrollInterval);
           }
       }, 500);
                 
