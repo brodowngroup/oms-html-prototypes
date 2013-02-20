@@ -78,6 +78,16 @@ oms.AppObject = function OMSAppModel() {
       self.clearDisplay();        
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
+      
+      $('section.result').last().addClass('loadMore');
+      
+      var target = $('section.loadMore').offset().top;
+      var interval = setInterval(function() {
+          if ($(window).scrollTop() >= target) {
+              alert("Scrolled to bottom");
+              clearInterval(interval);
+          }
+      }, 500);
                 
     }, 'json');
   };
@@ -160,9 +170,15 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   
   oms.st.toggle_nav();
 });
+
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
   var index = $(this).prop('rel');
   oms.app.loadEvent(index);
 });
 
+$(function(){
+  $(document).scroll(function() {
+    if($(document).scrollTop() == 0) alert("top");
+  })
+})
