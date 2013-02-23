@@ -76,7 +76,11 @@
 * Conversion of site to initial SPA (single page application)
 * Added CSS for nav sprite
 
-2.10.2031
+2.10.2013
 
 * Event results setup in knockout model
 * Organized main.js into functions then inits
+
+2.19.2013
+
+* First test to fire events on scroll to bottom of results

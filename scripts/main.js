@@ -81,6 +81,7 @@ oms.AppObject = function OMSAppModel() {
       
       $('section.result').last().addClass('loadMore');
       
+      //Change 500 to be viewport height
       var target = $('section.loadMore').offset().top - 500;
       console.log(target);
       oms.scrollInterval = setInterval(function() {
