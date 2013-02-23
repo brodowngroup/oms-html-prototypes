@@ -14,40 +14,40 @@ The data-bind attribute is knockout specific. It binds that element to a ko.obse
 
 ### There are four main areas of the page that look for contents in the data model
 
-* <div class="subheader" data-bind="html: subheader"></div>
+* \<div class="subheader" data-bind="html: subheader"\>\</div\>
 
 ** subheader looks at oms.app.subheader() and displays the string as html in this div.
 
-* <div class="snippet\_frame" data-bind="html: page">
+* \<div class="snippet\_frame" data-bind="html: page"\>
 
 ** snippet\_frame looks at the oms.app.page() string and displays the string as html in this div.
 
-* <div class="results\_area ko\_flicker\_fix" data-bind="visible: results().length > 0">
+* \<div class="results\_area ko\_flicker\_fix" data-bind="visible: results().length \> 0"\>
   
 ** results\_area looks for search results in oms.app.results() and displays them when present.
 
-* <div class="event\_area ko\_flicker\_fix" data-bind="visible: events().length > 0">
+* \<div class="event\_area ko\_flicker\_fix" data-bind="visible: events().length \> 0"\>
   
 ** event\_area looks for items in oms.app.events() and displays them when present.
 
 ## Sidetap Menu
 
-* <div class="sidetap">
+* \<div class="sidetap"\>
   
 ** Wraps all content in a common div for sizing control
 
-* <div class="stp-nav">
+* \<div class="stp-nav"\>
 
 ** Flyout menu content
 
-* <div class="stp-content">
+* \<div class="stp-content"\>
   
 ** All sidetap page content including body and overlay
 
-* <div class="stp-overlay nav-toggle">&nbsp;</div>
+* \<div class="stp-overlay nav-toggle"\>&nbsp;\</div\>
 
 ** Empty div used to dim the inactive page while flyout is active
 
-* <div class="stp-content-panel">
+* \<div class="stp-content-panel"\>
   
 ** Actual html copy area displayed on page
