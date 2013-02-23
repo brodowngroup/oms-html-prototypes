@@ -14,40 +14,28 @@ The data-bind attribute is knockout specific. It binds that element to a ko.obse
 
 ### There are four main areas of the page that look for contents in the data model
 
-* \<div class="subheader" data-bind="html: subheader"\>\</div\>
-
-** subheader looks at oms.app.subheader() and displays the string as html in this div.
-
-* \<div class="snippet\_frame" data-bind="html: page"\>
-
-** snippet\_frame looks at the oms.app.page() string and displays the string as html in this div.
-
-* \<div class="results\_area ko\_flicker\_fix" data-bind="visible: results().length \> 0"\>
-  
-** results\_area looks for search results in oms.app.results() and displays them when present.
-
-* \<div class="event\_area ko\_flicker\_fix" data-bind="visible: events().length \> 0"\>
-  
-** event\_area looks for items in oms.app.events() and displays them when present.
+<dl>
+  <dt>\<div class="subheader" data-bind="html: subheader"\>\</div\></dt>
+  <dd>subheader looks at oms.app.subheader() and displays the string as html in this div.</dd>
+  <dt>\<div class="snippet\_frame" data-bind="html: page"\></dt>
+  <dd>snippet\_frame looks at the oms.app.page() string and displays the string as html in this div.</dd>
+  <dt>\<div class="results\_area ko\_flicker\_fix" data-bind="visible: results().length \> 0"\></dt>
+  <dd>results\_area looks for search results in oms.app.results() and displays them when present.</dd>
+  <dt>\<div class="event\_area ko\_flicker\_fix" data-bind="visible: events().length \> 0"\></dt>
+  <dd>event\_area looks for items in oms.app.events() and displays them when present.</dd>
+</dl>
 
 ## Sidetap Menu
 
-* \<div class="sidetap"\>
-  
-** Wraps all content in a common div for sizing control
-
-* \<div class="stp-nav"\>
-
-** Flyout menu content
-
-* \<div class="stp-content"\>
-  
-** All sidetap page content including body and overlay
-
-* \<div class="stp-overlay nav-toggle"\>&nbsp;\</div\>
-
-** Empty div used to dim the inactive page while flyout is active
-
-* \<div class="stp-content-panel"\>
-  
-** Actual html copy area displayed on page
+<dl>
+  <dt>\<div class="sidetap"\></dt>
+  <dd>Wraps all content in a common div for sizing control</dd>
+  <dt>\<div class="stp-nav"\></dt>
+  <dd>Flyout menu content</dd>
+  <dt>\<div class="stp-content"\></dt>
+  <dd>All sidetap page content including body and overlay</dd>
+  <dt>\<div class="stp-overlay nav-toggle"\>&nbsp;\</div\></dt>
+  <dd>Empty div used to dim the inactive page while flyout is active</dd>
+  <dt>\<div class="stp-content-panel"\></dt>
+  <dd>Actual html copy area displayed on page</dd>
+</dl>
