@@ -288,3 +288,7 @@ level SEO priority
 #prev em{display:block;border-right:1px #30373C solid;padding:10px 13px 8px;font-style:normal;font-weight:bold;font-size:11px;text-transform:uppercase;color:#697279;letter-spacing:1px;text-shadow:0 -1px 0 rgba(0,0,0,.35);}
 #next{border-left:1px #232628 solid;display:inline-block;text-decoration:none;position:absolute;right:0;top:0;}
 #next em{display:block;border-left:1px #30373C solid;padding:10px 13px 8px;font-style:normal;font-weight:bold;font-size:11px;text-transform:uppercase;color:#697279;letter-spacing:1px;text-shadow:0 -1px 0 rgba(0,0,0,.35);}
+
+/* SEARCH RESULTS
+-----------------*/
+.results_placeholder{display:none;}
