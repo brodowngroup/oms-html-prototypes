@@ -85,12 +85,12 @@ oms.AppObject = function OMSAppModel() {
       var target = $('section.loadMore').offset().top - 500;
       console.log(target);
       oms.scrollInterval = setInterval(function() {
-          console.log('interval test');
-          console.log('window pos : ' + $(window).scrollTop());
-          if ($(window).scrollTop() >= target) {
-              alert("Scrolled to bottom");
-              clearInterval(oms.scrollInterval);
-          }
+        console.log('interval test');
+        console.log('window pos : ' + $(window).scrollTop());
+        if ($(window).scrollTop() >= target) {
+          console.log("Scrolled to bottom, load more results");
+          clearInterval(oms.scrollInterval);
+        }
       }, 500);
                 
     }, 'json');
