@@ -291,4 +291,4 @@ level SEO priority
 
 /* SEARCH RESULTS
 -----------------*/
-.results_placeholder{display:none;}
+button.results_placeholder{display:none;}
