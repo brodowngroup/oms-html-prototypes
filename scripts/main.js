@@ -91,7 +91,7 @@ oms.AppObject = function OMSAppModel() {
               $('div.subheader').height() + 
               $('div.subheader').css('marginBottom').replace('px','') +
               $('section.loadMore > header').height(),
-            target = $('section.loadMore').offset().top - from_top;
+            target = $('section.loadMore').offset().top;
           
         console.log('from_top : ' + from_top);
         console.log('target : ' + target);
