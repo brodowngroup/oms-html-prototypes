@@ -79,7 +79,7 @@ oms.AppObject = function OMSAppModel() {
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
-      // Chek for Results
+      // Check for Results
       if ($('section.result').length > 0) {
         
         $('section.result').last().addClass('loadMore');
@@ -91,7 +91,7 @@ oms.AppObject = function OMSAppModel() {
               $('div.subheader').height() + 
               $('div.results_area').height() +
               $('section.loadMore > header').height(),
-            target = $('section.loadMore').offset().top + from_top;
+            target = $('section.loadMore').offset().top - from_top;
           
         console.log('from_top : ' + from_top);
         console.log('target : ' + target);
@@ -105,7 +105,8 @@ oms.AppObject = function OMSAppModel() {
                 
       } else {
         
-        console.info('*HANDLE NO RESULTS RETURNED*');
+        clearInterval(oms.scrollInterval);
+        oms.app.loadPage('no_results.html');
         
       }
                 
