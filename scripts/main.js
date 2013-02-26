@@ -87,7 +87,7 @@ oms.AppObject = function OMSAppModel() {
       oms.scrollInterval = setInterval(function() {
         console.log('interval test');
         console.log('window pos : ' + $(window).scrollTop());
-        if ($(window).scrollTop() >= target) {
+        if ($(document).scrollTop() >= target) {
           $('button.results_placeholder').show();
           clearInterval(oms.scrollInterval);
         }
