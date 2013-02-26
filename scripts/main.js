@@ -106,7 +106,6 @@ oms.AppObject = function OMSAppModel() {
                 
       } else {
         
-        clearInterval(oms.scrollInterval);
         oms.app.loadPage('no_results.html');
         
       }
@@ -120,6 +119,7 @@ oms.AppObject = function OMSAppModel() {
     self.page('');
     self.events([]);
     self.results([]);
+    clearInterval(oms.scrollInterval);
   }
   
 };
