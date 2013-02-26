@@ -89,12 +89,13 @@ oms.AppObject = function OMSAppModel() {
               $('div.stp-content-panel > header').height() + 
               $('form.header_search').height() + 
               $('div.subheader').height() + 
-              $('div.results_area').height() +
+              $('div.subheader').css('marginBottom').replace('px','') +
               $('section.loadMore > header').height(),
             target = $('section.loadMore').offset().top - from_top;
           
         console.log('from_top : ' + from_top);
         console.log('target : ' + target);
+        
         oms.scrollInterval = setInterval(function() {
           console.log('interval window pos : ' + $(window).scrollTop());
           if ($(document).scrollTop() >= target) {
