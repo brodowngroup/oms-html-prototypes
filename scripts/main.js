@@ -79,26 +79,35 @@ oms.AppObject = function OMSAppModel() {
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
-      $('section.result').last().addClass('loadMore');
+      // Chek for Results
+      if ($('section.result').length > 0) {
+        
+        $('section.result').last().addClass('loadMore');
       
-      // Compute distance form top of document to top of search
-      var from_top = 
-            $('div.stp-content-panel > header').height() + 
-            $('form.header_search').height() + 
-            $('div.subheader').height() + 
-            $('div.results_area').height() +
-            $('section.loadMore > header').height(),
-          target = $('section.loadMore').offset().top + from_top;
+        // Compute distance form top of document to top of search
+        var from_top = 
+              $('div.stp-content-panel > header').height() + 
+              $('form.header_search').height() + 
+              $('div.subheader').height() + 
+              $('div.results_area').height() +
+              $('section.loadMore > header').height(),
+            target = $('section.loadMore').offset().top + from_top;
           
-      console.log('from_top : ' + from_top);
-      console.log('target : ' + target);
-      oms.scrollInterval = setInterval(function() {
-        console.log('interval window pos : ' + $(window).scrollTop());
-        if ($(document).scrollTop() >= target) {
-          $('button.results_placeholder').show();
-          clearInterval(oms.scrollInterval);
-        }
-      }, 500);
+        console.log('from_top : ' + from_top);
+        console.log('target : ' + target);
+        oms.scrollInterval = setInterval(function() {
+          console.log('interval window pos : ' + $(window).scrollTop());
+          if ($(document).scrollTop() >= target) {
+            $('button.results_placeholder').show();
+            clearInterval(oms.scrollInterval);
+          }
+        }, 500);
+                
+      } else {
+        
+        console.info('*HANDLE NO RESULTS RETURNED*');
+        
+      }
                 
     }, 'json');
   };
