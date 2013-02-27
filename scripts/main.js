@@ -89,7 +89,7 @@ oms.AppObject = function OMSAppModel() {
               $('div.stp-content-panel > header').height() + 
               $('form.header_search').height() + 
               $('div.subheader').height() + 
-              $('div.subheader').css('marginBottom').replace('px','') +
+              parseInt($('div.subheader').css('marginBottom').replace('px','')) +
               $('section.loadMore > header').height(),
             target = $('section.loadMore').offset().top;
           
