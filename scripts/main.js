@@ -79,7 +79,7 @@ oms.AppObject = function OMSAppModel() {
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
-      // Check for Results
+      // Check for Results before setting scroll to bottom event
       if ($('section.result').length > 0) {
         
         $('section.result').last().addClass('loadMore');
@@ -91,7 +91,11 @@ oms.AppObject = function OMSAppModel() {
           oms.scrollInterval = setInterval(function() {
           
           if ($(document).scrollTop() >= target - screenHeight) {
-            $('button.results_placeholder').show();
+            
+            console.log('Need to query DB for next 20 results');
+            console.log('Would be nice to return total # of results w/results if > 20');
+            console.log('This should only ask for more results if they exist');
+            
             clearInterval(oms.scrollInterval);
           }
         }, 500);
