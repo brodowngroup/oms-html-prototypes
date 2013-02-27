@@ -85,21 +85,11 @@ oms.AppObject = function OMSAppModel() {
         $('section.result').last().addClass('loadMore');
       
         // Compute distance form top of document to top of search
-        var screenHeight = $(window).height();
-              // $('div.stp-content-panel > header').height() + 
-              // $('form.header_search').height() + 
-              // $('div.subheader').height() + 
-              // parseInt($('div.subheader').css('marginBottom').replace('px','')) +
-              // $('section.loadMore > header').height(),
+        var screenHeight = $(window).height(),
             target = $('section.loadMore').offset().top;
           
           oms.scrollInterval = setInterval(function() {
-          console.log('***** Interval *****');
-          console.log('target : ' + target);
-          console.log('screenHeight : ' + screenHeight);
-          console.log('target - screenHeight : ' + (target - screenHeight));
-          console.log('window pos : ' + $(document).scrollTop());
-          console.log('********************');
+          
           if ($(document).scrollTop() >= target - screenHeight) {
             $('button.results_placeholder').show();
             clearInterval(oms.scrollInterval);
