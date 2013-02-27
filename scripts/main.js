@@ -85,20 +85,22 @@ oms.AppObject = function OMSAppModel() {
         $('section.result').last().addClass('loadMore');
       
         // Compute distance form top of document to top of search
-        var from_top = 
-              $('div.stp-content-panel > header').height() + 
-              $('form.header_search').height() + 
-              $('div.subheader').height() + 
-              parseInt($('div.subheader').css('marginBottom').replace('px','')) +
-              $('section.loadMore > header').height(),
-            target = $('section.loadMore').offset().top - from_top;
+        var screenHeight = $(window).height();
+              // $('div.stp-content-panel > header').height() + 
+              // $('form.header_search').height() + 
+              // $('div.subheader').height() + 
+              // parseInt($('div.subheader').css('marginBottom').replace('px','')) +
+              // $('section.loadMore > header').height(),
+            target = $('section.loadMore').offset().top;
           
-        console.log('from_top : ' + from_top);
-        console.log('target : ' + target);
-        
-        oms.scrollInterval = setInterval(function() {
-          console.log('interval window pos : ' + $(document).scrollTop());
-          if ($(document).scrollTop() >= target) {
+          oms.scrollInterval = setInterval(function() {
+          console.log('***** Interval *****');
+          console.log('target : ' + target);
+          console.log('screenHeight : ' + screenHeight);
+          console.log('target - screenHeight : ' + (target - screenHeight));
+          console.log('window pos : ' + $(document).scrollTop());
+          console.log('********************');
+          if ($(document).scrollTop() >= target - screenHeight) {
             $('button.results_placeholder').show();
             clearInterval(oms.scrollInterval);
           }
