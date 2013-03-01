@@ -37,11 +37,19 @@ oms.AppObject = function OMSAppModel() {
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
   
-  // (url, button = boolean, buttons = number of buttons)
-  self.loadSubheader = function(url, button, buttons) {
+  self.loadSubheader = function(url, buttons, custom_class) {
     url = 'snippets/subheader/' + url;
     $.get(url, function(snippet) {
       self.subheader(snippet);
+      
+      // set subheader classes
+      var classes = 'subheader shadow';
+      
+      if(buttons)          { classes = classes + ' buttons'; }
+      if(custom_class)     { classes = classes + ' ' + custom_class; }
+      
+      $('div.subheader').removeClass()
+                        .addClass(classes);
     }, 'html');
   }
   
@@ -55,6 +63,7 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadEvent = function(index) {
     var eventData = self.results()[index];
+
     self.clearDisplay();
     self.events.push(eventData);
   };
@@ -64,14 +73,40 @@ oms.AppObject = function OMSAppModel() {
 
     // Get json from api call
     $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
+
       self.clearDisplay();        
-      self.loadSubheader('results.html');
+      self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
-      // set subheader classes
-      $('div.subheader').removeClass()
-                        .addClass('subheader three_items buttons shadow');
+      // Check for Results before setting scroll to bottom event
+      if ($('section.result').length > 0) {
+        
+        $('section.result').last().addClass('loadMore');
+      
+        // Compute distance form top of document to top of search
+        var screenHeight = $(window).height(),
+            target = $('section.loadMore').offset().top;
+          
+          oms.scrollInterval = setInterval(function() {
+          
+          if ($(document).scrollTop() >= target - screenHeight) {
+            
+            console.log('Need to query DB for next 20 results');
+            console.log('Would be nice to return total # of results w/results if > 20');
+            console.log('This should only ask for more results if they exist');
+            
+            clearInterval(oms.scrollInterval);
+          }
+        }, 500);
+                
+      } else {
+        
+        oms.app.loadPage('no_results.html');
+        
+      }
+                
     }, 'json');
   };
   
@@ -81,6 +116,7 @@ oms.AppObject = function OMSAppModel() {
     self.page('');
     self.events([]);
     self.results([]);
+    clearInterval(oms.scrollInterval);
   }
   
 };
@@ -135,6 +171,7 @@ $('div.ko_flicker_fix').add('h2.ko_flicker_fix')
 // Bind UI Events
 // -------------------
 $('header a.toggleSearch').on('click', oms.toggleSearch);
+
 $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   e.preventDefault();
   e.stopPropagation();
@@ -143,14 +180,18 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.app.loadPage(snippet);
 
   if ($this.data('subheader')) {
-    oms.app.loadSubheader($this.data('snippet'));
+    if($this.data('subbuttons')) {
+      oms.app.loadSubheader($this.data('snippet'), true, $this.data('subclass'));
+    } else {
+      oms.app.loadSubheader($this.data('snippet'));
+    }
   }
   
   oms.st.toggle_nav();
 });
+
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
   var index = $(this).prop('rel');
   oms.app.loadEvent(index);
 });
-

@@ -46,7 +46,7 @@
       <nav>
         <h3>HTML Prototype Links</h3>
         <a data-snippet="home_reg.html" class="loadPage" href="#">Homepage - Registered</a>
-        <a data-snippet="home_unreg.html" data-subheader="true" class="loadPage" href="#">Homepage - Unregistered</a>
+        <a data-snippet="home_unreg.html" data-subheader="true" data-subbuttons="true" data-subclass="two_items" class="loadPage" href="#">Homepage - Unregistered</a>
       </nav>
       <nav class="user">
         <h3>My Account</h3>
@@ -87,6 +87,7 @@
         </form>
         
         <div class="stp-content-frame page_frame">
+          
           <div class="stp-content-body">
                         
             <div class="subheader" data-bind="html: subheader"></div>
@@ -123,7 +124,6 @@
                 </section>
               </div>
 
-              <button class="full_button">More Results...</button>
             </div> <!-- /results_area -->
             
             <div class="event_area ko_flicker_fix" data-bind="visible: events().length > 0">
