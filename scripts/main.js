@@ -18,6 +18,7 @@ oms.Result = function Result(data) {
   this.state = data.State;
   this.latitude = data.Latitude;
   this.longitude = data.Longitude;
+  this.distance = data.Distance;
   
   this.url = ko.computed(function() {
     return '/event/' + data.ID;
@@ -36,7 +37,8 @@ oms.AppObject = function OMSAppModel() {
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
   
-  self.loadSubheader = function(url) {
+  // (url, button = boolean, buttons = number of buttons)
+  self.loadSubheader = function(url, button, buttons) {
     url = 'snippets/subheader/' + url;
     $.get(url, function(snippet) {
       self.subheader(snippet);
@@ -70,7 +72,6 @@ oms.AppObject = function OMSAppModel() {
       // set subheader classes
       $('div.subheader').removeClass()
                         .addClass('subheader three_items buttons shadow');
-                
     }, 'json');
   };
   
