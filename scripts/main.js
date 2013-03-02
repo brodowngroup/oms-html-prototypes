@@ -37,6 +37,10 @@ oms.AppObject = function OMSAppModel() {
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
   
+  // Map Data
+  self.lat;
+  self.long;
+  
   self.loadSubheader = function(url, buttons, custom_class) {
     url = 'snippets/subheader/' + url;
     $.get(url, function(snippet) {
@@ -65,8 +69,11 @@ oms.AppObject = function OMSAppModel() {
     var eventData = self.results()[index];
     self.clearDisplay();
     self.events.push(eventData);
+    
+    self.lat = eventData.lattitude;
+    self.long = eventData.longitude;
 
-    //self.loadMap(eventData.longitude, eventData.lattitude);
+    self.initMap();
   };
   
   self.newSearch = function() {
@@ -109,6 +116,22 @@ oms.AppObject = function OMSAppModel() {
       }
                 
     }, 'json');
+  };
+  
+  self.loadMap = function() {
+    var mapOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(eventData.lattitude, eventData.longitude),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  }
+  
+  self.initMap = function() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
+    document.body.appendChild(script);
   };
   
   self.clearDisplay = function () {
