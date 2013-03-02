@@ -128,10 +128,14 @@ oms.AppObject = function OMSAppModel() {
   }
   
   self.initMap = function() {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
-    document.body.appendChild(script);
+    if (window.google.maps) {
+      self.loadMap();
+    } else {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
+      document.body.appendChild(script);
+    }
   };
   
   self.clearDisplay = function () {
