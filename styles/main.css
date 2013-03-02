@@ -292,3 +292,7 @@ level SEO priority
 /* SEARCH RESULTS
 -----------------*/
 button.results_placeholder{display:none;}
+
+/* EVENT PAGE
+-------------*/
+#map_canvas > div {height:300px;}
