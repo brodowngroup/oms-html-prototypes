@@ -128,7 +128,7 @@ oms.AppObject = function OMSAppModel() {
   }
   
   self.initMap = function() {
-    if (window.google.maps) {
+    if (typeof google === 'object' && typeof google.maps === 'object') {
       self.loadMap();
     } else {
       var script = document.createElement("script");
