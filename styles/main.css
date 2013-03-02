@@ -295,4 +295,4 @@ button.results_placeholder{display:none;}
 
 /* EVENT PAGE
 -------------*/
-#map_canvas > div {height:300px;}
+#map_canvas {height:300px;}
