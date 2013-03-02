@@ -63,9 +63,10 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadEvent = function(index) {
     var eventData = self.results()[index];
-
     self.clearDisplay();
     self.events.push(eventData);
+
+    //self.loadMap(eventData.longitude, eventData.lattitude);
   };
   
   self.newSearch = function() {
