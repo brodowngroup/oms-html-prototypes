@@ -120,10 +120,11 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadMap = function() {
     var location = new google.maps.LatLng(self.lat, self.long);
+    var center = new google.maps.LatLng(self.lat, self.long + 150);
     
     var mapOptions = {
         zoom: 18,
-        center: location,
+        center: center,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       
