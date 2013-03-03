@@ -143,14 +143,18 @@ oms.AppObject = function OMSAppModel() {
         $('#map_canvas').show().animate({
           'height': '300px'
         }, function(){
-          console.log('******************************');
-          console.log('Show Map Callback');
-          console.log('oms.app.map.setCenter : ' + oms.app.map.setCenter);
-          console.log('oms.app.markerLoc : ' + oms.app.markerLoc);
-          console.log('self.map.setCenter : ' + self.map.setCenter);
+          //oms.app.map.setCenter(oms.app.markerLoc);
+          
+          var map_obj = document.getElementById("map_canvas");
+          
+          console.log('map_obj' + map_obj);
           console.log('self.markerLoc : ' + self.markerLoc);
-          console.log('/******************************');
-          oms.app.map.setCenter(oms.app.markerLoc);
+          
+          if (map_obj) {
+            map_obj.checkResize();
+            map_obj.panTo(self.markerLoc);
+          }          
+          
         });
                 
       });
