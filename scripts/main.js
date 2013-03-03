@@ -134,7 +134,7 @@ oms.AppObject = function OMSAppModel() {
       map: map
     });
     
-    map.event.addListenerOnce(map, 'idle', function(){
+    google.maps.event.addListenerOnce(map, 'idle', function(){
         console.log('map loaded!');
     });
   }
