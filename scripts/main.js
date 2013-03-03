@@ -153,7 +153,7 @@ oms.AppObject = function OMSAppModel() {
       e.stopPropagation();
       $('div.map_slide').animate({
         'height': '300px'
-      }, self.loadmap );
+      }, self.loadMap );
     });
     
   };
