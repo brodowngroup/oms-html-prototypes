@@ -41,6 +41,7 @@ oms.AppObject = function OMSAppModel() {
   self.map;
   self.lat;
   self.long;
+  self.markerLoc;
   
   self.loadSubheader = function(url, buttons, custom_class) {
     url = 'snippets/subheader/' + url;
@@ -120,18 +121,18 @@ oms.AppObject = function OMSAppModel() {
   };
   
   self.loadMap = function() {
-    var location = new google.maps.LatLng(self.lat, self.long);
+    self.markerLoc = new google.maps.LatLng(self.lat, self.long);
     
     var mapOptions = {
         zoom: 18,
-        center: location,
+        center: self.markerLoc,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       
     self.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     
     var marker = new google.maps.Marker({
-      position: location,
+      position: self.markerLoc,
       map: self.map
     });
     
@@ -141,7 +142,7 @@ oms.AppObject = function OMSAppModel() {
         e.stopPropagation();
         $('#map_canvas').show().animate({
           'height': '300px'
-        }, function(){ self.map.setCenter(location); });
+        }, function(){ self.map.setCenter(self.markerLoc); });
       });
     });
   }
