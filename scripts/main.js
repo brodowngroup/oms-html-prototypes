@@ -38,6 +38,7 @@ oms.AppObject = function OMSAppModel() {
   self.results = ko.observableArray([]);
   
   // Map Data
+  self.map;
   self.lat;
   self.long;
   
@@ -127,11 +128,11 @@ oms.AppObject = function OMSAppModel() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    self.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     
     var marker = new google.maps.Marker({
       position: location,
-      map: map
+      map: self.map
     });
     
     google.maps.event.addListenerOnce(map, 'idle', function(){
@@ -140,7 +141,7 @@ oms.AppObject = function OMSAppModel() {
         e.stopPropagation();
         $('#map_canvas').show().animate({
           'height': '300px'
-        }, function(){ map.setCenter(location); });
+        }, function(){ self.map.setCenter(location); });
       });
     });
   }
