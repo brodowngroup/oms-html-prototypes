@@ -253,7 +253,7 @@ level SEO priority
   background: url(../images/map_bot.png) repeat-x;
 }
 
-.stp-content-body section > .map_area .map {
+.stp-content-body section > .map_area .map_slide {
   margin: -11px 0;
   z-index: 1;
 }
@@ -296,4 +296,5 @@ button.results_placeholder{display:none;}
 
 /* EVENT PAGE
 -------------*/
-#map_canvas {height:11px;}
+.map_slide {height:11px;position:relative}
+#map_canvas {height:300px;position:absolute;top:0;left:0;}

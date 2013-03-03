@@ -139,7 +139,7 @@ oms.AppObject = function OMSAppModel() {
       $('a.showMap').on('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        $('#map_canvas').animate({
+        $('div.map_slide').animate({
           'height': '300px'
         });
       });
