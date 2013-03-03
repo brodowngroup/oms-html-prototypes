@@ -144,6 +144,7 @@ oms.AppObject = function OMSAppModel() {
                       if ($this.hasClass('active')) {
                         $('#map_canvas').animate({'height': '0px'});
                         $this.removeClass('active');
+                        $this.text('show map');
                       } else {
                           $this.addClass('active');
                           $('#map_canvas').show().animate({
@@ -152,6 +153,7 @@ oms.AppObject = function OMSAppModel() {
                           // callback to recenter map after animation
                           google.maps.event.trigger(self.map, 'resize');
                           oms.app.map.setCenter(oms.app.markerLoc);
+                          $this.text('hide map');
                         });
                       }
       });
