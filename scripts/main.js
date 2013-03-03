@@ -139,9 +139,7 @@ oms.AppObject = function OMSAppModel() {
   }
   
   self.initMap = function() {
-    if (typeof google === 'object' && typeof google.maps === 'object') {
-      self.loadMap();
-    } else {
+    if (typeof google !== 'object' && typeof google.maps !== 'object') å{
       var script = document.createElement("script");
       script.type = "text/javascript";
       script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false";
