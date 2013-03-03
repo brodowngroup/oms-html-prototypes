@@ -143,7 +143,13 @@ oms.AppObject = function OMSAppModel() {
         $('#map_canvas').show().animate({
           'height': '300px'
         }, function(){
-          alert('here');
+          console.log('******************************');
+          console.log('Show Map Callback');
+          console.log('oms.app.map.setCenter : ' + oms.app.map.setCenter);
+          console.log('oms.app.markerLoc : ' + oms.app.markerLoc);
+          console.log('self.map.setCenter : ' + self.map.setCenter);
+          console.log('self.markerLoc : ' + self.markerLoc);
+          console.log('/******************************');
           oms.app.map.setCenter(oms.app.markerLoc);
         });
                 
