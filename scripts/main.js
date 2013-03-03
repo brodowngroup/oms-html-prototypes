@@ -135,9 +135,15 @@ oms.AppObject = function OMSAppModel() {
     });
     
     google.maps.event.addListenerOnce(map, 'idle', function(){
+      // Runs after map is loaded
+      $('a.showMap').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         $('#map_canvas').animate({
           'height': '300px'
         });
+      });
+
     });
   }
   
@@ -149,7 +155,8 @@ oms.AppObject = function OMSAppModel() {
       script.type = "text/javascript";
       script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
       document.body.appendChild(script);
-    }    
+    }
+    
   };
   
   self.clearDisplay = function () {

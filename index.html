@@ -150,10 +150,11 @@
                         <span data-bind="text: neighborhood"></span>
                         <span data-bind="visible: city">|</span>
                         <span data-bind="text: city"></span><span data-bind="visible: state">,</span> <span data-bind="text: state"></span>
+                        | <a class="showMap" href="#">view map</a>
                     </li>
                   </ul>
               
-                  <div class="map_area loading">
+                  <div class="map_area">
                     <div class="map_top"></div>
                     <div class="map" id="map_canvas"></div>
                     <div class="map_bot"></div>
