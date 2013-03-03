@@ -145,6 +145,7 @@ oms.AppObject = function OMSAppModel() {
         }, function(){
 
           google.maps.event.trigger(self.map, 'resize');
+          oms.app.map.setCenter(oms.app.markerLoc);
           
         });
                 
