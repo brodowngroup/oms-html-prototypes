@@ -70,7 +70,7 @@ oms.AppObject = function OMSAppModel() {
     self.clearDisplay();
     self.events.push(eventData);
     
-    self.lat = eventData.lattitude;
+    self.lat = eventData.latitude;
     self.long = eventData.longitude;
 
     self.initMap();
