@@ -138,17 +138,22 @@ oms.AppObject = function OMSAppModel() {
     
     google.maps.event.addListenerOnce(self.map, 'idle', function(){
       $('a.showMap').on('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        $('#map_canvas').show().animate({
-          'height': '300px'
-        }, function(){
-
-          google.maps.event.trigger(self.map, 'resize');
-          oms.app.map.setCenter(oms.app.markerLoc);
-          
-        });
-                
+                      e.preventDefault();
+                      e.stopPropagation();
+                      var $this = $(this);
+                      if ($this.hasClass('active')) {
+                        $('#map_canvas').slideUp();
+                        $this.removeClass('active');
+                      } else {
+                          $this.addClass('active');
+                          $('#map_canvas').show().animate({
+                            'height': '300px'
+                        }, function(){
+                          // callback to recenter map after animation
+                          google.maps.event.trigger(self.map, 'resize');
+                          oms.app.map.setCenter(oms.app.markerLoc);
+                        });
+                      }
       });
     });
   }
