@@ -142,7 +142,10 @@ oms.AppObject = function OMSAppModel() {
         e.stopPropagation();
         $('#map_canvas').show().animate({
           'height': '300px'
-        }, function(){ oms.app.map.setCenter(oms.app.markerLoc); });
+        }, function(){
+          alert('here');
+          oms.app.map.setCenter(oms.app.markerLoc);
+        });
                 
       });
     });
