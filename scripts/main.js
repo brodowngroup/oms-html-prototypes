@@ -135,7 +135,7 @@ oms.AppObject = function OMSAppModel() {
       map: self.map
     });
     
-    google.maps.event.addListenerOnce(map, 'idle', function(){
+    google.maps.event.addListenerOnce(self.map, 'idle', function(){
       $('a.showMap').on('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
