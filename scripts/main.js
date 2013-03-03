@@ -119,6 +119,8 @@ oms.AppObject = function OMSAppModel() {
   };
   
   self.loadMap = function() {
+    console.info('loadmap');
+    
     var location = new google.maps.LatLng(self.lat, self.long);
     
     var mapOptions = {
