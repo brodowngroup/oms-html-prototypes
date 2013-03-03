@@ -119,12 +119,21 @@ oms.AppObject = function OMSAppModel() {
   };
   
   self.loadMap = function() {
+    var location = new google.maps.LatLng(self.lat, self.long);
+    
     var mapOptions = {
         zoom: 18,
-        center: new google.maps.LatLng(self.lat, self.long),
+        center: location,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
+      };
+      
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+    
   }
   
   self.initMap = function() {
@@ -135,7 +144,7 @@ oms.AppObject = function OMSAppModel() {
       script.type = "text/javascript";
       script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
       document.body.appendChild(script);
-    }
+    }    
   };
   
   self.clearDisplay = function () {
