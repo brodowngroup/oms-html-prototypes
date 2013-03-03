@@ -120,11 +120,10 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadMap = function() {
     var location = new google.maps.LatLng(self.lat, self.long);
-    var center = new google.maps.LatLng(self.lat, self.long + 150);
     
     var mapOptions = {
         zoom: 18,
-        center: center,
+        center: location,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       
@@ -141,7 +140,7 @@ oms.AppObject = function OMSAppModel() {
         e.stopPropagation();
         $('#map_canvas').show().animate({
           'height': '300px'
-        });
+        }, function(){ map.setCenter(location); });
       });
     });
   }
@@ -152,7 +151,7 @@ oms.AppObject = function OMSAppModel() {
     } else {
       var script = document.createElement("script");
       script.type = "text/javascript";
-      script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=true&callback=oms.app.loadMap";
+      script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
       document.body.appendChild(script);
     }
     
