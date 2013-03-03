@@ -142,18 +142,21 @@ oms.AppObject = function OMSAppModel() {
                       e.stopPropagation();
                       var $this = $(this);
                       if ($this.hasClass('active')) {
-                        $('#map_canvas').animate({'height': '0px'});
-                        $this.removeClass('active');
-                        $this.text('show map');
+                        $('#map_canvas').animate({
+                          'height': '0px'
+                        }, function(){
+                          $this.removeClass('active');
+                          $this.text('show map');
+                        });
                       } else {
-                          $this.addClass('active');
-                          $('#map_canvas').show().animate({
-                            'height': '300px'
+                        $('#map_canvas').animate({
+                          'height': '300px'
                         }, function(){
                           // callback to recenter map after animation
                           google.maps.event.trigger(self.map, 'resize');
                           oms.app.map.setCenter(oms.app.markerLoc);
                           $this.text('hide map');
+                          $this.addClass('active');
                         });
                       }
       });

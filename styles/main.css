@@ -279,7 +279,7 @@ button.results_placeholder{display:none;}
 /* EVENT PAGE
 -------------*/
 .map_slide {position:relative}
-#map_canvas{display:none;height:11px;}
+#map_canvas{height:11px;}
 
 .stp-content-body section > .map_area > div.map_top {
   position:relative;
