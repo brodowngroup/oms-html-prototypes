@@ -143,17 +143,8 @@ oms.AppObject = function OMSAppModel() {
         $('#map_canvas').show().animate({
           'height': '300px'
         }, function(){
-          //oms.app.map.setCenter(oms.app.markerLoc);
-          
-          var map_obj = document.getElementById("map_canvas");
-          
-          console.log('map_obj' + map_obj);
-          console.log('self.markerLoc : ' + self.markerLoc);
-          
-          if (map_obj) {
-            map_obj.checkResize();
-            map_obj.panTo(self.markerLoc);
-          }          
+
+          google.maps.event.trigger(self.map, 'resize');
           
         });
                 
