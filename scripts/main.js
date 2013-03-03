@@ -135,7 +135,9 @@ oms.AppObject = function OMSAppModel() {
     });
     
     google.maps.event.addListenerOnce(map, 'idle', function(){
-        console.log('map loaded!');
+        $('#map_canvas').animate({
+          'height': '300px'
+        });
     });
   }
   
