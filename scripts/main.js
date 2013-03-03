@@ -142,7 +142,7 @@ oms.AppObject = function OMSAppModel() {
                       e.stopPropagation();
                       var $this = $(this);
                       if ($this.hasClass('active')) {
-                        $('#map_canvas').slideUp();
+                        $('#map_canvas').animate({'height': '0px'});
                         $this.removeClass('active');
                       } else {
                           $this.addClass('active');
