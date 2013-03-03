@@ -240,24 +240,6 @@ level SEO priority
   border-bottom:none;
 }
 
-.stp-content-body section > .map_area > div.map_top {
-  position:relative;
-  z-index: 10;
-  height: 11px;
-  background: url(../images/map_top.png) repeat-x;
-}
-.stp-content-body section > .map_area > div.map_bot {
-  position:relative;
-  z-index: 10;
-  height: 11px;
-  background: url(../images/map_bot.png) repeat-x;
-}
-
-.stp-content-body section > .map_area .map_slide {
-  margin: -11px 0;
-  z-index: 1;
-}
-
 /* UNREG HOMEPAGE
 -------------------*/
 #slider ul{list-style-type:none;margin:0;padding:0;}
@@ -298,3 +280,21 @@ button.results_placeholder{display:none;}
 -------------*/
 .map_slide {height:11px;position:relative}
 #map_canvas {height:300px;position:absolute;top:0;left:0;}
+
+.stp-content-body section > .map_area > div.map_top {
+  position:relative;
+  z-index: 10;
+  height: 11px;
+  background: url(../images/map_top.png) repeat-x;
+}
+.stp-content-body section > .map_area > div.map_bot {
+  position:relative;
+  z-index: 10;
+  height: 11px;
+  background: url(../images/map_bot.png) 11px 0 repeat-x;
+}
+
+.stp-content-body section > .map_area .map_slide {
+  margin: -11px 0;
+  z-index: 1;
+}
