@@ -127,15 +127,13 @@ oms.AppObject = function OMSAppModel() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions).addListenerOnce(map, 'idle', function(){
+          console.log('map loaded!');
+      });
     
     var marker = new google.maps.Marker({
       position: location,
       map: map
-    });
-    
-    map.addListenerOnce(map, 'idle', function(){
-        console.log('map loaded!');
     });
   }
   
