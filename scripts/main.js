@@ -119,13 +119,12 @@ oms.AppObject = function OMSAppModel() {
   };
   
   self.loadMap = function() {
-    console.info('loadmap');
-    
     var location = new google.maps.LatLng(self.lat, self.long);
+    var center = new google.maps.LatLng(self.lat, self.long + 150);
     
     var mapOptions = {
         zoom: 18,
-        center: location,
+        center: center,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       
@@ -136,25 +135,27 @@ oms.AppObject = function OMSAppModel() {
       map: map
     });
     
+    google.maps.event.addListenerOnce(map, 'idle', function(){
+      $('a.showMap').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('#map_canvas').show().animate({
+          'height': '300px'
+        });
+      });
+    });
   }
   
   self.initMap = function() {
     if (typeof google === 'object' && typeof google.maps === 'object') {
-      //self.loadMap();
+      self.loadMap();
     } else {
       var script = document.createElement("script");
       script.type = "text/javascript";
-      script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false";
+      script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=true&callback=oms.app.loadMap";
       document.body.appendChild(script);
     }
     
-    $('a.showMap').on('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      $('div.map_slide').animate({
-        'height': '300px'
-      }, oms.app.loadmap );
-    });
     
   };
   
