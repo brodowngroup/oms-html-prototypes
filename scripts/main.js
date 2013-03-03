@@ -70,7 +70,7 @@ oms.AppObject = function OMSAppModel() {
     self.clearDisplay();
     self.events.push(eventData);
     
-    self.lat = eventData.lattitude;
+    self.lat = eventData.latitude;
     self.long = eventData.longitude;
 
     self.initMap();
@@ -120,7 +120,7 @@ oms.AppObject = function OMSAppModel() {
   
   self.loadMap = function() {
     var mapOptions = {
-        zoom: 8,
+        zoom: 18,
         center: new google.maps.LatLng(self.lat, self.long),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
