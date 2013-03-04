@@ -145,7 +145,7 @@ oms.AppObject = function OMSAppModel() {
                       var $this = $(this);
                       if ($this.hasClass('active')) {
                         $('#map_canvas').animate({
-                          'height': '0px'
+                          'height': '1px'
                         }, function(){
                           $this.removeClass('active');
                           $this.text('show map');
