@@ -298,3 +298,5 @@ button.results_placeholder{display:none;}
   margin: -11px 0;
   z-index: 1;
 }
+
+.showMap{display:none}

@@ -159,6 +159,7 @@ oms.AppObject = function OMSAppModel() {
                           oms.app.map.setCenter(oms.app.markerLoc);
                           $this.text('hide map');
                           $this.addClass('active');
+                          $this.show();
                         });
                       }
       }).click();
