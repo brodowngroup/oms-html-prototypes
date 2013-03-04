@@ -82,7 +82,9 @@ oms.AppObject = function OMSAppModel() {
     var query = $('form.header_search').find('input').val();
 
     // Get json from api call
-    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+    // old - http://api.onmystage.net/api/search/
+    // new - http://onmystageapi.cloudapp.net/api/search/
+    $.post("http://onmystageapi.cloudapp.net/api/search/", { term: query }, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
