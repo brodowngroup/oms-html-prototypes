@@ -161,7 +161,7 @@ oms.AppObject = function OMSAppModel() {
                           $this.addClass('active');
                         });
                       }
-      });
+      }).click();
     });
   }
   
