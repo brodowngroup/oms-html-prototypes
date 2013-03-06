@@ -11,7 +11,7 @@ oms.Result = function Result(data) {
   this.name = data.Name;
   this.image = data.Image;
   this.date = data.Date;
-  this.time = (data.Time).replace(/<(?:.|\n)*?>/gm, '');
+  this.time = (data.Time).replace(/<(?:.|\n)*?>/gm, ''); //strip HTML
   this.venue = data.Venue;
   this.neighborhood = data.Neighborhood;
   this.city = data.City;
@@ -43,33 +43,25 @@ oms.AppObject = function OMSAppModel() {
   self.long;
   self.markerLoc;
   
-  self.loadSubheader = function(url, buttons, custom_class) {
-    url = 'snippets/subheader/' + url;
-    $.get(url, function(snippet) {
-      self.subheader(snippet);
-      
-      // set subheader classes
-      var classes = 'subheader shadow';
-      
-      if(buttons)          { classes = classes + ' buttons'; }
-      if(custom_class)     { classes = classes + ' ' + custom_class; }
-      
-      $('div.subheader').removeClass()
-                        .addClass(classes);
-    }, 'html');
+  // Create Controller for all page refreshes
+  // - Update History 
+  // - Clear Page Display
+  self.pageRefresh = function() {
+    self.clearDisplay();        
   }
   
+  // Three main page refreshes
   self.loadPage = function(url) {
     url = 'snippets/' + url;
     $.get(url, function(snippet) {
-      self.clearDisplay();
+      self.pageRefresh();
       self.page(snippet);
     }, 'html');
   };
   
   self.loadEvent = function(index) {
     var eventData = self.results()[index];
-    self.clearDisplay();
+    self.pageRefresh();
     self.events.push(eventData);
     
     self.lat = eventData.latitude;
@@ -88,7 +80,7 @@ oms.AppObject = function OMSAppModel() {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
-      self.clearDisplay();        
+      self.pageRefresh();        
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
@@ -121,6 +113,23 @@ oms.AppObject = function OMSAppModel() {
                 
     }, 'json');
   };
+  
+  // Helper functions for sub-areas
+  self.loadSubheader = function(url, buttons, custom_class) {
+    url = 'snippets/subheader/' + url;
+    $.get(url, function(snippet) {
+      self.subheader(snippet);
+      
+      // set subheader classes
+      var classes = 'subheader shadow';
+      
+      if(buttons)          { classes = classes + ' buttons'; }
+      if(custom_class)     { classes = classes + ' ' + custom_class; }
+      
+      $('div.subheader').removeClass()
+                        .addClass(classes);
+    }, 'html');
+  }
   
   self.loadMap = function() {
     self.markerLoc = new google.maps.LatLng(self.lat, self.long);
@@ -270,16 +279,15 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
 (function(window,undefined){
 
     // Prepare
-    var History = window.History; // Note: We are using a capital H instead of a lower h
+    var History = window.History;
     if ( !History.enabled ) {
          // History.js is disabled for this browser.
-         // This is because we can optionally choose to support HTML4 browsers or not.
         return false;
     }
 
     // Bind to StateChange Event
-    History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
-        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+    History.Adapter.bind(window,'statechange',function(){
+        var State = History.getState();
         History.log(State.data, State.title, State.url);
     });
 
