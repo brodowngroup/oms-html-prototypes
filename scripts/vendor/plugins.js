@@ -8,21 +8,22 @@
 
 // -------------------------------------
 // Fix for ios6 devices
-// Use in case of ios sidetap wierdness
+// Try in case of ios sidetap wierdness
+// Remove if Sidetap goes
 // --------------------------------------
-$(document).ready(function() {
-  var my_sidetap = function() {
-    var ios5;
-    ios5 = window.SharedWorker && navigator.userAgent.match(/^((?!android).)*webkit.*$/i);
-    var ios6;
-    ios6 = navigator.userAgent.match(/6_/);
-    if (ios5 && !(ios6)) {
-      return new SidetapIos();
-    } else {
-      return new SidetapStandard();
-    }
-  }();
-});
+// $(document).ready(function() {
+//   var my_sidetap = function() {
+//     var ios5;
+//     ios5 = window.SharedWorker && navigator.userAgent.match(/^((?!android).)*webkit.*$/i);
+//     var ios6;
+//     ios6 = navigator.userAgent.match(/6_/);
+//     if (ios5 && !(ios6)) {
+//       return new SidetapIos();
+//     } else {
+//       return new SidetapStandard();
+//     }
+//   }();
+// });
 
 // ---------------------------------------------------------
 // Avoid `console` errors in browsers that lack a console.
