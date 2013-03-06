@@ -76,7 +76,7 @@ oms.AppObject = function OMSAppModel() {
     // Get json from api call
     // old - http://api.onmystage.net/api/search/
     // new - http://onmystageapi.cloudapp.net/api/search/
-    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+    $.post("http://onmystageapi.cloudapp.net/api/search/", { term: query }, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
