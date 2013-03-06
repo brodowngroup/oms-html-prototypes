@@ -24,6 +24,7 @@ textarea{resize:vertical;}
 .control_right{float:right}
 .img-inset-left{float:left;margin:0 2% 2% 0;max-width:50%;}
 .img-inset-right{float:right;margin:0 0 2% 2%;max-width:50%;}
+.loading{background:url(../images/loading.gif) 50% 50% no-repeat}
 .full_button{margin:0 auto;width:100%;padding:5%;margin:2% 0;}
 .clear{clear:both;display:block;height:1px;margin:-1px 0 0 0}
 .date{padding:0 0 0 20px;background:url(../images/icon-cal.png) no-repeat;}
@@ -239,23 +240,7 @@ level SEO priority
   border-bottom:none;
 }
 
-.stp-content-body section > .map_area > div.map_top {
-  position:relative;
-  z-index: 10;
-  height: 11px;
-  background: url(../images/map_top.png) repeat-x;
-}
-.stp-content-body section > .map_area > div.map_bot {
-  position:relative;
-  z-index: 10;
-  height: 11px;
-  background: url(../images/map_bot.png) repeat-x;
-}
-
-.stp-content-body section > .map_area .map {
-  margin: -11px 0;
-  z-index: 1;
-}
+.stp-content-body section .separator {color:#cdd2d7;}
 
 /* UNREG HOMEPAGE
 -------------------*/
@@ -275,8 +260,6 @@ level SEO priority
   background:    -moz-linear-gradient(top,#d5cea6 0%,#c9c190 40%,#b7ad70 100%);
   background:        -webkit-gradient(linear,left top,left bottom,color-stop(0%,#d5cea6),color-stop(40%,#c9c190),color-stop(100%,#b7ad70));
   background: -webkit-linear-gradient(top,#d5cea6 0%,#c9c190 40%,#b7ad70 100%);
-  background:      -o-linear-gradient(top,#d5cea6 0%,#c9c190 40%,#b7ad70 100%);
-  background:     -ms-linear-gradient(top,#d5cea6 0%,#c9c190 40%,#b7ad70 100%);
   background:         linear-gradient(to bottom,#d5cea6 0%,#c9c190 40%,#b7ad70 100%);
   height:35px;
   position:relative;
@@ -295,4 +278,25 @@ button.results_placeholder{display:none;}
 
 /* EVENT PAGE
 -------------*/
-#map_canvas {height:300px;}
+.map_slide {position:relative}
+#map_canvas{height:11px;}
+
+.stp-content-body section > .map_area > div.map_top {
+  position:relative;
+  z-index: 10;
+  height: 11px;
+  background: url(../images/map_top.png) repeat-x;
+}
+.stp-content-body section > .map_area > div.map_bot {
+  position:relative;
+  z-index: 10;
+  height: 11px;
+  background: url(../images/map_bot.png) 6px 0 repeat-x;
+}
+
+.stp-content-body section > .map_area .map_slide {
+  margin: -5px 0;
+  z-index: 1;
+}
+
+a.showMap{float:right;display:none}

@@ -110,16 +110,16 @@
                   <ul>
                     <li>
                       <span class="date"><span data-bind="text: date"></span>
-                      <span data-bind="visible: time">|</span>
+                      <span class="separator" data-bind="visible: time"> / </span>
                       <span data-bind="text: time"></span>
                     </li>
                     <li>
                       <span class="loc">
                         <span data-bind="text: venue"></span>
                         <span data-bind="text: neighborhood"></span>
-                        <span data-bind="visible: city">|</span>
+                        <span class="separator" data-bind="visible: city"> / </span>
                         <span data-bind="text: city"></span><span data-bind="visible: state">,</span> <span data-bind="text: state"></span>
-                        <span data-bind="visible: distance">|</span>
+                        <span class="separator" data-bind="visible: distance"> / </span>
                         <span data-bind="text: distance"></span>
                     </li>
                   </ul>
@@ -141,26 +141,36 @@
                   <ul>
                     <li>
                       <span class="date"><span data-bind="text: date"></span>
-                      <span data-bind="visible: time">|</span>
+                      <span class="separator" data-bind="visible: time"> / </span>
                       <span data-bind="text: time"></span>
                     </li>
                     <li>
                       <span class="loc">
+                        <a class="showMap" href="#">show map</a>
                         <span data-bind="text: venue"></span>
                         <span data-bind="text: neighborhood"></span>
-                        <span data-bind="visible: city">|</span>
+                        <span class="separator" data-bind="visible: city"> / </span>
                         <span data-bind="text: city"></span><span data-bind="visible: state">,</span> <span data-bind="text: state"></span>
                     </li>
                   </ul>
               
                   <div class="map_area">
                     <div class="map_top"></div>
-                    <div class="map" id="map_canvas"><img src="images/tmp_map.png"></div>
+                    <div class="map_slide loading">
+                      <div id="map_canvas"></div>
+                    </div>
                     <div class="map_bot"></div>
                   </div>
               
                   <article>
-                    Event Details here
+                    <h2><span data-bind="text: name"></span> details here</h2>
+                    
+                    <p>Nothing is coming back for this in the data, but it would be great to have something for this spot. Check out what just a little bit of ipsum does :</p>
+                    
+                    <p>Nulla eu gangster. Shiznit porta fo boofron. Aenizzle get down get down, sapizzle izzle gizzle funky fresh, libero get down get down hendrerizzle leo, nizzle condimentum nunc rizzle izzle nunc. Donizzle eu dolizzle. Shizzle my nizzle crocodizzle quizzle fo shizzle my nizzle. Break yo neck, yall elementum faucibus shiz. Gangsta nulla sem.</p>
+                    
+                    <p>Izzle, fo shizzle mah nizzle fo rizzle, mah home g-dizzle egizzle, fizzle that's the shizzle, nunc. Sizzle fo. Nunc dope. Curabitur sizzle gangsta yippiyo nizzle ante blandizzle dignissizzle. Quisque da bomb tellus sizzle amet enim. Aenizzle bizzle dignissizzle felis.</p>
+                    
                   </article>
                 </section>
               </div>

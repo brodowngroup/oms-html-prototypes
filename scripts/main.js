@@ -38,8 +38,10 @@ oms.AppObject = function OMSAppModel() {
   self.results = ko.observableArray([]);
   
   // Map Data
+  self.map;
   self.lat;
   self.long;
+  self.markerLoc;
   
   self.loadSubheader = function(url, buttons, custom_class) {
     url = 'snippets/subheader/' + url;
@@ -80,7 +82,9 @@ oms.AppObject = function OMSAppModel() {
     var query = $('form.header_search').find('input').val();
 
     // Get json from api call
-    $.post("http://api.onmystage.net/api/search/", { term: query }, function(data) {
+    // old - http://api.onmystage.net/api/search/
+    // new - http://onmystageapi.cloudapp.net/api/search/
+    $.post("http://onmystageapi.cloudapp.net/api/search/", { term: query }, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
@@ -119,12 +123,47 @@ oms.AppObject = function OMSAppModel() {
   };
   
   self.loadMap = function() {
+    self.markerLoc = new google.maps.LatLng(self.lat, self.long);
+    
     var mapOptions = {
         zoom: 18,
-        center: new google.maps.LatLng(self.lat, self.long),
+        center: self.markerLoc,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      };
+      
+    self.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    
+    var marker = new google.maps.Marker({
+      position: self.markerLoc,
+      map: self.map
+    });
+    
+    google.maps.event.addListenerOnce(self.map, 'idle', function(){
+      $('a.showMap').on('click', function(e) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      var $this = $(this);
+                      if ($this.hasClass('active')) {
+                        $('#map_canvas').animate({
+                          'height': '1px'
+                        }, function(){
+                          $this.removeClass('active');
+                          $this.text('show map');
+                        });
+                      } else {
+                        $('#map_canvas').animate({
+                          'height': '300px'
+                        }, function(){
+                          // callback to recenter map after animation
+                          google.maps.event.trigger(self.map, 'resize');
+                          oms.app.map.setCenter(oms.app.markerLoc);
+                          $this.text('hide map');
+                          $this.addClass('active');
+                          $this.show();
+                        });
+                      }
+      }).click();
+    });
   }
   
   self.initMap = function() {
@@ -136,6 +175,8 @@ oms.AppObject = function OMSAppModel() {
       script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
       document.body.appendChild(script);
     }
+    
+    
   };
   
   self.clearDisplay = function () {
