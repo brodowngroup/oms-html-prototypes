@@ -172,7 +172,7 @@ oms.AppObject = function OMSAppModel() {
                           $this.show();
                         });
                       }
-      }).click();
+      });
     });
   }
   

@@ -128,8 +128,7 @@ div.page_frame{position:relative;top:-48px;}
   background: -moz-linear-gradient(left, rgba(227,232,237,1) 0%, rgba(255,255,255,0.9) 10%, rgba(255,255,255,0) 100%);
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(227,232,237,1)), color-stop(10%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0)));
   background: -webkit-linear-gradient(left, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
-  background: -o-linear-gradient(left, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
-  background: -ms-linear-gradient(left, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
+10%,rgba(255,255,255,0) 100%);
   background: linear-gradient(to right, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
 }
 
@@ -185,8 +184,6 @@ div.page_frame{position:relative;top:-48px;}
   background: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.4) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.2)), color-stop(100%,rgba(255,255,255,0.4)));
   background: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.4) 100%);
-  background: -o-linear-gradient(top, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.4) 100%);
-  background: -ms-linear-gradient(top, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.4) 100%);
   background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.4) 100%);
 }
 .stp-overlay{background:#000;}
@@ -279,7 +276,7 @@ button.results_placeholder{display:none;}
 /* EVENT PAGE
 -------------*/
 .map_slide {position:relative}
-#map_canvas{height:11px;}
+#map_canvas{height:300px;}
 
 .stp-content-body section > .map_area > div.map_top {
   position:relative;
