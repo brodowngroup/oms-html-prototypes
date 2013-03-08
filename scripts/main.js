@@ -53,7 +53,7 @@ oms.AppObject = function OMSAppModel() {
   
   // Three main page refreshes
   self.loadPage = function(url) {
-    var title = url().replace('.html', '');
+    var title = url.replace('.html', '');
     url = 'snippets/' + url;
     $.get(url, function(snippet) {
       self.pageRefresh(null, title, url);
