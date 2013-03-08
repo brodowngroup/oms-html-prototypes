@@ -46,22 +46,24 @@ oms.AppObject = function OMSAppModel() {
   // Create Controller for all page refreshes
   // - Update History 
   // - Clear Page Display
-  self.pageRefresh = function() {
-    self.clearDisplay();        
+  self.pageRefresh = function(data, title, url) {
+    self.clearDisplay();
+    History.pushState(data, title, url);
   }
   
   // Three main page refreshes
   self.loadPage = function(url) {
+    var title = url().replace('.html', '');
     url = 'snippets/' + url;
     $.get(url, function(snippet) {
-      self.pageRefresh();
+      self.pageRefresh(null, title, url);
       self.page(snippet);
     }, 'html');
   };
   
   self.loadEvent = function(index) {
     var eventData = self.results()[index];
-    self.pageRefresh();
+    self.pageRefresh(null, "Event", "EVENTNAME");
     self.events.push(eventData);
     
     self.lat = eventData.latitude;
@@ -71,17 +73,18 @@ oms.AppObject = function OMSAppModel() {
   };
   
   self.newSearch = function() {
-    var query = $('form.header_search').find('input').val();
-
+    var searchTerm = $('form.header_search').find('input').val(),
+        query = { term: searchTerm, latitude: 41.8844754, longitude: -87.6569735, distance: 10, page: 1 },
+        newURL = "search/" + searchTerm;
+    
     // Get json from api call
     // old - http://api.onmystage.net/api/search/
-    // new - http://onmystageapi.cloudapp.net/api/search/    
-    
-    $.post("http://onmystageapi.cloudapp.net/api/search/", { term: query, latitude: 41.8844754, longitude: -87.6569735, distance: 10, page: 1 }, function(data) {
+    // new - http://onmystageapi.cloudapp.net/api/search/
+    $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
-      self.pageRefresh();        
+      self.pageRefresh(query, "searchTerm", "search");        
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
