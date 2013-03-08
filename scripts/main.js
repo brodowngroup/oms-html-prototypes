@@ -76,7 +76,11 @@ oms.AppObject = function OMSAppModel() {
     // Get json from api call
     // old - http://api.onmystage.net/api/search/
     // new - http://onmystageapi.cloudapp.net/api/search/
-    $.post("http://onmystageapi.cloudapp.net/api/search/", { term: query }, function(data) {
+    
+    latitude=41.8844754&longitude=-87.6569735&distance=10&page=1
+    
+    
+    $.post("http://onmystageapi.cloudapp.net/api/search/", { term: query, latitude: 41.8844754, longitude: -87.6569735, distance: 10, page: 1 }, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
