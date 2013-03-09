@@ -51,7 +51,7 @@ oms.AppObject = function OMSAppModel() {
     self.clearDisplay();
     //----------------------------------------//
     // Commenting out the part that forcibly  //
-    // sets the URL until we can handle       //
+    // sets the URL until we can have         //
     // all traffic redirected to index.html   //
     //----------------------------------------//
     // History.pushState(data, title, url);
@@ -89,16 +89,17 @@ oms.AppObject = function OMSAppModel() {
           latitude: null,
           longitude: null,
           distance: null,
-          page: 1
+          page: 1,
+          pageType: 'newSearch'
         };
     
     // Get json from api call
-    // old - http://api.onmystage.net/api/search/
-    // new - http://onmystageapi.cloudapp.net/api/search/
+    // local - http://api.onmystage.net/api/search/
+    // cloud - http://onmystageapi.cloudapp.net/api/search/
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
-      query.pageType = "newSearch"; 
+      //query.pageType = "newSearch"; 
       self.pageRefresh(query, "searchTerm", "search");        
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
@@ -308,6 +309,7 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
     History.Adapter.bind(window,'statechange',function(){
         var State = History.getState();
         History.log(State.data, State.title, State.url);
+        return false;
     });
 
     // Change our States
