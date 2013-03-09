@@ -49,7 +49,8 @@ oms.AppObject = function OMSAppModel() {
   self.pageRefresh = function(data, title, url) {
     console.log('url : ' + url);
     self.clearDisplay();
-    History.pushState(data, title, url);
+    // History.pushState(data, title, url);
+    History.pushState(data, title, '');
   }
   
   // Three main page refreshes
