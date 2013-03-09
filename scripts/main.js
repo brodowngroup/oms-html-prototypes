@@ -49,6 +49,11 @@ oms.AppObject = function OMSAppModel() {
   self.pageRefresh = function(data, title, url) {
     console.log('url : ' + url);
     self.clearDisplay();
+    //----------------------------------------//
+    // Commenting out the part that forcibly  //
+    // sets the URL until we can handle       //
+    // all traffic redirected to index.html   //
+    //----------------------------------------//
     // History.pushState(data, title, url);
     History.pushState(data, title, '');
   }
@@ -76,11 +81,14 @@ oms.AppObject = function OMSAppModel() {
   
   self.newSearch = function() {
     var searchTerm = $('form.header_search').find('input').val(),
+        // Hard-coding lat, long & distance into all searches
+        // There is a bug/feature that requires this info
+        // to return a valid query. 
         query = { 
           term: searchTerm,
-          latitude: 41.8844754,
-          longitude: -87.6569735,
-          distance: 10,
+          latitude: null,
+          longitude: null,
+          distance: null,
           page: 1
         },
         newURL = "search/" + searchTerm;
