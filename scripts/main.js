@@ -98,7 +98,7 @@ oms.AppObject = function OMSAppModel() {
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
-      query.push({pageType : 'newSearch'}); 
+      query.pageType = "newSearch"; 
       self.pageRefresh(query, "searchTerm", "search");        
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
