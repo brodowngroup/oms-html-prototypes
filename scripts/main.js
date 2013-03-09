@@ -81,8 +81,8 @@ oms.AppObject = function OMSAppModel() {
   
   //catches searches from the UI form and preps them for the search function
   self.newSearch = function() {
-    var searchTerm = $('form.header_search').find('input').val();
-    self.showSearch(searchTerm, 1);
+    var searchTerm = $('form.header_search input').val();
+    self.search(searchTerm, 1);
   }
   
   self.search = function(searchTerm, page) {
