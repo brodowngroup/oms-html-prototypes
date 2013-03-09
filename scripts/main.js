@@ -60,17 +60,25 @@ oms.AppObject = function OMSAppModel() {
   
   // Three main page refreshes
   self.loadPage = function(url) {
-    var title = url.replace('.html', '');
-    url = '/snippets/' + url;
-    $.get(url, function(snippet) {
-      self.pageRefresh(null, title, title);
+    var title = url.replace('.html', ''),
+        pageData = {
+          pageType: 'loadPage',
+          url: url
+        },
+        path = '/snippets/' + url;
+    $.get(path, function(snippet) {
+      self.pageRefresh(pageData, title, title);
       self.page(snippet);
     }, 'html');
   };
   
   self.loadEvent = function(index) {
-    var eventData = self.results()[index];
-    self.pageRefresh(null, "Event", "EVENTNAME");
+    var eventData = self.results()[index],
+        pageData = {
+          pageType: 'loadEvent',
+          event: eventData
+        },
+    self.pageRefresh(pageData, eventData.name, "/event/" + eventData.id);
     self.events.push(eventData);
     
     self.lat = eventData.latitude;
