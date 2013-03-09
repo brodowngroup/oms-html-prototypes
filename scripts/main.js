@@ -57,7 +57,7 @@ oms.AppObject = function OMSAppModel() {
     var title = url.replace('.html', '');
     url = '/snippets/' + url;
     $.get(url, function(snippet) {
-      self.pageRefresh(null, title, url);
+      self.pageRefresh(null, title, title);
       self.page(snippet);
     }, 'html');
   };
