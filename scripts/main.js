@@ -94,22 +94,22 @@ oms.AppObject = function OMSAppModel() {
   }
   
   self.search = function(searchTerm, page) {
-        //----------------------------------------------------//
-        // Hard-coding lat, long & distance into all searches //
-        // There is a bug/feature that requires this info     //
-        // to return a valid query.                           //
-        //----------------------------------------------------//
-        // pageType is used by History to determine what      //
-        // kind of page to load on history change             //
-        //----------------------------------------------------//
-        var query = { 
-          term: searchTerm,
-          latitude: null,
-          longitude: null,
-          distance: null,
-          page: page,
-          pageType: 'search'
-        };
+    //----------------------------------------------------//
+    // Hard-coding lat, long & distance into all searches //
+    // There is a bug/feature that requires this info     //
+    // to return a valid query.                           //
+    //----------------------------------------------------//
+    // pageType is used by History to determine what      //
+    // kind of page to load on history change             //
+    //----------------------------------------------------//
+    var query = { 
+      term: searchTerm,
+      latitude: null,
+      longitude: null,
+      distance: null,
+      page: page,
+      pageType: 'search'
+    };
     
     // Get json from api call
     // local - http://api.onmystage.net/api/search/
@@ -117,9 +117,13 @@ oms.AppObject = function OMSAppModel() {
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
-      self.pageRefresh(query, "searchTerm", "search");        
-      self.loadSubheader('results.html', true, 'three_items');
-      self.results(mappedResults);
+      if (page === 1) {
+        self.pageRefresh(query, "searchTerm", "search");        
+        self.loadSubheader('results.html', true, 'three_items');
+        self.results(mappedResults);
+      } else {
+        console.log('Load more results!');
+      }
       
       // Check for Results before setting scroll to bottom event
       if ($('section.result').length > 0) {
@@ -130,15 +134,12 @@ oms.AppObject = function OMSAppModel() {
         var screenHeight = $(window).height(),
             target = $('section.loadMore').offset().top;
           
-          oms.scrollInterval = setInterval(function() {
+        oms.scrollInterval = setInterval(function() {
           
-          if ($(document).scrollTop() >= target - screenHeight) {
-            
-            console.log('Need to query DB for next 20 results');
-            console.log('Would be nice to return total # of results w/results if > 20');
-            console.log('This should only ask for more results if they exist');
-            
+          if ($(document).scrollTop() >= target - screenHeight) {            
             clearInterval(oms.scrollInterval);
+            page = page + 1;
+            self.search(searchTerm, page);
           }
         }, 500);
                 
