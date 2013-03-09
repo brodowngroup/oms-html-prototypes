@@ -77,7 +77,7 @@ oms.AppObject = function OMSAppModel() {
         pageData = {
           pageType: 'loadEvent',
           event: eventData
-        },
+        };
     self.pageRefresh(pageData, eventData.name, "/event/" + eventData.id);
     self.events.push(eventData);
     
