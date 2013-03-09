@@ -90,8 +90,7 @@ oms.AppObject = function OMSAppModel() {
           longitude: null,
           distance: null,
           page: 1
-        },
-        newURL = "search/" + searchTerm;
+        };
     
     // Get json from api call
     // old - http://api.onmystage.net/api/search/
@@ -99,7 +98,7 @@ oms.AppObject = function OMSAppModel() {
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
-
+      query.push({pageType : 'newSearch'}); 
       self.pageRefresh(query, "searchTerm", "search");        
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
