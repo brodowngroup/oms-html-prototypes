@@ -47,6 +47,7 @@ oms.AppObject = function OMSAppModel() {
   // - Update History 
   // - Clear Page Display
   self.pageRefresh = function(data, title, url) {
+    console.log('url : ' + url);
     self.clearDisplay();
     History.pushState(data, title, url);
   }
