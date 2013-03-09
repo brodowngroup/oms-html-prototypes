@@ -86,7 +86,7 @@ oms.AppObject = function OMSAppModel() {
   self.search = function(page) {
     // If page is unset, assume new search on page 1
     page = typeof page !== 'undefined' ? page : 1;
-    var searchTerm = $('form.header_search').find('input').val(),
+    var searchTerm = $('form.header_search').find('input').val();
         //----------------------------------------------------//
         // Hard-coding lat, long & distance into all searches //
         // There is a bug/feature that requires this info     //
@@ -95,7 +95,7 @@ oms.AppObject = function OMSAppModel() {
         // pageType is used by history to determine what      //
         // kind of page to load on history change             //
         //----------------------------------------------------//
-        query = { 
+    var  query = { 
           term: searchTerm,
           latitude: null,
           longitude: null,
