@@ -79,18 +79,25 @@ oms.AppObject = function OMSAppModel() {
     self.initMap();
   };
   
-  self.newSearch = function() {
+  self.search = function(page) {
+    // If page is unset, assume new search on page 1
+    page = typeof page !== 'undefined' ? page : 1;
     var searchTerm = $('form.header_search').find('input').val(),
-        // Hard-coding lat, long & distance into all searches
-        // There is a bug/feature that requires this info
-        // to return a valid query. 
+        //----------------------------------------------------//
+        // Hard-coding lat, long & distance into all searches //
+        // There is a bug/feature that requires this info     //
+        // to return a valid query.                           //
+        //----------------------------------------------------//
+        // pageType is used by history to determine what      //
+        // kind of page to load on history change             //
+        //----------------------------------------------------//
         query = { 
           term: searchTerm,
           latitude: null,
           longitude: null,
           distance: null,
-          page: 1,
-          pageType: 'newSearch'
+          page: page,
+          pageType: 'search'
         };
     
     // Get json from api call
@@ -99,12 +106,11 @@ oms.AppObject = function OMSAppModel() {
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
-      //query.pageType = "newSearch"; 
       self.pageRefresh(query, "searchTerm", "search");        
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
-      // Check for Results before setting scroll to bottom event
+      // Check for Results before setting scroll to bottom event - Api errors on calls with no more results
       if ($('section.result').length > 0) {
         
         $('section.result').last().addClass('loadMore');
@@ -116,11 +122,6 @@ oms.AppObject = function OMSAppModel() {
           oms.scrollInterval = setInterval(function() {
           
           if ($(document).scrollTop() >= target - screenHeight) {
-            
-            console.log('Need to query DB for next 20 results');
-            console.log('Would be nice to return total # of results w/results if > 20');
-            console.log('This should only ask for more results if they exist');
-            
             clearInterval(oms.scrollInterval);
           }
         }, 500);
@@ -306,10 +307,11 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
     }
 
     // Bind to StateChange Event
-    History.Adapter.bind(window,'statechange',function(){
+    History.Adapter.bind(window,'statechange',function(e){
         var State = History.getState();
         History.log(State.data, State.title, State.url);
-        return false;
+        // Can we override the back button this easily?
+        e.preventDefault();
     });
 
     // Change our States
