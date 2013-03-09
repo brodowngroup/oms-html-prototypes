@@ -79,9 +79,7 @@ oms.AppObject = function OMSAppModel() {
     self.initMap();
   };
   
-  self.search = function(page) {
-    // If page is unset, assume new search on page 1
-    page = typeof page !== 'undefined' ? page : 1;
+  self.newSearch = function() {
     var searchTerm = $('form.header_search').find('input').val(),
         //----------------------------------------------------//
         // Hard-coding lat, long & distance into all searches //
@@ -96,8 +94,8 @@ oms.AppObject = function OMSAppModel() {
           latitude: null,
           longitude: null,
           distance: null,
-          page: page,
-          pageType: 'search'
+          page: 1,
+          pageType: 'newSearch'
         };
     
     // Get json from api call
