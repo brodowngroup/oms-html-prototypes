@@ -74,7 +74,13 @@ oms.AppObject = function OMSAppModel() {
   
   self.newSearch = function() {
     var searchTerm = $('form.header_search').find('input').val(),
-        query = { term: searchTerm, latitude: 41.8844754, longitude: -87.6569735, distance: 10, page: 1 },
+        query = { 
+          term: searchTerm,
+          latitude: 41.8844754,
+          longitude: -87.6569735,
+          distance: 10,
+          page: 1
+        },
         newURL = "search/" + searchTerm;
     
     // Get json from api call
@@ -120,7 +126,7 @@ oms.AppObject = function OMSAppModel() {
   
   // Helper functions for sub-areas
   self.loadSubheader = function(url, buttons, custom_class) {
-    url = 'snippets/subheader/' + url;
+    url = '/snippets/subheader/' + url;
     $.get(url, function(snippet) {
       self.subheader(snippet);
       
