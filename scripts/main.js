@@ -79,7 +79,7 @@ oms.AppObject = function OMSAppModel() {
     self.initMap();
   };
   
-  self.newSearch = function() {
+  self.search = function() {
     var searchTerm = $('form.header_search').find('input').val(),
         //----------------------------------------------------//
         // Hard-coding lat, long & distance into all searches //
