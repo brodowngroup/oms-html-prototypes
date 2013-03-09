@@ -60,11 +60,7 @@ oms.AppObject = function OMSAppModel() {
   
   // Three main page refreshes
   self.loadPage = function(url) {
-    var title = url.replace('.html', ''),
-        pageData = {
-          pageType: 'loadPage',
-          url: url
-        };
+    var title = url.replace('.html', '');
     url = '/snippets/' + url;
     $.get(url, function(snippet) {
       self.pageRefresh(null, title, title);
@@ -86,7 +82,7 @@ oms.AppObject = function OMSAppModel() {
   self.search = function(page) {
     // If page is unset, assume new search on page 1
     page = typeof page !== 'undefined' ? page : 1;
-    var searchTerm = $('form.header_search').find('input').val();
+    var searchTerm = $('form.header_search').find('input').val(),
         //----------------------------------------------------//
         // Hard-coding lat, long & distance into all searches //
         // There is a bug/feature that requires this info     //
@@ -95,7 +91,7 @@ oms.AppObject = function OMSAppModel() {
         // pageType is used by history to determine what      //
         // kind of page to load on history change             //
         //----------------------------------------------------//
-    var  query = { 
+        query = { 
           term: searchTerm,
           latitude: null,
           longitude: null,
@@ -114,7 +110,7 @@ oms.AppObject = function OMSAppModel() {
       self.loadSubheader('results.html', true, 'three_items');
       self.results(mappedResults);
       
-      // Check for Results before setting scroll to bottom event - Api errors on calls with no more results
+      // Check for Results before setting scroll to bottom event
       if ($('section.result').length > 0) {
         
         $('section.result').last().addClass('loadMore');
@@ -126,6 +122,11 @@ oms.AppObject = function OMSAppModel() {
           oms.scrollInterval = setInterval(function() {
           
           if ($(document).scrollTop() >= target - screenHeight) {
+            
+            console.log('Need to query DB for next 20 results');
+            console.log('Would be nice to return total # of results w/results if > 20');
+            console.log('This should only ask for more results if they exist');
+            
             clearInterval(oms.scrollInterval);
           }
         }, 500);
@@ -311,11 +312,10 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
     }
 
     // Bind to StateChange Event
-    History.Adapter.bind(window,'statechange',function(e){
+    History.Adapter.bind(window,'statechange',function(){
         var State = History.getState();
         History.log(State.data, State.title, State.url);
-        // Can we override the back button this easily?
-        e.preventDefault();
+        return false;
     });
 
     // Change our States
