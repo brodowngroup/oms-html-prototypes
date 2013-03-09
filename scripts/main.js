@@ -79,7 +79,7 @@ oms.AppObject = function OMSAppModel() {
     self.initMap();
   };
   
-  self.search = function(page) {
+  self.search = function(el, page) {
     page = typeof page !== 'undefined' ? page : 1;
     var searchTerm = $('form.header_search').find('input').val(),
         //----------------------------------------------------//
