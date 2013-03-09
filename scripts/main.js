@@ -79,24 +79,28 @@ oms.AppObject = function OMSAppModel() {
     self.initMap();
   };
   
-  self.search = function(el, page) {
-    page = typeof page !== 'undefined' ? page : 1;
-    var searchTerm = $('form.header_search').find('input').val(),
+  //catches searches from the UI form and preps them for the search function
+  self.newSearch = function() {
+    var searchTerm = $('form.header_search').find('input').val();
+    self.showSearch(searchTerm, 1);
+  }
+  
+  self.search = function(searchTerm, page) {
         //----------------------------------------------------//
         // Hard-coding lat, long & distance into all searches //
         // There is a bug/feature that requires this info     //
         // to return a valid query.                           //
         //----------------------------------------------------//
-        // pageType is used by history to determine what      //
+        // pageType is used by History to determine what      //
         // kind of page to load on history change             //
         //----------------------------------------------------//
-        query = { 
+        var query = { 
           term: searchTerm,
           latitude: null,
           longitude: null,
           distance: null,
           page: page,
-          pageType: 'newSearch'
+          pageType: 'search'
         };
     
     // Get json from api call
