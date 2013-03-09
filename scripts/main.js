@@ -47,7 +47,6 @@ oms.AppObject = function OMSAppModel() {
   // - Update History 
   // - Clear Page Display
   self.pageRefresh = function(data, title, url) {
-    console.log('url : ' + url);
     self.clearDisplay();
     //----------------------------------------//
     // Commenting out the part that forcibly  //
@@ -122,7 +121,7 @@ oms.AppObject = function OMSAppModel() {
         self.loadSubheader('results.html', true, 'three_items');
         self.results(mappedResults);
       } else {
-        console.log('Load more results!');
+        self.results.push(mappedResults);
       }
       
       // Check for Results before setting scroll to bottom event
