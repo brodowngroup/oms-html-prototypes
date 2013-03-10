@@ -118,30 +118,25 @@ oms.AppObject = function OMSAppModel() {
     // local - http://api.onmystage.net/api/search/
     // cloud - http://onmystageapi.cloudapp.net/api/search/
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
-    var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
+      var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
       if (page === 1) {
         self.pageRefresh(query, "searchTerm", "search");        
         self.loadSubheader('results.html', true, 'three_items');
         self.results(mappedResults);
       } else {
+        clearInterval(oms.scrollInterval);
         $.map(mappedResults, function(item) { self.results.push(item) });
-        //for(item in mappedResults) {
-        //  self.results.push(item);
-        //}
       }
       
       // Check for Results before setting scroll to bottom event
       if ($('section.result').length > 0) {
-        
-        $('section.result').last().addClass('loadMore');
-      
+              
         // Compute distance form top of document to top of search
         var screenHeight = $(window).height(),
-            target = $('section.loadMore').offset().top;
+            target = $('section.result').last().offset().top;
           
         oms.scrollInterval = setInterval(function() {
-          
           if ($(document).scrollTop() >= target - screenHeight) {            
             clearInterval(oms.scrollInterval);
             page = page + 1;
