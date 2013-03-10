@@ -125,9 +125,10 @@ oms.AppObject = function OMSAppModel() {
         self.loadSubheader('results.html', true, 'three_items');
         self.results(mappedResults);
       } else {
-        for(item in mappedResults) {
-          self.results.push(new oms.Result(item));
-        }
+        $.map(mappedResults, function(item) { self.results.push(item) });
+        //for(item in mappedResults) {
+        //  self.results.push(item);
+        //}
       }
       
       // Check for Results before setting scroll to bottom event
