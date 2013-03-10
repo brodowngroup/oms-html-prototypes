@@ -94,6 +94,7 @@ oms.AppObject = function OMSAppModel() {
   self.newSearch = function() {
     var searchTerm = $('form.header_search input').val();
     self.search(searchTerm, 1);
+    self.loadSubheader('loading.html');
   }
   
   self.search = function(searchTerm, page) {
@@ -114,6 +115,10 @@ oms.AppObject = function OMSAppModel() {
       pageType: 'search'
     };
     
+    if (page > 1) {
+      self.loadSubheader('loading.html');
+    }
+    
     // Get json from api call
     // local - http://api.onmystage.net/api/search/
     // cloud - http://onmystageapi.cloudapp.net/api/search/
@@ -126,6 +131,7 @@ oms.AppObject = function OMSAppModel() {
         self.results(mappedResults);
       } else {
         clearInterval(oms.scrollInterval);
+        self.subheader('');
         $.map(mappedResults, function(item) { self.results.push(item) });
       }
       
