@@ -24,7 +24,7 @@ textarea{resize:vertical;}
 .control_right{float:right}
 .img-inset-left{float:left;margin:0 2% 2% 0;max-width:50%;}
 .img-inset-right{float:right;margin:0 0 2% 2%;max-width:50%;}
-.loading{background:url(../images/loading.gif) 50% 50% no-repeat}
+.loading{background:url(../images/loading.gif) 50% 50% no-repeat;min-height:50px;}
 .full_button{margin:0 auto;width:100%;padding:5%;margin:2% 0;}
 .clear{clear:both;display:block;height:1px;margin:-1px 0 0 0}
 .date{padding:0 0 0 20px;background:url(../images/icon-cal.png) no-repeat;}
