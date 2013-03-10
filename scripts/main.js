@@ -115,13 +115,15 @@ oms.AppObject = function OMSAppModel() {
     // cloud - http://onmystageapi.cloudapp.net/api/search/
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
 
-      var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
       if (page === 1) {
+        var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
         self.pageRefresh(query, "searchTerm", "search");        
         self.loadSubheader('results.html', true, 'three_items');
         self.results(mappedResults);
       } else {
-        self.results.push(mappedResults);
+        for(item in data) {
+          self.results.push(new oms.Result(item));
+        }
       }
       
       // Check for Results before setting scroll to bottom event
