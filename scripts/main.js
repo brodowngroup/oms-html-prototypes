@@ -11,7 +11,7 @@ oms.Result = function Result(data) {
   this.name = data.Name;
   this.image = data.Image;
   this.date = data.Date;
-  this.time = (data.Time).replace(/<(?:.|\n)*?>/gm, ''); //strip HTML
+  this.time = data.Time;
   this.venue = data.Venue;
   this.neighborhood = data.Neighborhood;
   this.city = data.City;
@@ -23,6 +23,10 @@ oms.Result = function Result(data) {
   this.url = ko.computed(function() {
     return '/event/' + data.ID;
   });
+}
+
+oms.stripHTML = function (string) {
+  return string.replace(/<(?:.|\n)*?>/gm, '');
 }
 
 // ----------------------
