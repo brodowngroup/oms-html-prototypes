@@ -118,14 +118,14 @@ oms.AppObject = function OMSAppModel() {
     // local - http://api.onmystage.net/api/search/
     // cloud - http://onmystageapi.cloudapp.net/api/search/
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
+    var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
       if (page === 1) {
-        var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
         self.pageRefresh(query, "searchTerm", "search");        
         self.loadSubheader('results.html', true, 'three_items');
         self.results(mappedResults);
       } else {
-        for(item in data) {
+        for(item in mappedResults) {
           self.results.push(new oms.Result(item));
         }
       }
