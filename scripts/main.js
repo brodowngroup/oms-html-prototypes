@@ -103,7 +103,7 @@ oms.AppObject = function OMSAppModel() {
         longitude = null;
 
     if (navigator.geolocation) {
-      var position = navigator.geolocation.getCurrentPosition(showPosition);
+      var position = navigator.geolocation.getCurrentPosition();
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
     }
