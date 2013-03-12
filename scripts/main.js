@@ -40,13 +40,7 @@ oms.AppObject = function OMSAppModel() {
   self.page = ko.observable();
   self.events = ko.observableArray([]);
   self.results = ko.observableArray([]);
-  
-  // Map Data
-  self.map;
-  self.mapLat;
-  self.mapLong;
-  self.markerLoc;
-  
+    
   // Create Controller for all page refreshes
   // - Update History 
   // - Clear Page Display
@@ -84,10 +78,10 @@ oms.AppObject = function OMSAppModel() {
     self.pageRefresh(pageData, eventData.name, "/event/" + eventData.id);
     self.events.push(eventData);
     
-    self.mapLat = eventData.latitude;
-    self.mapLong = eventData.longitude;
+    oms.mapLat = eventData.latitude;
+    oms.mapLong = eventData.longitude;
 
-    self.initMap();
+    oms.initMap();
   };
   
   //catches searches from the UI form and preps them for the search function
@@ -186,63 +180,6 @@ oms.AppObject = function OMSAppModel() {
     }, 'html');
   }
   
-  self.loadMap = function() {
-    self.markerLoc = new google.maps.LatLng(self.mapLat, self.mapLong);
-    
-    var mapOptions = {
-        zoom: 18,
-        center: self.markerLoc,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      
-    self.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-    
-    var marker = new google.maps.Marker({
-      position: self.markerLoc,
-      map: self.map
-    });
-    
-    google.maps.event.addListenerOnce(self.map, 'idle', function(){
-      $('a.showMap').on('click', function(e) {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      var $this = $(this);
-                      if ($this.hasClass('active')) {
-                        $('#map_canvas').animate({
-                          'height': '1px'
-                        }, function(){
-                          $this.removeClass('active');
-                          $this.text('show map');
-                        });
-                      } else {
-                        $('#map_canvas').animate({
-                          'height': '300px'
-                        }, function(){
-                          // callback to recenter map after animation
-                          google.maps.event.trigger(self.map, 'resize');
-                          oms.app.map.setCenter(oms.app.markerLoc);
-                          $this.text('hide map');
-                          $this.addClass('active');
-                          $this.show();
-                        });
-                      }
-      });
-    });
-  }
-  
-  self.initMap = function() {
-    if (typeof google === 'object' && typeof google.maps === 'object') {
-      self.loadMap();
-    } else {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.app.loadMap";
-      document.body.appendChild(script);
-    }
-    
-    
-  };
-  
   self.clearDisplay = function () {
     // Clear the current page
     self.subheader('');
@@ -253,6 +190,70 @@ oms.AppObject = function OMSAppModel() {
   }
   
 };
+
+// Map Data
+oms.map;
+oms.mapLat;
+oms.mapLong;
+oms.markerLoc;
+
+oms.loadMap = function() {
+  oms.markerLoc = new google.maps.LatLng(oms.mapLat, oms.mapLong);
+  
+  var mapOptions = {
+      zoom: 18,
+      center: oms.markerLoc,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+  oms.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  
+  var marker = new google.maps.Marker({
+    position: oms.markerLoc,
+    map: oms.map
+  });
+  
+  google.maps.event.addListenerOnce(oms.map, 'idle', function(){
+    $('a.showMap').on('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var $this = $(this);
+                    if ($this.hasClass('active')) {
+                      $('#map_canvas').animate({
+                        'height': '1px'
+                      }, function(){
+                        $this.removeClass('active');
+                        $this.text('show map');
+                      });
+                    } else {
+                      $('#map_canvas').animate({
+                        'height': '300px'
+                      }, function(){
+                        // callback to recenter map after animation
+                        google.maps.event.trigger(oms.map, 'resize');
+                        oms.map.setCenter(oms.app.markerLoc);
+                        $this.text('hide map');
+                        $this.addClass('active');
+                        $this.show();
+                      });
+                    }
+    });
+  });
+}
+
+oms.initMap = function() {
+  if (typeof google === 'object' && typeof google.maps === 'object') {
+    oms.loadMap();
+  } else {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDFYE1HKb_eW7_h6uEiZ5I4WEbL7gelz-A&sensor=false&callback=oms.loadMap";
+    document.body.appendChild(script);
+  }
+  
+  
+};
+
 
 // --------------------------------
 // HEADER SEARCH TOGGLE VISIBILITY
