@@ -98,18 +98,24 @@ oms.AppObject = function OMSAppModel() {
   }
   
   self.search = function(searchTerm, page) {
-    //----------------------------------------------------//
-    // Hard-coding lat, long & distance into all searches //
-    // There is a bug/feature that requires this info     //
-    // to return a valid query.                           //
+    
+    var latitude = null,
+        longitude = null;
+
+    if (navigator.geolocation) {
+      var position = navigator.geolocation.getCurrentPosition(showPosition);
+      latitude position.coords.latitude;
+      longitude = position.coords.longitude;
+    }
+    
     //----------------------------------------------------//
     // pageType is used by History to determine what      //
     // kind of page to load on history change             //
     //----------------------------------------------------//
     var query = { 
       term: searchTerm,
-      latitude: null,
-      longitude: null,
+      latitude: latitude,
+      longitude: longitude,
       distance: null,
       page: page,
       pageType: 'search'
