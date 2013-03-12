@@ -103,10 +103,14 @@ oms.AppObject = function OMSAppModel() {
         longitude = null;
 
     if (navigator.geolocation) {
-      var position = navigator.geolocation.getCurrentPosition();
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;
-    }
+      
+      var setCoords = function(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+      }
+      
+      navigator.geolocation.getCurrentPosition(setCoords);
+   }
     
     //----------------------------------------------------//
     // pageType is used by History to determine what      //
