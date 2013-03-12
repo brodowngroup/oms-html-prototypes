@@ -232,7 +232,7 @@ oms.AppObject = function OMSAppModel() {
   // 
   self.initMap = function(lat, long) {
     if (typeof google === 'object' && typeof google.maps === 'object') {
-      self.loadMap(lat, long);
+      self.loadMap();
     } else {
       var script = document.createElement("script");
       script.type = "text/javascript";
