@@ -104,7 +104,7 @@ oms.AppObject = function OMSAppModel() {
 
     if (navigator.geolocation) {
       var position = navigator.geolocation.getCurrentPosition(showPosition);
-      latitude position.coords.latitude;
+      latitude = position.coords.latitude;
       longitude = position.coords.longitude;
     }
     
