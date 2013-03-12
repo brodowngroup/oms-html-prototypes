@@ -43,8 +43,8 @@ oms.AppObject = function OMSAppModel() {
   
   // Map Data
   self.map;
-  self.lat;
-  self.long;
+  //self.lat;
+  //self.long;
   self.markerLoc;
   
   // Create Controller for all page refreshes
@@ -84,10 +84,10 @@ oms.AppObject = function OMSAppModel() {
     self.pageRefresh(pageData, eventData.name, "/event/" + eventData.id);
     self.events.push(eventData);
     
-    self.lat = eventData.latitude;
-    self.long = eventData.longitude;
+    //self.lat = eventData.latitude;
+    //self.long = eventData.longitude;
 
-    self.initMap();
+    self.initMap(eventData.latitude, eventData.longitude);
   };
   
   //catches searches from the UI form and preps them for the search function
@@ -186,53 +186,53 @@ oms.AppObject = function OMSAppModel() {
     }, 'html');
   }
   
-  self.loadMap = function() {
-    self.markerLoc = new google.maps.LatLng(self.lat, self.long);
-    
-    var mapOptions = {
-        zoom: 18,
-        center: self.markerLoc,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      
-    self.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-    
-    var marker = new google.maps.Marker({
-      position: self.markerLoc,
-      map: self.map
-    });
-    
-    google.maps.event.addListenerOnce(self.map, 'idle', function(){
-      $('a.showMap').on('click', function(e) {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      var $this = $(this);
-                      if ($this.hasClass('active')) {
-                        $('#map_canvas').animate({
-                          'height': '1px'
-                        }, function(){
-                          $this.removeClass('active');
-                          $this.text('show map');
-                        });
-                      } else {
-                        $('#map_canvas').animate({
-                          'height': '300px'
-                        }, function(){
-                          // callback to recenter map after animation
-                          google.maps.event.trigger(self.map, 'resize');
-                          oms.app.map.setCenter(oms.app.markerLoc);
-                          $this.text('hide map');
-                          $this.addClass('active');
-                          $this.show();
-                        });
-                      }
-      });
-    });
-  }
-  
-  self.initMap = function() {
+  // self.loadMap = function() {
+  //   self.markerLoc = new google.maps.LatLng(self.lat, self.long);
+  //   
+  //   var mapOptions = {
+  //       zoom: 18,
+  //       center: self.markerLoc,
+  //       mapTypeId: google.maps.MapTypeId.ROADMAP
+  //     };
+  //     
+  //   self.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  //   
+  //   var marker = new google.maps.Marker({
+  //     position: self.markerLoc,
+  //     map: self.map
+  //   });
+  //   
+  //   google.maps.event.addListenerOnce(self.map, 'idle', function(){
+  //     $('a.showMap').on('click', function(e) {
+  //                     e.preventDefault();
+  //                     e.stopPropagation();
+  //                     var $this = $(this);
+  //                     if ($this.hasClass('active')) {
+  //                       $('#map_canvas').animate({
+  //                         'height': '1px'
+  //                       }, function(){
+  //                         $this.removeClass('active');
+  //                         $this.text('show map');
+  //                       });
+  //                     } else {
+  //                       $('#map_canvas').animate({
+  //                         'height': '300px'
+  //                       }, function(){
+  //                         // callback to recenter map after animation
+  //                         google.maps.event.trigger(self.map, 'resize');
+  //                         oms.app.map.setCenter(oms.app.markerLoc);
+  //                         $this.text('hide map');
+  //                         $this.addClass('active');
+  //                         $this.show();
+  //                       });
+  //                     }
+  //     });
+  //   });
+  // }
+  // 
+  self.initMap = function(lat, long) {
     if (typeof google === 'object' && typeof google.maps === 'object') {
-      self.loadMap();
+      self.loadMap(lat, long);
     } else {
       var script = document.createElement("script");
       script.type = "text/javascript";
@@ -240,7 +240,50 @@ oms.AppObject = function OMSAppModel() {
       document.body.appendChild(script);
     }
     
-    
+    self.loadMap = function() {
+      self.markerLoc = new google.maps.LatLng(lat, long);
+
+      var mapOptions = {
+          zoom: 18,
+          center: self.markerLoc,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+      self.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: self.markerLoc,
+        map: self.map
+      });
+
+      google.maps.event.addListenerOnce(self.map, 'idle', function(){
+        $('a.showMap').on('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        var $this = $(this);
+                        if ($this.hasClass('active')) {
+                          $('#map_canvas').animate({
+                            'height': '1px'
+                          }, function(){
+                            $this.removeClass('active');
+                            $this.text('show map');
+                          });
+                        } else {
+                          $('#map_canvas').animate({
+                            'height': '300px'
+                          }, function(){
+                            // callback to recenter map after animation
+                            google.maps.event.trigger(self.map, 'resize');
+                            oms.app.map.setCenter(oms.app.markerLoc);
+                            $this.text('hide map');
+                            $this.addClass('active');
+                            $this.show();
+                          });
+                        }
+        });
+      });
+    }
+
   };
   
   self.clearDisplay = function () {
