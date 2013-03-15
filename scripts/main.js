@@ -108,11 +108,12 @@ oms.AppObject = function OMSAppModel() {
         }
 
         console.log('Results Displayed Post-Query : ' + self.results().length);
+        console.log('');
 
         // Check for Results before setting scroll to bottom event
         if (data.length > 48) {
               
-          console.log('Full results returned, adding scroll to bottom detection');
+          console.log('Full results returned, adding scroll to bottom detect load next page');
 
           // Compute distance form top of document to top of search
           var screenHeight = $(window).height(),
@@ -127,6 +128,10 @@ oms.AppObject = function OMSAppModel() {
             }
           }, 500);
                 
+        } else {
+          
+          console.log('Less than full results returned - do not add scroll to bottom event');
+        
         }
         
         console.log('------------------------------------------------------');
