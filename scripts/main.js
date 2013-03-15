@@ -83,6 +83,11 @@ oms.AppObject = function OMSAppModel() {
     // local - http://api.onmystage.net/api/search/
     // cloud - http://onmystageapi.cloudapp.net/api/search/
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
+      
+      console.log('page : ' + page);
+      console.log('results pre : ' + self.results.length);
+      console.log(data);
+
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
       if (page === 1) {
@@ -95,8 +100,10 @@ oms.AppObject = function OMSAppModel() {
         $.map(mappedResults, function(item) { self.results.push(item) });
       }
       
+      console.log('results post : ' + self.results.length);
+
       // Check for Results before setting scroll to bottom event
-      if ($('section.result').length > 0) {
+      if (data.length > 48) {
               
         // Compute distance form top of document to top of search
         var screenHeight = $(window).height(),
