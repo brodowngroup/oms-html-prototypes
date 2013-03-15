@@ -87,7 +87,7 @@ oms.AppObject = function OMSAppModel() {
       if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); } else {
       
         console.log('page : ' + page);
-        console.log('results pre : ' + self.results.length);
+        console.log('results pre : ' + self.results().length);
       
         console.log('API response : ');      
         console.log(data);
@@ -98,13 +98,14 @@ oms.AppObject = function OMSAppModel() {
           self.pageRefresh(query, "searchTerm", "search");        
           self.loadSubheader('results.html', true, 'three_items');
           self.results(mappedResults);
+          console.log('results post : ' + self.results().length);
         } else {
           clearInterval(oms.scrollInterval);
           self.subheader('');
           $.map(mappedResults, function(item) { self.results.push(item) });
+          console.log('results post : ' + self.results().length);
         }
       
-        console.log('results post : ' + self.results.length);
 
         // Check for Results before setting scroll to bottom event
         if (data.length > 48) {
