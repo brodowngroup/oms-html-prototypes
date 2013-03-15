@@ -77,8 +77,12 @@ oms.AppObject = function OMSAppModel() {
     
     console.log('------------------------------------------------------');
     
+    console.log('Query Post Data : ');      
+    console.log(query);
+    console.log('');
+
     if (page > 1) {
-      // Show loading Progress
+      // Show loading Progress at bottom of results
     }
     
     // Get json from api call
@@ -88,11 +92,12 @@ oms.AppObject = function OMSAppModel() {
       
       if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); } else {
       
-        console.log('page : ' + page);
-        console.log('Results Displayed Pre-Query : ' + self.results().length);
-        console.log('');
+        console.log('API Return Success!';
         console.log('API response ( ' + data.length + ' results ): ');      
         console.log(data);
+        console.log('');
+
+        console.log('Results Displayed Before Appending to UI : ' + self.results().length);
         console.log('');
 
         var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
@@ -107,7 +112,7 @@ oms.AppObject = function OMSAppModel() {
           $.map(mappedResults, function(item) { self.results.push(item) });
         }
 
-        console.log('Results Displayed Post-Query : ' + self.results().length);
+        console.log('Results Displayed After Appending to UI : ' + self.results().length);
         console.log('');
 
         // Check for Results before setting scroll to bottom event
