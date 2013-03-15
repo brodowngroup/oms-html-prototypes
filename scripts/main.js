@@ -93,7 +93,7 @@ oms.AppObject = function OMSAppModel() {
       if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); } else {
       
         console.log('API Return Success!');
-        console.log('page : ' + page;
+        console.log('page : ' + page);
         console.log('API response ( ' + data.length + ' results ): ');      
         console.log(data);
         console.log('');
