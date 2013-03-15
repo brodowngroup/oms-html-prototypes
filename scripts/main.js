@@ -75,6 +75,8 @@ oms.AppObject = function OMSAppModel() {
       pageType: 'search'
     };
     
+    console.log('------------------------------------------------------');
+    
     if (page > 1) {
       // Show loading Progress
     }
@@ -87,10 +89,11 @@ oms.AppObject = function OMSAppModel() {
       if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); } else {
       
         console.log('page : ' + page);
-        console.log('results pre : ' + self.results().length);
-      
-        console.log('API response : ');      
+        console.log('Results Displayed Pre-Query : ' + self.results().length);
+        console.log('');
+        console.log('API response ( ' + data.length + ' results ): ');      
         console.log(data);
+        console.log('');
 
         var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
@@ -98,18 +101,19 @@ oms.AppObject = function OMSAppModel() {
           self.pageRefresh(query, "searchTerm", "search");        
           self.loadSubheader('results.html', true, 'three_items');
           self.results(mappedResults);
-          console.log('results post : ' + self.results().length);
         } else {
           clearInterval(oms.scrollInterval);
           self.subheader('');
           $.map(mappedResults, function(item) { self.results.push(item) });
-          console.log('results post : ' + self.results().length);
         }
-      
+
+        console.log('Results Displayed Post-Query : ' + self.results().length);
 
         // Check for Results before setting scroll to bottom event
         if (data.length > 48) {
               
+          console.log('Full results returned, adding scroll to bottom detection');
+
           // Compute distance form top of document to top of search
           var screenHeight = $(window).height(),
               target = $('section.result').last().offset().top;
@@ -124,6 +128,8 @@ oms.AppObject = function OMSAppModel() {
           }, 500);
                 
         }
+        
+        console.log('------------------------------------------------------');
                 
       }
 
