@@ -67,8 +67,8 @@ oms.AppObject = function OMSAppModel() {
     //----------------------------------------------------//
     var query = { 
       term: searchTerm,
-      latitude: latitude,
-      longitude: longitude,
+      latitude: oms.deviceLat,
+      longitude: oms.deviceLong,
       distance: null,
       page: page,
       pageType: 'search'

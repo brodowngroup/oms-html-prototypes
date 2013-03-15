@@ -18,7 +18,22 @@ oms.app.loadPage('home_unreg.html');
 $('div.ko_flicker_fix').add('h2.ko_flicker_fix')
                        .add('button.ko_flicker_fix')
                        .removeClass('ko_flicker_fix');
-                       
+
+// Geolocation
+// -------------------
+if (navigator.geolocation) {
+   
+   var setCoords = function(position) {
+     oms.deviceLat = position.coords.latitude;
+     oms.deviceLong = position.coords.longitude;
+   }
+   
+   navigator.geolocation.getCurrentPosition(setCoords);
+}
+ 
+console.log('latitude, longitude : ');
+console.log(oms.deviceLat + ', ' + oms.deviceLong);
+
 // Bind UI Events
 // -------------------
 $('header a.toggleSearch').on('click', oms.toggleSearch);
