@@ -84,8 +84,12 @@ oms.AppObject = function OMSAppModel() {
     // cloud - http://onmystageapi.cloudapp.net/api/search/
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
       
+      if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); }
+      
       console.log('page : ' + page);
       console.log('results pre : ' + self.results.length);
+      
+      console.log('API response : ');      
       console.log(data);
 
       var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
@@ -118,10 +122,6 @@ oms.AppObject = function OMSAppModel() {
           }
         }, 500);
                 
-      } else {
-        
-        oms.app.loadPage('no_results.html');
-        
       }
                 
     }, 'json');
