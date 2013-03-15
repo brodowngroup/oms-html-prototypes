@@ -14,14 +14,14 @@ oms.AppObject = function OMSAppModel() {
   // - Update History 
   // - Clear Page Display
   self.pageRefresh = function(data, title, url) {
-    self.clearDisplay();
     //----------------------------------------//
-    // Commenting out the part that forcibly  //
+    // Commenting out the part that           //
     // sets the URL until we can have         //
     // all traffic redirected to index.html   //
     //----------------------------------------//
     // History.pushState(data, title, url);
     History.pushState(data, title, '');
+    self.clearDisplay();
   }
   
   // Three main page refreshes
@@ -61,20 +61,6 @@ oms.AppObject = function OMSAppModel() {
   }
   
   self.search = function(searchTerm, page) {
-    
-    var latitude = null,
-        longitude = null;
-
-    if (navigator.geolocation) {
-      
-      var setCoords = function(position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-      }
-      
-      navigator.geolocation.getCurrentPosition(setCoords);
-   }
-    
     //----------------------------------------------------//
     // pageType is used by History to determine what      //
     // kind of page to load on history change             //
@@ -114,7 +100,8 @@ oms.AppObject = function OMSAppModel() {
         // Compute distance form top of document to top of search
         var screenHeight = $(window).height(),
             target = $('section.result').last().offset().top;
-          
+        
+        // Check for scroll to bottom every 500ms
         oms.scrollInterval = setInterval(function() {
           if ($(document).scrollTop() >= target - screenHeight) {            
             clearInterval(oms.scrollInterval);
