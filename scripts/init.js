@@ -28,15 +28,16 @@ $(window).load(function() {
        oms.deviceLat = position.coords.latitude;
        oms.deviceLong = position.coords.longitude;
 
-       console.log('latitude, longitude : ');
+       console.log('Current latitude, longitude : ');
        console.log(oms.deviceLat + ', ' + oms.deviceLong);
+       console.log('----------------------------------------------');
      }
 
      navigator.geolocation.getCurrentPosition(setCoords);
   } else {
     console.log('no geolocation capability');
+    console.log('----------------------------------------------');
   }
-  console.log('----------------------------------------------');
 });
  
 
