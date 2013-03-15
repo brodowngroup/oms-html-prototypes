@@ -33,7 +33,10 @@ $(window).load(function() {
      }
 
      navigator.geolocation.getCurrentPosition(setCoords);
+  } else {
+    console.log('no geolocation capability');
   }
+  console.log('----------------------------------------------');
 });
  
 
