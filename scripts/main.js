@@ -60,6 +60,7 @@ oms.AppObject = function OMSAppModel() {
     self.loadSubheader('loading.html');
   }
   
+  // page === 1 is used to determine new search
   self.search = function(searchTerm, page) {
     //----------------------------------------------------//
     // pageType is used by History to determine what      //
@@ -75,7 +76,7 @@ oms.AppObject = function OMSAppModel() {
     };
     
     if (page > 1) {
-      self.loadSubheader('loading.html');
+      // Show loading Progress
     }
     
     // Get json from api call
