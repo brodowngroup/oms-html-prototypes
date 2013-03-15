@@ -84,46 +84,48 @@ oms.AppObject = function OMSAppModel() {
     // cloud - http://onmystageapi.cloudapp.net/api/search/
     $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
       
-      if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); }
+      if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); } else {
       
-      console.log('page : ' + page);
-      console.log('results pre : ' + self.results.length);
+        console.log('page : ' + page);
+        console.log('results pre : ' + self.results.length);
       
-      console.log('API response : ');      
-      console.log(data);
+        console.log('API response : ');      
+        console.log(data);
 
-      var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
+        var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
-      if (page === 1) {
-        self.pageRefresh(query, "searchTerm", "search");        
-        self.loadSubheader('results.html', true, 'three_items');
-        self.results(mappedResults);
-      } else {
-        clearInterval(oms.scrollInterval);
-        self.subheader('');
-        $.map(mappedResults, function(item) { self.results.push(item) });
-      }
+        if (page === 1) {
+          self.pageRefresh(query, "searchTerm", "search");        
+          self.loadSubheader('results.html', true, 'three_items');
+          self.results(mappedResults);
+        } else {
+          clearInterval(oms.scrollInterval);
+          self.subheader('');
+          $.map(mappedResults, function(item) { self.results.push(item) });
+        }
       
-      console.log('results post : ' + self.results.length);
+        console.log('results post : ' + self.results.length);
 
-      // Check for Results before setting scroll to bottom event
-      if (data.length > 48) {
+        // Check for Results before setting scroll to bottom event
+        if (data.length > 48) {
               
-        // Compute distance form top of document to top of search
-        var screenHeight = $(window).height(),
-            target = $('section.result').last().offset().top;
+          // Compute distance form top of document to top of search
+          var screenHeight = $(window).height(),
+              target = $('section.result').last().offset().top;
         
-        // Check for scroll to bottom every 500ms
-        oms.scrollInterval = setInterval(function() {
-          if ($(document).scrollTop() >= target - screenHeight) {            
-            clearInterval(oms.scrollInterval);
-            page = page + 1;
-            self.search(searchTerm, page);
-          }
-        }, 500);
+          // Check for scroll to bottom every 500ms
+          oms.scrollInterval = setInterval(function() {
+            if ($(document).scrollTop() >= target - screenHeight) {            
+              clearInterval(oms.scrollInterval);
+              page = page + 1;
+              self.search(searchTerm, page);
+            }
+          }, 500);
+                
+        }
                 
       }
-                
+
     }, 'json');
   };
   
