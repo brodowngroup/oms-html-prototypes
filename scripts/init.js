@@ -26,13 +26,14 @@ if (navigator.geolocation) {
    var setCoords = function(position) {
      oms.deviceLat = position.coords.latitude;
      oms.deviceLong = position.coords.longitude;
+
+     console.log('latitude, longitude : ');
+     console.log(oms.deviceLat + ', ' + oms.deviceLong);
    }
    
    navigator.geolocation.getCurrentPosition(setCoords);
 }
  
-console.log('latitude, longitude : ');
-console.log(oms.deviceLat + ', ' + oms.deviceLong);
 
 // Bind UI Events
 // -------------------
