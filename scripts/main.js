@@ -75,14 +75,15 @@ oms.AppObject = function OMSAppModel() {
       pageType: 'search'
     };
     
-    console.log('------------------------------------------------------');
+    console.log('');
+    console.log('-----------------NEW QUERY--------------------------');
     
     console.log('Query Post Data : ');      
     console.log(query);
     console.log('');
 
     if (page > 1) {
-      // Show loading Progress at bottom of results
+      // TODO - Show loading Progress at bottom of results
     }
     
     // Get json from api call
@@ -138,8 +139,6 @@ oms.AppObject = function OMSAppModel() {
           console.log('Less than full results returned - do not add scroll to bottom event');
         
         }
-        
-        console.log('------------------------------------------------------');
                 
       }
 
