@@ -124,10 +124,6 @@ oms.AppObject = function OMSAppModel() {
           // Compute distance form top of document to top of search
           var screenHeight = $(window).height(),
               target = $('#more_results').offset().top;
-              
-              console.log('Screen Height : ' + screenHeight);
-              console.log('More results event top : ' + target);
-              //target = $('section.result').last().offset().top;
         
           // Check for scroll to bottom every 500ms
           oms.scrollInterval = setInterval(function() {
@@ -164,6 +160,15 @@ oms.AppObject = function OMSAppModel() {
       $('div.subheader').removeClass()
                         .addClass(classes);
     }, 'html');
+  }
+  
+  self.filter = function (term) {
+    
+    var custom = function(left, right) {
+      return left.venue == right.venue ? 0 : (left.venue < right.venue ? -1 : 1)
+    }
+    
+    self.results.sort(custom);
   }
   
   self.clearDisplay = function () {

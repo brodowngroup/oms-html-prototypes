@@ -63,9 +63,10 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.st.toggle_nav();
 });
 
-// $('div.subheader').on('click', '****Name filter button***', self.filter('name'));
 // $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
-// $('div.subheader').on('click', '****Location filter button***', self.filter('location'));
+// $('div.subheader').on('click', '****City filter button***', self.filter('city'));
+
+$('div.subheader').on('click', 'a.venue', oms.app.filter('venue'));
 
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
