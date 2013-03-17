@@ -273,6 +273,8 @@ level SEO priority
 -----------------*/
 button.results_placeholder{display:none;}
 
+.more_results{display:none}
+
 /* EVENT PAGE
 -------------*/
 .map_slide {position:relative}
