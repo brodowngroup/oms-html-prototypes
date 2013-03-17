@@ -164,11 +164,13 @@ oms.AppObject = function OMSAppModel() {
   
   self.filter = function (term) {
     
-    var custom = function(left, right) {
-      return left.venue == right.venue ? 0 : (left.venue < right.venue ? -1 : 1)
-    }
+    // self.results.sort(function(left, right) {
+    //   return left.venue == right.venue ? 0 : (left.venue < right.venue ? -1 : 1)
+    // });
     
-    self.results.sort(custom);
+    console.log('here');
+
+
   }
   
   self.clearDisplay = function () {
