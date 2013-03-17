@@ -197,6 +197,10 @@ div.page_frame{position:relative;top:-48px;}
   box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.15);
 }
 
+.stp-content-body section.loading {
+  background:#fff url(../images/loading.gif) 50% 50% no-repeat;
+}
+
 .stp-content-body section header {
   padding: 2.5%;
   background: #f6f8f9;
@@ -272,7 +276,6 @@ level SEO priority
 /* SEARCH RESULTS
 -----------------*/
 button.results_placeholder{display:none;}
-
 .more_results{display:none}
 
 /* EVENT PAGE
