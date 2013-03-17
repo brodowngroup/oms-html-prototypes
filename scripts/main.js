@@ -107,6 +107,16 @@ oms.AppObject = function OMSAppModel() {
           self.pageRefresh(query, "searchTerm", "search");        
           self.loadSubheader('results.html', true, 'three_items');
           self.results(mappedResults);
+
+          // $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
+          // $('div.subheader').on('click', '****City filter button***', self.filter('city'));
+
+          $('div.subheader a.venue').on('click', function(e){
+            e.preventDefault();
+            console.log('venue sort click');
+            self.filter('venue');
+          });
+
         } else {
           clearInterval(oms.scrollInterval);
           $.map(mappedResults, function(item) { self.results.push(item) });
@@ -117,14 +127,6 @@ oms.AppObject = function OMSAppModel() {
         console.log('');
 
 
-        // $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
-        // $('div.subheader').on('click', '****City filter button***', self.filter('city'));
-
-        $('div.subheader').on('click', 'a.venue', function(e){
-          e.preventDefault();
-          console.log('venue sort click');
-          self.filter('venue');
-        });
 
         // Check for Results before setting scroll to bottom event
         if (data.length > 48) {
