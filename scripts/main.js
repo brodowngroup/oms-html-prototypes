@@ -167,9 +167,6 @@ oms.AppObject = function OMSAppModel() {
     self.results.sort(function(left, right) {
       return left[term] == right[term] ? 0 : (left[term] < right[term] ? -1 : 1)
     });
-    
-    console.log('here : ' + term);
-
 
   }
   
