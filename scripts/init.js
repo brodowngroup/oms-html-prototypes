@@ -63,16 +63,6 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
   oms.st.toggle_nav();
 });
 
-// $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
-// $('div.subheader').on('click', '****City filter button***', self.filter('city'));
-
-$('div.subheader').on('click', 'a.venue', function(e){
-  e.preventDefault();
-  alert('wut?');
-  console.log('venue sort click');
-  oms.app.filter('venue');
-});
-
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
   var index = $(this).prop('rel');
