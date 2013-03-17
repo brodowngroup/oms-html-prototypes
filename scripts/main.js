@@ -168,7 +168,7 @@ oms.AppObject = function OMSAppModel() {
     //   return left.venue == right.venue ? 0 : (left.venue < right.venue ? -1 : 1)
     // });
     
-    console.log('here');
+    console.log('here : ' + term);
 
 
   }

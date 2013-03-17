@@ -66,7 +66,9 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
 // $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
 // $('div.subheader').on('click', '****City filter button***', self.filter('city'));
 
-$('div.subheader').on('click', 'a.venue', oms.app.filter('venue'));
+$('div.subheader').on('click', 'a.venue', function(e){
+  oms.app.filter('venue');
+});
 
 $('div.results_area > div').on('click', 'a.event_link', function(e) {
   e.preventDefault();
