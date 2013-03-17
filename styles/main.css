@@ -201,6 +201,10 @@ div.page_frame{position:relative;top:-48px;}
   background:#fff url(../images/loading.gif) 50% 50% no-repeat;
 }
 
+.stp-content-body section#more_results {
+  box-shadow: 0 0 0 0 rgba(0,0,0,0);
+}
+
 .stp-content-body section header {
   padding: 2.5%;
   background: #f6f8f9;
@@ -277,7 +281,6 @@ level SEO priority
 -----------------*/
 button.results_placeholder{display:none;}
 .results_area{padding:0 0 2.5%}
-#more_results{}
 
 /* EVENT PAGE
 -------------*/
