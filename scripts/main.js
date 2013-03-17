@@ -83,7 +83,7 @@ oms.AppObject = function OMSAppModel() {
     console.log('');
 
     if (page > 1) {
-      $('#more_results').show();
+      $('<section/>').addClass('loading').appendTo('div.results_area');
     }
     
     // Get json from api call
@@ -110,7 +110,7 @@ oms.AppObject = function OMSAppModel() {
         } else {
           clearInterval(oms.scrollInterval);
           $.map(mappedResults, function(item) { self.results.push(item) });
-          $('#more_results').hide();
+          $('section.loading').remove();
         }
 
         console.log('Results Displayed After Appending to UI : ' + self.results().length);
@@ -125,6 +125,7 @@ oms.AppObject = function OMSAppModel() {
           var screenHeight = $(window).height(),
               target = $('#more_results').offset().top;
               
+              console.log('Screen Height : ' + screenHeight);
               console.log('More results event top : ' + target);
               //target = $('section.result').last().offset().top;
         
