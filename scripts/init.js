@@ -68,6 +68,7 @@ $('div.stp-nav > nav > a.loadPage').on('click', function(e) {
 
 $('div.subheader').on('click', 'a.venue', function(e){
   e.preventDefault();
+  alert('wut?');
   console.log('venue sort click');
   oms.app.filter('venue');
 });
