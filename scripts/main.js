@@ -83,7 +83,7 @@ oms.AppObject = function OMSAppModel() {
     console.log('');
 
     if (page > 1) {
-      // TODO - Show loading Progress at bottom of results
+      $('#more_results').show();
     }
     
     // Get json from api call
@@ -109,8 +109,8 @@ oms.AppObject = function OMSAppModel() {
           self.results(mappedResults);
         } else {
           clearInterval(oms.scrollInterval);
-          self.subheader('');
           $.map(mappedResults, function(item) { self.results.push(item) });
+          $('#more_results').hide();
         }
 
         console.log('Results Displayed After Appending to UI : ' + self.results().length);
@@ -123,7 +123,10 @@ oms.AppObject = function OMSAppModel() {
 
           // Compute distance form top of document to top of search
           var screenHeight = $(window).height(),
-              target = $('section.result').last().offset().top;
+              target = $('#more_results').offset().top;
+              
+              console.log('More results event top : ' + target);
+              //target = $('section.result').last().offset().top;
         
           // Check for scroll to bottom every 500ms
           oms.scrollInterval = setInterval(function() {

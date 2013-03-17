@@ -277,7 +277,7 @@ level SEO priority
 -----------------*/
 button.results_placeholder{display:none;}
 .results_area{padding:0 0 2.5%}
-.more_results{display:none}
+#more_results{visibility:hidden;}
 
 /* EVENT PAGE
 -------------*/
