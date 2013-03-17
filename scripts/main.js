@@ -164,9 +164,9 @@ oms.AppObject = function OMSAppModel() {
   
   self.filter = function (term) {
     
-    // self.results.sort(function(left, right) {
-    //   return left.venue == right.venue ? 0 : (left.venue < right.venue ? -1 : 1)
-    // });
+    self.results.sort(function(left, right) {
+      return left.venue == right.venue ? 0 : (left.venue < right.venue ? -1 : 1)
+    });
     
     console.log('here : ' + term);
 
