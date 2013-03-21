@@ -69,6 +69,14 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
   oms.app.loadEvent(index);
 });
 
+// $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
+// $('div.subheader').on('click', '****City filter button***', self.filter('city'));
+
+$('div.stp-content-body > div.subheader').on('click', 'span.venue', function(e){
+  console.log('venue sort click');
+  oms.app.filter('venue');
+});
+
 // History Control
 // -----------------
 (function(window,undefined){

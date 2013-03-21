@@ -108,14 +108,6 @@ oms.AppObject = function OMSAppModel() {
           self.loadSubheader('results.html', true, 'three_items');
           self.results(mappedResults);
 
-          // $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
-          // $('div.subheader').on('click', '****City filter button***', self.filter('city'));
-
-          $('div.subheader .venue').on('click', function(e){
-            console.log('venue sort click');
-            //self.filter('venue');
-          });
-
         } else {
           clearInterval(oms.scrollInterval);
           $.map(mappedResults, function(item) { self.results.push(item) });
