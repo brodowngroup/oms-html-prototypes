@@ -111,10 +111,9 @@ oms.AppObject = function OMSAppModel() {
           // $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
           // $('div.subheader').on('click', '****City filter button***', self.filter('city'));
 
-          $('div.subheader a.venue').on('click', function(e){
-            e.preventDefault();
+          $('div.subheader .venue').on('click', function(e){
             console.log('venue sort click');
-            self.filter('venue');
+            //self.filter('venue');
           });
 
         } else {
