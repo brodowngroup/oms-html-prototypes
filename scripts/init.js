@@ -69,13 +69,11 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
   oms.app.loadEvent(index);
 });
 
-// $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
-// $('div.subheader').on('click', '****City filter button***', self.filter('city'));
-
-$('div.stp-content-body > div.subheader').on('click', 'a.venue', function(e){
+$('div.stp-content-body > div.subheader').on('click', 'a.filter', function(e){
   e.preventDefault();
-  console.log('venue sort click');
-  oms.app.filter('venue');
+  var filterBy = $(this).data('filterBy');
+  console.log(filterBy + ' sort click');
+  oms.app.filter(filterBy);
 });
 
 // History Control
