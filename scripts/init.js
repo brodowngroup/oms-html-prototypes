@@ -71,7 +71,7 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
 
 $('div.stp-content-body > div.subheader').on('click', 'a.filter', function(e){
   e.preventDefault();
-  var filterBy = $(this).data('filterBy');
+  var filterBy = $(this).data('by');
   console.log(filterBy + ' sort click');
   oms.app.filter(filterBy);
 });
