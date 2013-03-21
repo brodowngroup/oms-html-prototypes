@@ -72,7 +72,8 @@ $('div.results_area > div').on('click', 'a.event_link', function(e) {
 // $('div.subheader').on('click', '****Distance filter button***', self.filter('distance'));
 // $('div.subheader').on('click', '****City filter button***', self.filter('city'));
 
-$('div.stp-content-body > div.subheader').on('click', 'span.venue', function(e){
+$('div.stp-content-body > div.subheader').on('click', 'a.venue', function(e){
+  e.preventDefault();
   console.log('venue sort click');
   oms.app.filter('venue');
 });

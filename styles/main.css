@@ -117,12 +117,9 @@ div.page_frame{position:relative;top:-48px;}
 
 .subheader .unreg_home {display:none;}
 
-.subheader.two_items a,
-.subheader.two_items span{width:45%;}
-.subheader.three_items a,
-.subheader.three_items span{width:28%;}
-.subheader a,
-.subheader span {
+.subheader.two_items a{width:45%;}
+.subheader.three_items a{width:28%;}
+.subheader a {
   display:block;
   padding:2.5%;
   float:left;
@@ -135,8 +132,7 @@ div.page_frame{position:relative;top:-48px;}
   background: linear-gradient(to right, rgba(227,232,237,1) 0%,rgba(255,255,255,0.9) 10%,rgba(255,255,255,0) 100%);
 }
 
-.subheader a.active,
-.subheader span.active {
+.subheader a.active {
   color:#3f4b54;
   font-weight:bold;
 }
