@@ -19,8 +19,8 @@ oms.AppObject = function OMSAppModel() {
     // sets the URL until we can have         //
     // all traffic redirected to index.html   //
     //----------------------------------------//
-    // History.pushState(data, title, url);
-    History.pushState(data, title, '');
+    History.pushState(data, title, url);
+    // History.pushState(data, title, '');
     self.clearDisplay();
   }
   

@@ -90,7 +90,7 @@ $('div.stp-content-body > div.subheader').on('click', 'a.filter', function(e){
     // Bind to StateChange Event
     History.Adapter.bind(window,'statechange',function(){
         var State = History.getState();
-        //History.log(State.data, State.title, State.url);
+        History.log(State.data, State.title, State.url);
         return false;
     });
 
