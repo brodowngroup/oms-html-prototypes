@@ -14,14 +14,8 @@ oms.AppObject = function OMSAppModel() {
   // - Update History 
   // - Clear Page Display
   self.pageRefresh = function(data, title, url) {
-    //----------------------------------------//
-    // Commenting out the part that           //
-    // sets the URL until we can have         //
-    // all traffic redirected to index.html   //
-    //----------------------------------------//
     History.pushState(data, title, url);
     History.log(data, title, url);
-    // History.pushState(data, title, '');
     self.clearDisplay();
   }
   
@@ -76,12 +70,12 @@ oms.AppObject = function OMSAppModel() {
       pageType: 'search'
     };
     
-    // console.log('');
-    // console.log('-----------------NEW QUERY--------------------------');
-    // 
-    // console.log('Query Post Data : ');      
-    // console.log(query);
-    // console.log('');
+    console.log('');
+    console.log('-----------------NEW QUERY--------------------------');
+    
+    console.log('Query Post Data : ');      
+    console.log(query);
+    console.log('');
 
     if (page > 1) {
       $('<section/>').addClass('loading').appendTo('div.results_area');
@@ -94,13 +88,13 @@ oms.AppObject = function OMSAppModel() {
       
       if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); } else {
       
-        // console.log('API Return Success!');
-        // console.log('API response ( ' + data.length + ' results ): ');      
-        // console.log(data);
-        // console.log('');
-        // 
-        // console.log('Results Displayed Before Appending to UI : ' + self.results().length);
-        // console.log('');
+        console.log('API Return Success!');
+        console.log('API response ( ' + data.length + ' results ): ');      
+        console.log(data);
+        console.log('');
+        
+        console.log('Results Displayed Before Appending to UI : ' + self.results().length);
+        console.log('');
 
         var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
@@ -115,8 +109,8 @@ oms.AppObject = function OMSAppModel() {
           $('section.loading').remove();
         }
 
-        // console.log('Results Displayed After Appending to UI : ' + self.results().length);
-        // console.log('');
+        console.log('Results Displayed After Appending to UI : ' + self.results().length);
+        console.log('');
 
 
 
@@ -140,7 +134,7 @@ oms.AppObject = function OMSAppModel() {
                 
         } else {
           
-          // console.log('Less than full results returned - do not add scroll to bottom event');
+          console.log('Less than full results returned - do not add scroll to bottom event');
         
         }
                 
