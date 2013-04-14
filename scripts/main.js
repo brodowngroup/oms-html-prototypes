@@ -28,7 +28,7 @@ oms.AppObject = function OMSAppModel() {
         },
         path = '/snippets/' + url;
     $.get(path, function(snippet) {
-      self.pageRefresh(pageData, title, title);
+      self.pageRefresh(pageData, title, '#/' + title);
       self.page(snippet);
     }, 'html');
   };
@@ -39,7 +39,7 @@ oms.AppObject = function OMSAppModel() {
           pageType: 'loadEvent',
           event: eventData
         };
-    self.pageRefresh(pageData, eventData.name, "/event/" + eventData.id);
+    self.pageRefresh(pageData, eventData.name, "#/event/" + eventData.id);
     self.events.push(eventData);
     
     oms.mapLat = eventData.latitude;
