@@ -22,7 +22,7 @@ oms.AppObject = function OMSAppModel() {
   // This allows us to have fake pages at unique urls
   
   self.loadPage = function(url) { location.hash = url };  
-  self.loadEvent = function(index) { location.hash = 'event/' + url };
+  self.loadEvent = function(index) { location.hash = 'event/' + index };
     
   //catches searches from the UI form and preps them for the search function
   self.newSearch = function() {
