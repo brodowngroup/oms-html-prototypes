@@ -17,24 +17,13 @@ oms.AppObject = function OMSAppModel() {
     self.clearDisplay();
   }
   
-  // Three main page refreshes
+  // Three main page types.
+  // Setting these by URL lets sammy.js control UI changes
+  // This allows us to have fake pages at unique urls
+  
   self.loadPage = function(url) { location.hash = url };  
-  
-  self.loadEvent = function(index) {
-    var eventData = self.results()[index],
-        pageData = {
-          pageType: 'loadEvent',
-          event: eventData
-        };
-    self.pageRefresh(pageData, eventData.name, "/event/" + eventData.id);
-    self.events.push(eventData);
+  self.loadEvent = function(index) { location.hash = 'event/' + url };
     
-    oms.mapLat = eventData.latitude;
-    oms.mapLong = eventData.longitude;
-
-    oms.initMap();
-  };
-  
   //catches searches from the UI form and preps them for the search function
   self.newSearch = function() {
     var searchTerm = $('form.header_search input').val();
@@ -164,18 +153,26 @@ oms.AppObject = function OMSAppModel() {
   
   // URL Routing
   Sammy(function() {
-      this.get('#:page', function() {
-        var path = '/snippets/' + this.params.page;
-        $.get(path, function(snippet) {
-          self.page(snippet);
-        }, 'html');
-      });
+    this.get('#:page', function() {
+      var path = '/snippets/' + this.params.page;
+      $.get(path, function(snippet) {
+        self.clearDisplay();
+        self.page(snippet);
+      }, 'html');
+    });
 
-      // this.get('#:folder/:mailId', function() {
-      //     self.chosenFolderId(this.params.folder);
-      //     self.chosenFolderData(null);
-      //     $.get("/mail", { mailId: this.params.mailId }, self.chosenMailData);
-      // });
+    this.get('#event/:index', function() {
+      // var eventData = self.results()[index]
+      self.clearDisplay();
+      self.events.push(eventData);
+
+      oms.mapLat = eventData.latitude;
+      oms.mapLong = eventData.longitude;
+
+      oms.initMap();
+    });
   }).run();
   
 };
+
+
