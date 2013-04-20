@@ -162,7 +162,7 @@ oms.AppObject = function OMSAppModel() {
     });
 
     this.get('#event/:index', function() {
-      var eventData = self.results()[index]
+      var eventData = self.results()[this.params.index]
       self.clearDisplay();
       self.events.push(eventData);
 
