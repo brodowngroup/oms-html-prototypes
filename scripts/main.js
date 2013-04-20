@@ -19,16 +19,20 @@ oms.AppObject = function OMSAppModel() {
   
   // Three main page refreshes
   self.loadPage = function(url) {
-    var title = url.replace('.html', ''),
-        pageData = {
-          pageType: 'loadPage',
-          url: url
-        },
-        path = '/snippets/' + url;
-    $.get(path, function(snippet) {
-      self.pageRefresh(pageData, title, title);
-      self.page(snippet);
-    }, 'html');
+
+
+    location.hash = url;
+
+    // var title = url.replace('.html', ''),
+    //     pageData = {
+    //       pageType: 'loadPage',
+    //       url: url
+    //     },
+    //     path = '/snippets/' + url;
+    // $.get(path, function(snippet) {
+    //   self.pageRefresh(pageData, title, title);
+    //   self.page(snippet);
+    // }, 'html');
   };
   
   self.loadEvent = function(index) {
@@ -172,5 +176,26 @@ oms.AppObject = function OMSAppModel() {
     self.results([]);
     clearInterval(oms.scrollInterval);
   }
+  
+  // URL Routing
+  Sammy(function() {
+      this.get('#:page', function() {
+          // self.chosenFolderId(this.params.folder);
+          // self.chosenMailData(null);
+          // $.get("/mail", { folder: this.params.folder }, self.chosenFolderData);
+          var path = '/snippets/' + this.params.url;
+          $.get(path, function(snippet) {
+            self.page(snippet);
+          }, 'html');
+
+
+      });
+
+      // this.get('#:folder/:mailId', function() {
+      //     self.chosenFolderId(this.params.folder);
+      //     self.chosenFolderData(null);
+      //     $.get("/mail", { mailId: this.params.mailId }, self.chosenMailData);
+      // });
+  }).run();
   
 };
