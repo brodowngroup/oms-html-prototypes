@@ -49,7 +49,8 @@ oms.AppObject = function OMSAppModel() {
     console.log('');
     console.log('-----------------NEW QUERY--------------------------');
     
-    console.log('$.getJSON Query Data : ');      
+    console.log('Query Post Data : '); 
+    // console.log('$.getJSON Query Data : ');      
     console.log(query);
     console.log('');
 
@@ -60,7 +61,9 @@ oms.AppObject = function OMSAppModel() {
     // Get json from api call
     // local - http://api.onmystage.net/api/search/
     // cloud - http://onmystageapi.cloudapp.net/api/search/
-    $.getJSON("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
+    
+    $.post("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
+    // $.getJSON("http://onmystageapi.cloudapp.net/api/search/", query, function(data) {
       
       if (!data || data.length === 0) { oms.app.loadPage('no_results.html'); } else {
       
@@ -115,8 +118,8 @@ oms.AppObject = function OMSAppModel() {
         }
                 
       }
-
-    }); // $.getJSON
+    }, 'json');
+    // }); // $.getJSON
   };
   
   // Helper functions for subheaders
