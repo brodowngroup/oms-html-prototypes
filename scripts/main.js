@@ -183,7 +183,7 @@ oms.AppObject = function OMSAppModel() {
           // self.chosenFolderId(this.params.folder);
           // self.chosenMailData(null);
           // $.get("/mail", { folder: this.params.folder }, self.chosenFolderData);
-          var path = '/snippets/' + this.params.url;
+          var path = '/snippets/' + this.params.page;
           $.get(path, function(snippet) {
             self.page(snippet);
           }, 'html');
