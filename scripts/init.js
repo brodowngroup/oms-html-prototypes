@@ -13,6 +13,7 @@ ko.applyBindings(oms.app);
 
 // Load initial page snippet
 // oms.app.loadPage('home_unreg.html');
+location.hash = 'home_unreg.html';
 
 // Remove hidden class on pageload hidden Items
 $('div.ko_flicker_fix').add('h2.ko_flicker_fix')
