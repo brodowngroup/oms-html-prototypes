@@ -17,13 +17,24 @@ oms.AppObject = function OMSAppModel() {
     self.clearDisplay();
   }
   
-  // Three main page types.
-  // Setting these by URL lets sammy.js control UI changes
-  // This allows us to have fake pages at unique urls
-  
+  // Three main page refreshes
   self.loadPage = function(url) { location.hash = url };  
-  self.loadEvent = function(index) { location.hash = 'event/' + index };
+  
+  self.loadEvent = function(index) { //location.hash = 'event/' + index };
+    var eventData = self.results()[index],
+        pageData = {
+          pageType: 'loadEvent',
+          event: eventData
+        };
+    self.pageRefresh(pageData, eventData.name, "/event/" + eventData.id);
+    self.events.push(eventData);
     
+    oms.mapLat = eventData.latitude;
+    oms.mapLong = eventData.longitude;
+
+    oms.initMap();
+  };
+  
   //catches searches from the UI form and preps them for the search function
   self.newSearch = function() {
     var searchTerm = $('form.header_search input').val();
@@ -153,25 +164,24 @@ oms.AppObject = function OMSAppModel() {
   
   // URL Routing
   Sammy(function() {
-    this.get('#:page', function() {
-      var path = '/snippets/' + this.params.page;
-      $.get(path, function(snippet) {
-        self.clearDisplay();
-        self.page(snippet);
-      }, 'html');
-    });
+      this.get('#:page', function() {
+        var path = '/snippets/' + this.params.page;
+        $.get(path, function(snippet) {
+          self.clearDisplay();
+          self.page(snippet);
+        }, 'html');
+      });
 
-    this.get('#event/:index', function() {
-      var eventData = self.results()[index]
-      self.clearDisplay();
-      self.events.push(eventData);
-
-      oms.mapLat = eventData.latitude;
-      oms.mapLong = eventData.longitude;
-
-      oms.initMap();
-    });
+      // this.get('#event/:index', function() {
+      //   // var eventData = self.results()[index]
+      //   self.clearDisplay();
+      //   self.events.push(eventData);
+      // 
+      //   oms.mapLat = eventData.latitude;
+      //   oms.mapLong = eventData.longitude;
+      // 
+      //   oms.initMap();
+      // });
   }).run();
   
 };
-
