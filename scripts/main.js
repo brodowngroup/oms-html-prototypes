@@ -14,8 +14,6 @@ oms.AppObject = function OMSAppModel() {
   // - Update History 
   // - Clear Page Display
   self.pageRefresh = function(data, title, url) {
-    History.pushState(data, title, url);
-    History.log(data, title, url);
     self.clearDisplay();
   }
   
@@ -143,7 +141,7 @@ oms.AppObject = function OMSAppModel() {
     }); // $.getJSON
   };
   
-  // Helper functions for sub-areas
+  // Helper functions for subheaders
   self.loadSubheader = function(url, buttons, custom_class) {
     url = '/snippets/subheader/' + url;
     $.get(url, function(snippet) {
@@ -161,11 +159,9 @@ oms.AppObject = function OMSAppModel() {
   }
   
   self.filter = function (term) {
-    
     self.results.sort(function(left, right) {
       return left[term] == right[term] ? 0 : (left[term] < right[term] ? -1 : 1)
     });
-
   }
   
   self.clearDisplay = function () {
