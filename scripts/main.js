@@ -18,22 +18,7 @@ oms.AppObject = function OMSAppModel() {
   }
   
   // Three main page refreshes
-  self.loadPage = function(url) {
-
-
-    location.hash = url;
-
-    // var title = url.replace('.html', ''),
-    //     pageData = {
-    //       pageType: 'loadPage',
-    //       url: url
-    //     },
-    //     path = '/snippets/' + url;
-    // $.get(path, function(snippet) {
-    //   self.pageRefresh(pageData, title, title);
-    //   self.page(snippet);
-    // }, 'html');
-  };
+  self.loadPage = function(url) { location.hash = url };  
   
   self.loadEvent = function(index) {
     var eventData = self.results()[index],
@@ -180,15 +165,10 @@ oms.AppObject = function OMSAppModel() {
   // URL Routing
   Sammy(function() {
       this.get('#:page', function() {
-          // self.chosenFolderId(this.params.folder);
-          // self.chosenMailData(null);
-          // $.get("/mail", { folder: this.params.folder }, self.chosenFolderData);
-          var path = '/snippets/' + this.params.page;
-          $.get(path, function(snippet) {
-            self.page(snippet);
-          }, 'html');
-
-
+        var path = '/snippets/' + this.params.page;
+        $.get(path, function(snippet) {
+          self.page(snippet);
+        }, 'html');
       });
 
       // this.get('#:folder/:mailId', function() {
