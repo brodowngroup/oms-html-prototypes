@@ -30,6 +30,7 @@ oms.AppObject = function OMSAppModel() {
     self.loadSubheader('loading.html');
     location.hash = 'search/' + searchTerm + '/1';
     //self.search(searchTerm, 1);
+    self.clearDisplay();
   }
     
   // Helper functions for subheaders
