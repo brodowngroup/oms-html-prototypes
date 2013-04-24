@@ -5,9 +5,10 @@ oms.stripHTML = function (string) {
 // --------------------------------
 // HEADER SEARCH TOGGLE VISIBILITY
 // --------------------------------
-oms.toggleSearch = function() {
+oms.toggleSearch = function(e) {
+  e.preventDefault();
   var $form = $('form.header_search'),
-      $content = $('div.stp-content-frame');
+      $content = $('div.stp-content-frame'),
       height = -($form.innerHeight()),
 
       showSearch = function() {

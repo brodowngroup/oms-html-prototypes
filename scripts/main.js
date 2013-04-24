@@ -91,8 +91,6 @@ oms.AppObject = function OMSAppModel() {
         console.log('Results Displayed After Appending to UI : ' + self.results().length);
         console.log('');
 
-
-
         // Check for Results before setting scroll to bottom event
         if (data.length > 48) {
               
@@ -112,11 +110,8 @@ oms.AppObject = function OMSAppModel() {
           }, 500);
                 
         } else {
-          
-          console.log('Less than full results returned - do not add scroll to bottom event');
-        
+          console.log('Less than full results returned - do not add scroll to bottom event');        
         }
-                
       }
     }, 'json');
     // }); // $.getJSON
@@ -139,6 +134,7 @@ oms.AppObject = function OMSAppModel() {
     }, 'html');
   }
   
+  // Filter results by term
   self.filter = function (term) {
     self.results.sort(function(left, right) {
       return left[term] == right[term] ? 0 : (left[term] < right[term] ? -1 : 1)
@@ -177,4 +173,3 @@ oms.AppObject = function OMSAppModel() {
   }).run();
   
 };
-
