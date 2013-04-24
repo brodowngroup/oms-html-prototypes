@@ -31,9 +31,7 @@ oms.AppObject = function OMSAppModel() {
     location.hash = 'search/' + searchTerm + '/1';
     //self.search(searchTerm, 1);
   }
-  
-  //self.search = function(searchTerm, page) {};
-  
+    
   // Helper functions for subheaders
   self.loadSubheader = function(url, buttons, custom_class) {
     url = '/snippets/subheader/' + url;
@@ -88,7 +86,9 @@ oms.AppObject = function OMSAppModel() {
       oms.initMap();
     });
 
-    this.get('#search/:term/:page', function() {
+    //self.search = function(searchTerm, page) {};
+
+    this.get('#search/:searchTerm/:page', function() {
       //----------------------------------------------------//
       // pageType is used by History to determine what      
       // kind of page to load on history change             
@@ -96,11 +96,11 @@ oms.AppObject = function OMSAppModel() {
       // page === 1 is used to determine new search
       //----------------------------------------------------//
       var query = { 
-        term: searchTerm,
+        term: this.params.searchTerm,
         latitude: oms.deviceLat,
         longitude: oms.deviceLong,
         distance: null,
-        page: page,
+        page: this.params.page,
       };
 
       console.log('');
@@ -110,7 +110,7 @@ oms.AppObject = function OMSAppModel() {
       console.log(query);
       console.log('');
 
-      if (page > 1) {
+      if (this.params.page > 1) {
         $('<section/>').addClass('loading').appendTo('div.results_area');
       }
 
@@ -132,8 +132,8 @@ oms.AppObject = function OMSAppModel() {
 
           var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
-          if (page === 1) {
-            self.pageRefresh(query, "searchTerm", "search");        
+          if (this.params.page === 1) {
+            self.clearDisplay();       
             self.loadSubheader('results.html', true, 'three_items');
             self.results(mappedResults);
 
@@ -159,8 +159,8 @@ oms.AppObject = function OMSAppModel() {
             oms.scrollInterval = setInterval(function() {
               if ($(document).scrollTop() >= target - screenHeight) {            
                 clearInterval(oms.scrollInterval);
-                page = page + 1;
-                self.search(searchTerm, page);
+                this.params.page = this.params.page + 1;
+                location.hash = 'search/' + this.params.searchTerm + '/' +  this.params.page;
               }
             }, 500);
 
