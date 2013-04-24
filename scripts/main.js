@@ -135,7 +135,7 @@ oms.AppObject = function OMSAppModel() {
 
           var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
-          if (page === 1) {
+          if (page == 1) {
             self.clearDisplay();       
             self.loadSubheader('results.html', true, 'three_items');
             self.results(mappedResults);
