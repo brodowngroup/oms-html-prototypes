@@ -96,12 +96,14 @@ oms.AppObject = function OMSAppModel() {
       // page === 1 is used to determine new search
       //----------------------------------------------------//
       var query = { 
-        term: this.params.searchTerm,
-        latitude: oms.deviceLat,
-        longitude: oms.deviceLong,
-        distance: null,
-        page: this.params.page,
-      };
+            term: this.params.searchTerm,
+            latitude: oms.deviceLat,
+            longitude: oms.deviceLong,
+            distance: null,
+            page: this.params.page,
+          },
+          page = this.params.page,
+          searchTerm = this.params.searchTerm;
 
       console.log('');
       console.log('-----------------NEW QUERY--------------------------');
@@ -110,7 +112,7 @@ oms.AppObject = function OMSAppModel() {
       console.log(query);
       console.log('');
 
-      if (this.params.page > 1) {
+      if (page > 1) {
         $('<section/>').addClass('loading').appendTo('div.results_area');
       }
 
@@ -132,7 +134,7 @@ oms.AppObject = function OMSAppModel() {
 
           var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
-          if (this.params.page === 1) {
+          if (page === 1) {
             self.clearDisplay();       
             self.loadSubheader('results.html', true, 'three_items');
             self.results(mappedResults);
@@ -159,8 +161,8 @@ oms.AppObject = function OMSAppModel() {
             oms.scrollInterval = setInterval(function() {
               if ($(document).scrollTop() >= target - screenHeight) {            
                 clearInterval(oms.scrollInterval);
-                this.params.page = this.params.page + 1;
-                location.hash = 'search/' + this.params.searchTerm + '/' +  this.params.page;
+                page = page + 1;
+                location.hash = 'search/' + searchTerm + '/' +  page;
               }
             }, 500);
 
