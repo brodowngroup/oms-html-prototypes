@@ -93,7 +93,7 @@ oms.AppObject = function OMSAppModel() {
       self.loadSubheader('loading.html');
       location.hash = 'search/' + searchTerm + '/1';
       self.clearDisplay();
-    }
+    });
 
     this.get('#search/:searchTerm/:page', function() {
       //----------------------------------------------------//
