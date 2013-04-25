@@ -107,7 +107,7 @@ oms.AppObject = function OMSAppModel() {
             distance: null,
             page: this.params.page,
           },
-          page = this.params.page,
+          page = parseInt(this.params.page),
           searchTerm = this.params.searchTerm;
 
       console.log('');
@@ -144,7 +144,7 @@ oms.AppObject = function OMSAppModel() {
 
           var mappedResults = $.map(data, function(item) { return new oms.Result(item) });
 
-          if (page == 1) {
+          if (page === 1) {
             self.clearDisplay();       
             self.loadSubheader('results.html', true, 'three_items');
             self.results(mappedResults);
@@ -171,7 +171,7 @@ oms.AppObject = function OMSAppModel() {
             oms.scrollInterval = setInterval(function() {
               if ($(document).scrollTop() >= target - screenHeight) {            
                 clearInterval(oms.scrollInterval);
-                page = page + 1;
+                page++;
                 location.hash = 'search/' + searchTerm + '/' +  page;
               }
             }, 500);
