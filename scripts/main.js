@@ -87,12 +87,12 @@ oms.AppObject = function OMSAppModel() {
       oms.initMap();
     });
     
-    this.put('#post/newSearch', function(e) {
-      e.preventDefault();
+    this.put('#post/newSearch', function() {
       var searchTerm = $('form.header_search input').val();
       self.loadSubheader('loading.html');
       location.hash = 'search/' + searchTerm + '/1';
       self.clearDisplay();
+      return false;
     });
 
     this.get('#search/:searchTerm/:page', function() {
