@@ -92,7 +92,11 @@ oms.AppObject = function OMSAppModel() {
       location.hash = 'search/' + searchTerm + '/1';
       return false;
     });
-
+    
+    this.get('#search/:searchTerm', function() {
+      location.hash = 'search/' + searchTerm + '/1';
+    });
+    
     this.get('#search/:searchTerm/:page', function() {
       //----------------------------------------------------//
       // pageType is used by History to determine what      
