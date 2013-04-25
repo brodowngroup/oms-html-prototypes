@@ -94,7 +94,7 @@ oms.AppObject = function OMSAppModel() {
     });
     
     this.get('#search/:searchTerm', function() {
-      location.hash = 'search/' + searchTerm + '/1';
+      location.hash = 'search/' + this.params.searchTerm + '/1';
     });
     
     this.get('#search/:searchTerm/:page', function() {
