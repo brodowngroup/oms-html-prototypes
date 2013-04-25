@@ -87,11 +87,9 @@ oms.AppObject = function OMSAppModel() {
       oms.initMap();
     });
     
-    this.put('#post/newSearch', function() {
+    this.put('#newSearch', function() {
       var searchTerm = $('form.header_search input').val();
-      self.loadSubheader('loading.html');
       location.hash = 'search/' + searchTerm + '/1';
-      self.clearDisplay();
       return false;
     });
 
@@ -119,9 +117,13 @@ oms.AppObject = function OMSAppModel() {
       console.log(query);
       console.log('');
       
-      // bottom loading indicator for more results
       if (page > 1) {
+        // bottom loading indicator for more results
         $('<section/>').addClass('loading').appendTo('div.results_area');
+      } else {
+        // Show Loading State in subheader and clear display
+        self.clearDisplay();
+        self.loadSubheader('loading.html');
       }
 
       // Get json from api call
