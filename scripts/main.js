@@ -25,13 +25,13 @@ oms.AppObject = function OMSAppModel() {
   self.loadEvent = function(index) { location.hash = 'event/' + index };
     
   //catches searches from the UI form and preps them for the search function
-  self.newSearch = function() {
-    var searchTerm = $('form.header_search input').val();
-    self.loadSubheader('loading.html');
-    location.hash = 'search/' + searchTerm + '/1';
-    //self.search(searchTerm, 1);
-    self.clearDisplay();
-  }
+  // self.newSearch = function() {
+  //   var searchTerm = $('form.header_search input').val();
+  //   self.loadSubheader('loading.html');
+  //   location.hash = 'search/' + searchTerm + '/1';
+  //   //self.search(searchTerm, 1);
+  //   self.clearDisplay();
+  // }
     
   // Helper functions for subheaders
   self.loadSubheader = function(url, buttons, custom_class) {
@@ -86,8 +86,14 @@ oms.AppObject = function OMSAppModel() {
 
       oms.initMap();
     });
-
-    //self.search = function(searchTerm, page) {};
+    
+    this.put('#post/newSearch', function(e) {
+      e.preventDefault();
+      var searchTerm = $('form.header_search input').val();
+      self.loadSubheader('loading.html');
+      location.hash = 'search/' + searchTerm + '/1';
+      self.clearDisplay();
+    }
 
     this.get('#search/:searchTerm/:page', function() {
       //----------------------------------------------------//
@@ -112,7 +118,8 @@ oms.AppObject = function OMSAppModel() {
       console.log('Query Post Data : '); 
       console.log(query);
       console.log('');
-
+      
+      // bottom loading indicator for more results
       if (page > 1) {
         $('<section/>').addClass('loading').appendTo('div.results_area');
       }
