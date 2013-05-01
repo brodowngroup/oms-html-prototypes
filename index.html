@@ -103,6 +103,8 @@
             
               <div data-bind="template: {name: 'template_search_results', foreach: results}"></div>
 
+              <script type="text/html" id="template_search_results" src="scripts/templates/search_results.js"></script>
+
               <section id="more_results"></section>
 
             </div> <!-- /results_area -->
@@ -166,13 +168,10 @@
   </div>
   <!-- END SIDETAP -->
   
-  
   <!-- Switch to CDN jQuery for production -->
   
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
   <!-- <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.8.3.min.js"><\/script>')</script> -->
-
-  <script type="text/html" id="template_search_results" src="scripts/templates/search_results.js"></script>
 
   <script src="scripts/vendor/jquery-1.8.3.min.js"></script>
   <script src="scripts/vendor/mbp.helper.js"></script>
